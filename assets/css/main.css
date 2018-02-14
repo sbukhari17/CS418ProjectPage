@@ -3865,3 +3865,8 @@
 		}
 
 	}
+
+	/* additional CSS */
+	.text-center {
+	  text-align: center !important;
+	}
