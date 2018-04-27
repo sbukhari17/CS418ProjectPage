@@ -1,0 +1,6442 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Query 9</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="../../assets/css/main.css" />
+	<script src="../../assets/js/chart.bundle.min.js"></script>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="https://code.jquery.com/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<h1>
+				<a href="../../index.html">Chi411</a>
+			</h1>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<div class="inner">
+				<h2>Menu</h2>
+				<ul class="links">
+					<li>
+						<a href="../../index.html">Home</a>
+					</li>
+					<li>
+						<a href="#">Sentiment Counts vs Rating</a>
+					</li>
+				</ul>
+				<a href="#" class="close">Close</a>
+			</div>
+		</nav>
+
+		<!-- Wrapper -->
+		<section id="wrapper">
+			<header>
+				<div class="inner">
+					<h2 class="text-center">Query 9: Correlation between #of Crimes, Arrests and #of Businesses with a Liquor License by Blocks</h2>
+				</div>
+			</header>
+			<section>
+				<div style="margin-left:350px;">
+					<div style="height:600px;width:800px;">
+						<canvas id="myChart" style="background-color:rgba(255,255,255, 0.8);padding:10px"></canvas>
+					</div>
+					<div>
+						<label for="tags">Choose a block: </label>
+						<input id="tags" style="color:grey" value="002XX E LOWER RANDOLPH ST">
+						<br/>
+						<br/>
+					</div>
+					<div style="height:600px;width:800px;">
+						<canvas id="myChart2" style="background-color:rgba(255,255,255, 0.8);padding:10px"></canvas>
+					</div>
+				</div>
+			</section>
+
+		</section>
+
+
+	</div>
+
+</body>
+
+</html>
+
+
+
+<script>
+	var myChart2
+	$("#tags").autocomplete({
+		select: function (event, ui) {
+			chooseBlock(ui.item.label)
+		 }
+	});
+
+	var data =
+		[
+			{
+				"block": "002XX E RANDOLPH ST",
+				"liquor": 55,
+				"crime": 938,
+				"arrest": 107
+			},
+			{
+				"block": "002XX E LOWER RANDOLPH ST",
+				"liquor": 55,
+				"crime": 19,
+				"arrest": 1
+			},
+			{
+				"block": "006XX S MICHIGAN AVE",
+				"liquor": 27,
+				"crime": 529,
+				"arrest": 104
+			},
+			{
+				"block": "003XX E RANDOLPH ST",
+				"liquor": 12,
+				"crime": 960,
+				"arrest": 55
+			},
+			{
+				"block": "003XX S COLUMBUS DR",
+				"liquor": 12,
+				"crime": 207,
+				"arrest": 70
+			},
+			{
+				"block": "003XX E LOWER RANDOLPH ST",
+				"liquor": 12,
+				"crime": 32,
+				"arrest": 3
+			},
+			{
+				"block": "002XX S DEARBORN ST",
+				"liquor": 10,
+				"crime": 758,
+				"arrest": 261
+			},
+			{
+				"block": "004XX S FINANCIAL PL",
+				"liquor": 9,
+				"crime": 93,
+				"arrest": 39
+			},
+			{
+				"block": "009XX S COLUMBUS DR",
+				"liquor": 9,
+				"crime": 24,
+				"arrest": 7
+			},
+			{
+				"block": "005XX S COLUMBUS DR",
+				"liquor": 8,
+				"crime": 353,
+				"arrest": 147
+			},
+			{
+				"block": "001XX S LAKE SHORE DR NB",
+				"liquor": 6,
+				"crime": 28,
+				"arrest": 6
+			},
+			{
+				"block": "001XX S LAKE SHORE DR SB",
+				"liquor": 6,
+				"crime": 29,
+				"arrest": 10
+			},
+			{
+				"block": "006XX S DEARBORN ST",
+				"liquor": 5,
+				"crime": 405,
+				"arrest": 123
+			},
+			{
+				"block": "005XX S DEARBORN ST",
+				"liquor": 5,
+				"crime": 452,
+				"arrest": 96
+			},
+			{
+				"block": "007XX S COLUMBUS DR",
+				"liquor": 5,
+				"crime": 98,
+				"arrest": 41
+			},
+			{
+				"block": "001XX N STATE ST",
+				"liquor": 4,
+				"crime": 11667,
+				"arrest": 6935
+			},
+			{
+				"block": "001XX S COLUMBUS DR",
+				"liquor": 4,
+				"crime": 84,
+				"arrest": 29
+			},
+			{
+				"block": "008XX S COLUMBUS DR",
+				"liquor": 4,
+				"crime": 48,
+				"arrest": 31
+			},
+			{
+				"block": "002XX S COLUMBUS DR",
+				"liquor": 4,
+				"crime": 161,
+				"arrest": 24
+			},
+			{
+				"block": "006XX S COLUMBUS DR",
+				"liquor": 4,
+				"crime": 87,
+				"arrest": 38
+			},
+			{
+				"block": "004XX E MONROE DR",
+				"liquor": 4,
+				"crime": 4,
+				"arrest": 1
+			},
+			{
+				"block": "000XX N MICHIGAN AVE",
+				"liquor": 4,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "001XX N WABASH AVE",
+				"liquor": 3,
+				"crime": 996,
+				"arrest": 183
+			},
+			{
+				"block": "001XX N MICHIGAN AVE",
+				"liquor": 3,
+				"crime": 1596,
+				"arrest": 224
+			},
+			{
+				"block": "001XX S MICHIGAN AVE",
+				"liquor": 3,
+				"crime": 1482,
+				"arrest": 185
+			},
+			{
+				"block": "003XX S MICHIGAN AVE",
+				"liquor": 3,
+				"crime": 589,
+				"arrest": 118
+			},
+			{
+				"block": "014XX S WABASH AVE",
+				"liquor": 3,
+				"crime": 305,
+				"arrest": 25
+			},
+			{
+				"block": "002XX S LAKE SHORE DR NB",
+				"liquor": 3,
+				"crime": 13,
+				"arrest": 9
+			},
+			{
+				"block": "002XX S LAKE SHORE DR SB",
+				"liquor": 3,
+				"crime": 15,
+				"arrest": 7
+			},
+			{
+				"block": "001XX E LOWER WACKER DR",
+				"liquor": 2,
+				"crime": 108,
+				"arrest": 27
+			},
+			{
+				"block": "001XX E WACKER DR",
+				"liquor": 2,
+				"crime": 2003,
+				"arrest": 507
+			},
+			{
+				"block": "014XX S MICHIGAN AVE",
+				"liquor": 2,
+				"crime": 556,
+				"arrest": 69
+			},
+			{
+				"block": "011XX S COLUMBUS DR",
+				"liquor": 2,
+				"crime": 87,
+				"arrest": 48
+			},
+			{
+				"block": "015XX S LAKE SHORE DR E",
+				"liquor": 2,
+				"crime": 166,
+				"arrest": 25
+			},
+			{
+				"block": "001XX E CONGRESS DR",
+				"liquor": 2,
+				"crime": 62,
+				"arrest": 15
+			},
+			{
+				"block": "015XX S LAKE SHORE DR W",
+				"liquor": 2,
+				"crime": 11,
+				"arrest": 1
+			},
+			{
+				"block": "004XX E MCFETRIDGE DR",
+				"liquor": 2,
+				"crime": 82,
+				"arrest": 41
+			},
+			{
+				"block": "001XX E WACKER SUB DR",
+				"liquor": 2,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "002XX N COLUMBUS DR",
+				"liquor": 1,
+				"crime": 988,
+				"arrest": 169
+			},
+			{
+				"block": "004XX S MICHIGAN AVE",
+				"liquor": 1,
+				"crime": 523,
+				"arrest": 94
+			},
+			{
+				"block": "005XX S MICHIGAN AVE",
+				"liquor": 1,
+				"crime": 572,
+				"arrest": 188
+			},
+			{
+				"block": "012XX S LAKE SHORE DR E",
+				"liquor": 1,
+				"crime": 391,
+				"arrest": 98
+			},
+			{
+				"block": "001XX N DEARBORN ST",
+				"liquor": 1,
+				"crime": 877,
+				"arrest": 140
+			},
+			{
+				"block": "002XX W WACKER DR",
+				"liquor": 1,
+				"crime": 266,
+				"arrest": 17
+			},
+			{
+				"block": "013XX S WABASH AVE",
+				"liquor": 1,
+				"crime": 600,
+				"arrest": 85
+			},
+			{
+				"block": "007XX S MICHIGAN AVE",
+				"liquor": 1,
+				"crime": 1030,
+				"arrest": 221
+			},
+			{
+				"block": "002XX N MICHIGAN AVE",
+				"liquor": 1,
+				"crime": 1806,
+				"arrest": 284
+			},
+			{
+				"block": "002XX S MICHIGAN AVE",
+				"liquor": 1,
+				"crime": 1099,
+				"arrest": 132
+			},
+			{
+				"block": "008XX S MICHIGAN AVE",
+				"liquor": 1,
+				"crime": 372,
+				"arrest": 89
+			},
+			{
+				"block": "014XX S LAKE SHORE DR E",
+				"liquor": 1,
+				"crime": 200,
+				"arrest": 24
+			},
+			{
+				"block": "002XX W LOWER WACKER DR",
+				"liquor": 1,
+				"crime": 27,
+				"arrest": 10
+			},
+			{
+				"block": "009XX S MICHIGAN AVE",
+				"liquor": 1,
+				"crime": 230,
+				"arrest": 45
+			},
+			{
+				"block": "004XX S LAKE SHORE DR SB",
+				"liquor": 1,
+				"crime": 6,
+				"arrest": 5
+			},
+			{
+				"block": "014XX S LAKE SHORE DR W",
+				"liquor": 1,
+				"crime": 32,
+				"arrest": 2
+			},
+			{
+				"block": "002XX N LOWER MICHIGAN AVE",
+				"liquor": 1,
+				"crime": 67,
+				"arrest": 26
+			},
+			{
+				"block": "002XX N LOWER COLUMBUS DR",
+				"liquor": 1,
+				"crime": 11,
+				"arrest": 4
+			},
+			{
+				"block": "012XX S LAKE SHORE DR W",
+				"liquor": 1,
+				"crime": 35,
+				"arrest": 3
+			},
+			{
+				"block": "004XX E RANDOLPH ST",
+				"liquor": 1,
+				"crime": 22,
+				"arrest": 3
+			},
+			{
+				"block": "002XX E RIVERWALK S",
+				"liquor": 1,
+				"crime": 2,
+				"arrest": 1
+			},
+			{
+				"block": "002XX W WACKER DR.",
+				"liquor": 1,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "022XX S PRINCETON AVE",
+				"liquor": 0,
+				"crime": 371,
+				"arrest": 109
+			},
+			{
+				"block": "001XX W RANDOLPH ST",
+				"liquor": 0,
+				"crime": 987,
+				"arrest": 159
+			},
+			{
+				"block": "009XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 210,
+				"arrest": 33
+			},
+			{
+				"block": "0000X W MONROE ST",
+				"liquor": 0,
+				"crime": 880,
+				"arrest": 125
+			},
+			{
+				"block": "0000X W KINZIE ST",
+				"liquor": 0,
+				"crime": 566,
+				"arrest": 102
+			},
+			{
+				"block": "0000X W WASHINGTON ST",
+				"liquor": 0,
+				"crime": 2419,
+				"arrest": 373
+			},
+			{
+				"block": "014XX S CANAL ST",
+				"liquor": 0,
+				"crime": 878,
+				"arrest": 242
+			},
+			{
+				"block": "0000X E ADAMS ST",
+				"liquor": 0,
+				"crime": 1238,
+				"arrest": 330
+			},
+			{
+				"block": "002XX N WABASH AVE",
+				"liquor": 0,
+				"crime": 392,
+				"arrest": 80
+			},
+			{
+				"block": "003XX S LAKE SHORE DR NB",
+				"liquor": 0,
+				"crime": 20,
+				"arrest": 7
+			},
+			{
+				"block": "004XX S STATE ST",
+				"liquor": 0,
+				"crime": 1984,
+				"arrest": 1023
+			},
+			{
+				"block": "0000X S FRANKLIN ST",
+				"liquor": 0,
+				"crime": 197,
+				"arrest": 21
+			},
+			{
+				"block": "001XX N CANAL ST",
+				"liquor": 0,
+				"crime": 326,
+				"arrest": 30
+			},
+			{
+				"block": "005XX W MONROE ST",
+				"liquor": 0,
+				"crime": 701,
+				"arrest": 137
+			},
+			{
+				"block": "003XX E BENTON PL",
+				"liquor": 0,
+				"crime": 187,
+				"arrest": 88
+			},
+			{
+				"block": "0000X E RANDOLPH ST",
+				"liquor": 0,
+				"crime": 1428,
+				"arrest": 195
+			},
+			{
+				"block": "012XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 3622,
+				"arrest": 2282
+			},
+			{
+				"block": "002XX W MONROE ST",
+				"liquor": 0,
+				"crime": 715,
+				"arrest": 62
+			},
+			{
+				"block": "014XX S INDIANA AVE",
+				"liquor": 0,
+				"crime": 274,
+				"arrest": 24
+			},
+			{
+				"block": "002XX S STATE ST",
+				"liquor": 0,
+				"crime": 2471,
+				"arrest": 853
+			},
+			{
+				"block": "004XX S FRANKLIN ST",
+				"liquor": 0,
+				"crime": 164,
+				"arrest": 18
+			},
+			{
+				"block": "011XX S MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 650,
+				"arrest": 135
+			},
+			{
+				"block": "003XX N CANAL ST",
+				"liquor": 0,
+				"crime": 298,
+				"arrest": 22
+			},
+			{
+				"block": "004XX N STATE ST",
+				"liquor": 0,
+				"crime": 752,
+				"arrest": 113
+			},
+			{
+				"block": "0000X E MONROE ST",
+				"liquor": 0,
+				"crime": 1858,
+				"arrest": 472
+			},
+			{
+				"block": "001XX N CLARK ST",
+				"liquor": 0,
+				"crime": 910,
+				"arrest": 123
+			},
+			{
+				"block": "003XX N MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 1393,
+				"arrest": 222
+			},
+			{
+				"block": "001XX W MONROE ST",
+				"liquor": 0,
+				"crime": 412,
+				"arrest": 45
+			},
+			{
+				"block": "001XX S STATE ST",
+				"liquor": 0,
+				"crime": 1699,
+				"arrest": 689
+			},
+			{
+				"block": "0000X W LAKE ST",
+				"liquor": 0,
+				"crime": 415,
+				"arrest": 74
+			},
+			{
+				"block": "002XX W CERMAK RD",
+				"liquor": 0,
+				"crime": 580,
+				"arrest": 131
+			},
+			{
+				"block": "0000X N DEARBORN ST",
+				"liquor": 0,
+				"crime": 913,
+				"arrest": 95
+			},
+			{
+				"block": "0000X E ROOSEVELT RD",
+				"liquor": 0,
+				"crime": 2034,
+				"arrest": 1082
+			},
+			{
+				"block": "022XX S STATE ST",
+				"liquor": 0,
+				"crime": 3963,
+				"arrest": 2559
+			},
+			{
+				"block": "016XX S CLARK ST",
+				"liquor": 0,
+				"crime": 179,
+				"arrest": 104
+			},
+			{
+				"block": "005XX W 14TH PL",
+				"liquor": 0,
+				"crime": 100,
+				"arrest": 26
+			},
+			{
+				"block": "001XX W KINZIE ST",
+				"liquor": 0,
+				"crime": 561,
+				"arrest": 93
+			},
+			{
+				"block": "001XX S CANAL ST",
+				"liquor": 0,
+				"crime": 292,
+				"arrest": 83
+			},
+			{
+				"block": "003XX N DEARBORN ST",
+				"liquor": 0,
+				"crime": 1289,
+				"arrest": 403
+			},
+			{
+				"block": "002XX W 22ND PL",
+				"liquor": 0,
+				"crime": 198,
+				"arrest": 31
+			},
+			{
+				"block": "003XX W KINZIE ST",
+				"liquor": 0,
+				"crime": 354,
+				"arrest": 15
+			},
+			{
+				"block": "0000X W ROOSEVELT RD",
+				"liquor": 0,
+				"crime": 139,
+				"arrest": 47
+			},
+			{
+				"block": "0000X N LA SALLE ST",
+				"liquor": 0,
+				"crime": 763,
+				"arrest": 55
+			},
+			{
+				"block": "002XX N STATE ST",
+				"liquor": 0,
+				"crime": 1223,
+				"arrest": 449
+			},
+			{
+				"block": "001XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 736,
+				"arrest": 270
+			},
+			{
+				"block": "008XX S FINANCIAL PL",
+				"liquor": 0,
+				"crime": 88,
+				"arrest": 8
+			},
+			{
+				"block": "0000X S WABASH AVE",
+				"liquor": 0,
+				"crime": 1094,
+				"arrest": 139
+			},
+			{
+				"block": "020XX S MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 1161,
+				"arrest": 211
+			},
+			{
+				"block": "011XX S CANAL ST",
+				"liquor": 0,
+				"crime": 2240,
+				"arrest": 546
+			},
+			{
+				"block": "010XX S CANAL ST",
+				"liquor": 0,
+				"crime": 176,
+				"arrest": 33
+			},
+			{
+				"block": "002XX S CANAL ST",
+				"liquor": 0,
+				"crime": 2070,
+				"arrest": 670
+			},
+			{
+				"block": "021XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 743,
+				"arrest": 392
+			},
+			{
+				"block": "0000X E LAKE ST",
+				"liquor": 0,
+				"crime": 1585,
+				"arrest": 396
+			},
+			{
+				"block": "0000X N STATE ST",
+				"liquor": 0,
+				"crime": 7603,
+				"arrest": 4206
+			},
+			{
+				"block": "002XX E MONROE DR",
+				"liquor": 0,
+				"crime": 40,
+				"arrest": 12
+			},
+			{
+				"block": "008XX S PLYMOUTH CT",
+				"liquor": 0,
+				"crime": 289,
+				"arrest": 57
+			},
+			{
+				"block": "005XX S LA SALLE ST",
+				"liquor": 0,
+				"crime": 110,
+				"arrest": 25
+			},
+			{
+				"block": "006XX S CLARK ST",
+				"liquor": 0,
+				"crime": 369,
+				"arrest": 54
+			},
+			{
+				"block": "0000X E WASHINGTON ST",
+				"liquor": 0,
+				"crime": 1283,
+				"arrest": 139
+			},
+			{
+				"block": "013XX S STATE ST",
+				"liquor": 0,
+				"crime": 142,
+				"arrest": 26
+			},
+			{
+				"block": "0000X W CULLERTON ST",
+				"liquor": 0,
+				"crime": 54,
+				"arrest": 13
+			},
+			{
+				"block": "013XX S CANAL ST",
+				"liquor": 0,
+				"crime": 2104,
+				"arrest": 1572
+			},
+			{
+				"block": "003XX E SOUTH WATER ST",
+				"liquor": 0,
+				"crime": 189,
+				"arrest": 13
+			},
+			{
+				"block": "015XX S INDIANA AVE",
+				"liquor": 0,
+				"crime": 140,
+				"arrest": 12
+			},
+			{
+				"block": "0000X S STATE ST",
+				"liquor": 0,
+				"crime": 3172,
+				"arrest": 1484
+			},
+			{
+				"block": "011XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 689,
+				"arrest": 106
+			},
+			{
+				"block": "005XX W MADISON ST",
+				"liquor": 0,
+				"crime": 2240,
+				"arrest": 686
+			},
+			{
+				"block": "005XX S STATE ST",
+				"liquor": 0,
+				"crime": 1326,
+				"arrest": 353
+			},
+			{
+				"block": "022XX S STEWART AVE",
+				"liquor": 0,
+				"crime": 45,
+				"arrest": 7
+			},
+			{
+				"block": "0000X E HARRISON ST",
+				"liquor": 0,
+				"crime": 317,
+				"arrest": 76
+			},
+			{
+				"block": "015XX S PRAIRIE AVE",
+				"liquor": 0,
+				"crime": 112,
+				"arrest": 8
+			},
+			{
+				"block": "009XX S CLARK ST",
+				"liquor": 0,
+				"crime": 125,
+				"arrest": 16
+			},
+			{
+				"block": "0000X W WACKER DR",
+				"liquor": 0,
+				"crime": 1085,
+				"arrest": 265
+			},
+			{
+				"block": "001XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 338,
+				"arrest": 92
+			},
+			{
+				"block": "003XX W JACKSON BLVD",
+				"liquor": 0,
+				"crime": 115,
+				"arrest": 17
+			},
+			{
+				"block": "003XX S FEDERAL ST",
+				"liquor": 0,
+				"crime": 121,
+				"arrest": 10
+			},
+			{
+				"block": "003XX S WELLS ST",
+				"liquor": 0,
+				"crime": 365,
+				"arrest": 44
+			},
+			{
+				"block": "001XX S DEARBORN ST",
+				"liquor": 0,
+				"crime": 688,
+				"arrest": 64
+			},
+			{
+				"block": "004XX N DEARBORN ST",
+				"liquor": 0,
+				"crime": 247,
+				"arrest": 43
+			},
+			{
+				"block": "003XX N STATE ST",
+				"liquor": 0,
+				"crime": 863,
+				"arrest": 145
+			},
+			{
+				"block": "002XX S WACKER DR",
+				"liquor": 0,
+				"crime": 1116,
+				"arrest": 102
+			},
+			{
+				"block": "002XX W ADAMS ST",
+				"liquor": 0,
+				"crime": 691,
+				"arrest": 94
+			},
+			{
+				"block": "002XX W JACKSON BLVD",
+				"liquor": 0,
+				"crime": 763,
+				"arrest": 132
+			},
+			{
+				"block": "001XX N LA SALLE ST",
+				"liquor": 0,
+				"crime": 1345,
+				"arrest": 130
+			},
+			{
+				"block": "002XX W ALEXANDER ST",
+				"liquor": 0,
+				"crime": 149,
+				"arrest": 14
+			},
+			{
+				"block": "002XX W 19TH ST",
+				"liquor": 0,
+				"crime": 36,
+				"arrest": 7
+			},
+			{
+				"block": "003XX S WACKER DR",
+				"liquor": 0,
+				"crime": 353,
+				"arrest": 42
+			},
+			{
+				"block": "002XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 1119,
+				"arrest": 390
+			},
+			{
+				"block": "011XX S CLARK ST",
+				"liquor": 0,
+				"crime": 1261,
+				"arrest": 706
+			},
+			{
+				"block": "0000X E JACKSON BLVD",
+				"liquor": 0,
+				"crime": 2068,
+				"arrest": 519
+			},
+			{
+				"block": "002XX N LA SALLE ST",
+				"liquor": 0,
+				"crime": 1222,
+				"arrest": 173
+			},
+			{
+				"block": "020XX S INDIANA AVE",
+				"liquor": 0,
+				"crime": 109,
+				"arrest": 17
+			},
+			{
+				"block": "001XX N CLINTON ST",
+				"liquor": 0,
+				"crime": 371,
+				"arrest": 103
+			},
+			{
+				"block": "0000X W JACKSON BLVD",
+				"liquor": 0,
+				"crime": 993,
+				"arrest": 279
+			},
+			{
+				"block": "0000X E 8TH ST",
+				"liquor": 0,
+				"crime": 622,
+				"arrest": 102
+			},
+			{
+				"block": "0000X E BALBO AVE",
+				"liquor": 0,
+				"crime": 175,
+				"arrest": 42
+			},
+			{
+				"block": "003XX E WACKER DR",
+				"liquor": 0,
+				"crime": 615,
+				"arrest": 106
+			},
+			{
+				"block": "003XX E ROOSEVELT DR",
+				"liquor": 0,
+				"crime": 36,
+				"arrest": 3
+			},
+			{
+				"block": "002XX W RANDOLPH ST",
+				"liquor": 0,
+				"crime": 834,
+				"arrest": 79
+			},
+			{
+				"block": "023XX S DR MARTIN LUTHER KING JR DR",
+				"liquor": 0,
+				"crime": 653,
+				"arrest": 208
+			},
+			{
+				"block": "005XX W ROOSEVELT RD",
+				"liquor": 0,
+				"crime": 1551,
+				"arrest": 695
+			},
+			{
+				"block": "013XX S FEDERAL ST",
+				"liquor": 0,
+				"crime": 63,
+				"arrest": 7
+			},
+			{
+				"block": "003XX S STATE ST",
+				"liquor": 0,
+				"crime": 1676,
+				"arrest": 717
+			},
+			{
+				"block": "003XX S DEARBORN ST",
+				"liquor": 0,
+				"crime": 973,
+				"arrest": 226
+			},
+			{
+				"block": "002XX N WELLS ST",
+				"liquor": 0,
+				"crime": 293,
+				"arrest": 30
+			},
+			{
+				"block": "002XX E JACKSON DR",
+				"liquor": 0,
+				"crime": 33,
+				"arrest": 10
+			},
+			{
+				"block": "001XX W MADISON ST",
+				"liquor": 0,
+				"crime": 898,
+				"arrest": 139
+			},
+			{
+				"block": "017XX S MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 376,
+				"arrest": 75
+			},
+			{
+				"block": "002XX W MADISON ST",
+				"liquor": 0,
+				"crime": 650,
+				"arrest": 108
+			},
+			{
+				"block": "002XX W VAN BUREN ST",
+				"liquor": 0,
+				"crime": 301,
+				"arrest": 53
+			},
+			{
+				"block": "022XX S DR MARTIN LUTHER KING JR DR",
+				"liquor": 0,
+				"crime": 587,
+				"arrest": 109
+			},
+			{
+				"block": "003XX W CERMAK RD",
+				"liquor": 0,
+				"crime": 436,
+				"arrest": 120
+			},
+			{
+				"block": "023XX S ARCHER AVE",
+				"liquor": 0,
+				"crime": 145,
+				"arrest": 26
+			},
+			{
+				"block": "0000X E CERMAK RD",
+				"liquor": 0,
+				"crime": 448,
+				"arrest": 147
+			},
+			{
+				"block": "004XX N WABASH AVE",
+				"liquor": 0,
+				"crime": 696,
+				"arrest": 127
+			},
+			{
+				"block": "001XX S CLARK ST",
+				"liquor": 0,
+				"crime": 428,
+				"arrest": 57
+			},
+			{
+				"block": "0000X N CLARK ST",
+				"liquor": 0,
+				"crime": 359,
+				"arrest": 65
+			},
+			{
+				"block": "004XX S CLARK ST",
+				"liquor": 0,
+				"crime": 477,
+				"arrest": 178
+			},
+			{
+				"block": "011XX S DELANO CT W",
+				"liquor": 0,
+				"crime": 174,
+				"arrest": 20
+			},
+			{
+				"block": "001XX W ADAMS ST",
+				"liquor": 0,
+				"crime": 727,
+				"arrest": 155
+			},
+			{
+				"block": "021XX S ARCHER AVE",
+				"liquor": 0,
+				"crime": 685,
+				"arrest": 78
+			},
+			{
+				"block": "021XX S MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 727,
+				"arrest": 132
+			},
+			{
+				"block": "011XX S STATE ST",
+				"liquor": 0,
+				"crime": 1765,
+				"arrest": 972
+			},
+			{
+				"block": "003XX W ADAMS ST",
+				"liquor": 0,
+				"crime": 277,
+				"arrest": 38
+			},
+			{
+				"block": "017XX S STATE ST",
+				"liquor": 0,
+				"crime": 829,
+				"arrest": 405
+			},
+			{
+				"block": "010XX S STATE ST",
+				"liquor": 0,
+				"crime": 453,
+				"arrest": 164
+			},
+			{
+				"block": "001XX E SOUTH WATER ST",
+				"liquor": 0,
+				"crime": 75,
+				"arrest": 14
+			},
+			{
+				"block": "014XX S STATE ST",
+				"liquor": 0,
+				"crime": 304,
+				"arrest": 52
+			},
+			{
+				"block": "012XX S MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 937,
+				"arrest": 114
+			},
+			{
+				"block": "013XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 506,
+				"arrest": 217
+			},
+			{
+				"block": "007XX S WELLS ST",
+				"liquor": 0,
+				"crime": 201,
+				"arrest": 11
+			},
+			{
+				"block": "004XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 313,
+				"arrest": 69
+			},
+			{
+				"block": "007XX S STATE ST",
+				"liquor": 0,
+				"crime": 411,
+				"arrest": 109
+			},
+			{
+				"block": "023XX S WENTWORTH AVE",
+				"liquor": 0,
+				"crime": 383,
+				"arrest": 65
+			},
+			{
+				"block": "008XX S WELLS ST",
+				"liquor": 0,
+				"crime": 1056,
+				"arrest": 76
+			},
+			{
+				"block": "019XX S WELLS ST",
+				"liquor": 0,
+				"crime": 176,
+				"arrest": 32
+			},
+			{
+				"block": "021XX S STATE ST",
+				"liquor": 0,
+				"crime": 829,
+				"arrest": 489
+			},
+			{
+				"block": "002XX N CLARK ST",
+				"liquor": 0,
+				"crime": 657,
+				"arrest": 128
+			},
+			{
+				"block": "005XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 280,
+				"arrest": 46
+			},
+			{
+				"block": "0000X W 15TH ST",
+				"liquor": 0,
+				"crime": 141,
+				"arrest": 11
+			},
+			{
+				"block": "0000X N MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 1529,
+				"arrest": 164
+			},
+			{
+				"block": "005XX W ADAMS ST",
+				"liquor": 0,
+				"crime": 342,
+				"arrest": 43
+			},
+			{
+				"block": "013XX S MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 512,
+				"arrest": 81
+			},
+			{
+				"block": "022XX S ARCHER AVE",
+				"liquor": 0,
+				"crime": 345,
+				"arrest": 139
+			},
+			{
+				"block": "0000X S MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 650,
+				"arrest": 71
+			},
+			{
+				"block": "015XX S STATE ST",
+				"liquor": 0,
+				"crime": 526,
+				"arrest": 54
+			},
+			{
+				"block": "022XX S MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 361,
+				"arrest": 52
+			},
+			{
+				"block": "003XX W EISENHOWER EXPY OB",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "008XX S STATE ST",
+				"liquor": 0,
+				"crime": 897,
+				"arrest": 106
+			},
+			{
+				"block": "004XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 493,
+				"arrest": 81
+			},
+			{
+				"block": "021XX S CHINA PL",
+				"liquor": 0,
+				"crime": 463,
+				"arrest": 45
+			},
+			{
+				"block": "002XX W WASHINGTON ST",
+				"liquor": 0,
+				"crime": 826,
+				"arrest": 93
+			},
+			{
+				"block": "005XX W HARRISON ST",
+				"liquor": 0,
+				"crime": 1004,
+				"arrest": 164
+			},
+			{
+				"block": "001XX W WACKER DR",
+				"liquor": 0,
+				"crime": 236,
+				"arrest": 35
+			},
+			{
+				"block": "002XX W MERCHANDISE MART PLZ",
+				"liquor": 0,
+				"crime": 744,
+				"arrest": 160
+			},
+			{
+				"block": "019XX S TOM PKWY",
+				"liquor": 0,
+				"crime": 41,
+				"arrest": 4
+			},
+			{
+				"block": "003XX N LA SALLE DR",
+				"liquor": 0,
+				"crime": 474,
+				"arrest": 44
+			},
+			{
+				"block": "003XX E MONROE DR",
+				"liquor": 0,
+				"crime": 207,
+				"arrest": 48
+			},
+			{
+				"block": "008XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 523,
+				"arrest": 103
+			},
+			{
+				"block": "0000X W RANDOLPH ST",
+				"liquor": 0,
+				"crime": 1243,
+				"arrest": 275
+			},
+			{
+				"block": "005XX W LAKE ST",
+				"liquor": 0,
+				"crime": 242,
+				"arrest": 53
+			},
+			{
+				"block": "001XX N FRANKLIN ST",
+				"liquor": 0,
+				"crime": 549,
+				"arrest": 41
+			},
+			{
+				"block": "001XX S LA SALLE ST",
+				"liquor": 0,
+				"crime": 742,
+				"arrest": 78
+			},
+			{
+				"block": "021XX S TAN CT",
+				"liquor": 0,
+				"crime": 154,
+				"arrest": 13
+			},
+			{
+				"block": "020XX S CLARK ST",
+				"liquor": 0,
+				"crime": 246,
+				"arrest": 48
+			},
+			{
+				"block": "004XX N LA SALLE DR",
+				"liquor": 0,
+				"crime": 364,
+				"arrest": 139
+			},
+			{
+				"block": "003XX S FRANKLIN ST",
+				"liquor": 0,
+				"crime": 301,
+				"arrest": 37
+			},
+			{
+				"block": "016XX S INDIANA AVE",
+				"liquor": 0,
+				"crime": 247,
+				"arrest": 16
+			},
+			{
+				"block": "005XX W WASHINGTON BLVD",
+				"liquor": 0,
+				"crime": 150,
+				"arrest": 28
+			},
+			{
+				"block": "001XX N WELLS ST",
+				"liquor": 0,
+				"crime": 727,
+				"arrest": 172
+			},
+			{
+				"block": "013XX S PRAIRIE AVE",
+				"liquor": 0,
+				"crime": 132,
+				"arrest": 12
+			},
+			{
+				"block": "0000X W MADISON ST",
+				"liquor": 0,
+				"crime": 561,
+				"arrest": 75
+			},
+			{
+				"block": "0000X E WACKER DR",
+				"liquor": 0,
+				"crime": 1120,
+				"arrest": 235
+			},
+			{
+				"block": "004XX W TAYLOR ST",
+				"liquor": 0,
+				"crime": 6,
+				"arrest": 0
+			},
+			{
+				"block": "011XX S DELANO CT E",
+				"liquor": 0,
+				"crime": 153,
+				"arrest": 18
+			},
+			{
+				"block": "003XX E CERMAK RD",
+				"liquor": 0,
+				"crime": 123,
+				"arrest": 25
+			},
+			{
+				"block": "016XX S MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 387,
+				"arrest": 48
+			},
+			{
+				"block": "001XX W CONGRESS PKWY",
+				"liquor": 0,
+				"crime": 161,
+				"arrest": 47
+			},
+			{
+				"block": "0000X N WABASH AVE",
+				"liquor": 0,
+				"crime": 679,
+				"arrest": 114
+			},
+			{
+				"block": "001XX N BEAUBIEN CT",
+				"liquor": 0,
+				"crime": 23,
+				"arrest": 12
+			},
+			{
+				"block": "004XX N LOWER MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 16,
+				"arrest": 2
+			},
+			{
+				"block": "015XX S MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 235,
+				"arrest": 31
+			},
+			{
+				"block": "012XX S CANAL ST",
+				"liquor": 0,
+				"crime": 639,
+				"arrest": 120
+			},
+			{
+				"block": "007XX S CLARK ST",
+				"liquor": 0,
+				"crime": 269,
+				"arrest": 28
+			},
+			{
+				"block": "003XX W 19TH ST",
+				"liquor": 0,
+				"crime": 31,
+				"arrest": 4
+			},
+			{
+				"block": "001XX E MONROE DR",
+				"liquor": 0,
+				"crime": 119,
+				"arrest": 30
+			},
+			{
+				"block": "010XX S DELANO CT E",
+				"liquor": 0,
+				"crime": 60,
+				"arrest": 4
+			},
+			{
+				"block": "023XX S PRINCETON AVE",
+				"liquor": 0,
+				"crime": 68,
+				"arrest": 8
+			},
+			{
+				"block": "012XX S FEDERAL ST",
+				"liquor": 0,
+				"crime": 77,
+				"arrest": 3
+			},
+			{
+				"block": "002XX S FRANKLIN ST",
+				"liquor": 0,
+				"crime": 201,
+				"arrest": 28
+			},
+			{
+				"block": "003XX W HARRISON ST",
+				"liquor": 0,
+				"crime": 37,
+				"arrest": 9
+			},
+			{
+				"block": "0000X N WELLS ST",
+				"liquor": 0,
+				"crime": 338,
+				"arrest": 69
+			},
+			{
+				"block": "001XX W JACKSON BLVD",
+				"liquor": 0,
+				"crime": 1066,
+				"arrest": 216
+			},
+			{
+				"block": "0000X S DEARBORN ST",
+				"liquor": 0,
+				"crime": 702,
+				"arrest": 90
+			},
+			{
+				"block": "004XX W JACKSON BLVD",
+				"liquor": 0,
+				"crime": 229,
+				"arrest": 31
+			},
+			{
+				"block": "0000X W VAN BUREN ST",
+				"liquor": 0,
+				"crime": 425,
+				"arrest": 160
+			},
+			{
+				"block": "021XX S CANAL ST",
+				"liquor": 0,
+				"crime": 147,
+				"arrest": 58
+			},
+			{
+				"block": "0000X E CONGRESS PKWY",
+				"liquor": 0,
+				"crime": 533,
+				"arrest": 74
+			},
+			{
+				"block": "004XX N CLARK ST",
+				"liquor": 0,
+				"crime": 198,
+				"arrest": 32
+			},
+			{
+				"block": "004XX W 24TH ST",
+				"liquor": 0,
+				"crime": 7,
+				"arrest": 0
+			},
+			{
+				"block": "002XX N FRANKLIN ST",
+				"liquor": 0,
+				"crime": 70,
+				"arrest": 3
+			},
+			{
+				"block": "007XX S DEARBORN ST",
+				"liquor": 0,
+				"crime": 302,
+				"arrest": 39
+			},
+			{
+				"block": "021XX S CLARK ST",
+				"liquor": 0,
+				"crime": 157,
+				"arrest": 46
+			},
+			{
+				"block": "021XX S PRAIRIE AVE",
+				"liquor": 0,
+				"crime": 120,
+				"arrest": 12
+			},
+			{
+				"block": "0000X N COLUMBUS DR",
+				"liquor": 0,
+				"crime": 13,
+				"arrest": 3
+			},
+			{
+				"block": "0000X S CLARK ST",
+				"liquor": 0,
+				"crime": 416,
+				"arrest": 79
+			},
+			{
+				"block": "002XX N DEARBORN ST",
+				"liquor": 0,
+				"crime": 393,
+				"arrest": 91
+			},
+			{
+				"block": "009XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 29,
+				"arrest": 2
+			},
+			{
+				"block": "001XX W LOWER WACKER DR",
+				"liquor": 0,
+				"crime": 37,
+				"arrest": 9
+			},
+			{
+				"block": "001XX E 21ST ST",
+				"liquor": 0,
+				"crime": 53,
+				"arrest": 11
+			},
+			{
+				"block": "020XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 205,
+				"arrest": 36
+			},
+			{
+				"block": "0000X S CLINTON ST",
+				"liquor": 0,
+				"crime": 123,
+				"arrest": 9
+			},
+			{
+				"block": "005XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 154,
+				"arrest": 32
+			},
+			{
+				"block": "006XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 750,
+				"arrest": 209
+			},
+			{
+				"block": "0000X S LA SALLE ST",
+				"liquor": 0,
+				"crime": 848,
+				"arrest": 86
+			},
+			{
+				"block": "0000X E 21ST ST",
+				"liquor": 0,
+				"crime": 194,
+				"arrest": 60
+			},
+			{
+				"block": "004XX S PLYMOUTH CT",
+				"liquor": 0,
+				"crime": 150,
+				"arrest": 88
+			},
+			{
+				"block": "020XX S WELLS ST",
+				"liquor": 0,
+				"crime": 74,
+				"arrest": 2
+			},
+			{
+				"block": "016XX S PRAIRIE AVE",
+				"liquor": 0,
+				"crime": 170,
+				"arrest": 13
+			},
+			{
+				"block": "004XX W LAKE ST",
+				"liquor": 0,
+				"crime": 71,
+				"arrest": 12
+			},
+			{
+				"block": "004XX W HARRISON ST",
+				"liquor": 0,
+				"crime": 227,
+				"arrest": 60
+			},
+			{
+				"block": "009XX S CANAL ST",
+				"liquor": 0,
+				"crime": 15,
+				"arrest": 2
+			},
+			{
+				"block": "003XX N ORLEANS ST",
+				"liquor": 0,
+				"crime": 614,
+				"arrest": 75
+			},
+			{
+				"block": "004XX N MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 361,
+				"arrest": 38
+			},
+			{
+				"block": "0000X E NORTH WATER ST",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 0
+			},
+			{
+				"block": "002XX S WELLS ST",
+				"liquor": 0,
+				"crime": 147,
+				"arrest": 19
+			},
+			{
+				"block": "016XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 134,
+				"arrest": 18
+			},
+			{
+				"block": "001XX E 14TH ST",
+				"liquor": 0,
+				"crime": 63,
+				"arrest": 5
+			},
+			{
+				"block": "0000X S WACKER DR",
+				"liquor": 0,
+				"crime": 576,
+				"arrest": 51
+			},
+			{
+				"block": "003XX E MC FETRIDGE DR",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 1
+			},
+			{
+				"block": "0000X E MADISON ST",
+				"liquor": 0,
+				"crime": 1209,
+				"arrest": 282
+			},
+			{
+				"block": "015XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 568,
+				"arrest": 92
+			},
+			{
+				"block": "021XX S INDIANA AVE",
+				"liquor": 0,
+				"crime": 292,
+				"arrest": 39
+			},
+			{
+				"block": "006XX S STATE ST",
+				"liquor": 0,
+				"crime": 1399,
+				"arrest": 711
+			},
+			{
+				"block": "001XX W LAKE ST",
+				"liquor": 0,
+				"crime": 2417,
+				"arrest": 1156
+			},
+			{
+				"block": "003XX N CLARK ST",
+				"liquor": 0,
+				"crime": 356,
+				"arrest": 33
+			},
+			{
+				"block": "003XX E NORTH WATER ST",
+				"liquor": 0,
+				"crime": 817,
+				"arrest": 228
+			},
+			{
+				"block": "0000X W CERMAK RD",
+				"liquor": 0,
+				"crime": 699,
+				"arrest": 234
+			},
+			{
+				"block": "001XX N WACKER DR",
+				"liquor": 0,
+				"crime": 677,
+				"arrest": 52
+			},
+			{
+				"block": "011XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 77,
+				"arrest": 13
+			},
+			{
+				"block": "012XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 68,
+				"arrest": 17
+			},
+			{
+				"block": "003XX W 23RD PL",
+				"liquor": 0,
+				"crime": 85,
+				"arrest": 6
+			},
+			{
+				"block": "003XX W 23RD ST",
+				"liquor": 0,
+				"crime": 134,
+				"arrest": 26
+			},
+			{
+				"block": "003XX S LA SALLE ST",
+				"liquor": 0,
+				"crime": 64,
+				"arrest": 4
+			},
+			{
+				"block": "007XX S PLYMOUTH CT",
+				"liquor": 0,
+				"crime": 111,
+				"arrest": 22
+			},
+			{
+				"block": "002XX S LA SALLE ST",
+				"liquor": 0,
+				"crime": 617,
+				"arrest": 70
+			},
+			{
+				"block": "022XX S WENTWORTH AVE",
+				"liquor": 0,
+				"crime": 504,
+				"arrest": 104
+			},
+			{
+				"block": "003XX W 24TH ST",
+				"liquor": 0,
+				"crime": 140,
+				"arrest": 15
+			},
+			{
+				"block": "005XX W JACKSON BLVD",
+				"liquor": 0,
+				"crime": 351,
+				"arrest": 27
+			},
+			{
+				"block": "001XX S WACKER DR",
+				"liquor": 0,
+				"crime": 576,
+				"arrest": 58
+			},
+			{
+				"block": "0000X W ADAMS ST",
+				"liquor": 0,
+				"crime": 319,
+				"arrest": 51
+			},
+			{
+				"block": "020XX S STATE ST",
+				"liquor": 0,
+				"crime": 807,
+				"arrest": 246
+			},
+			{
+				"block": "008XX S CANAL ST",
+				"liquor": 0,
+				"crime": 161,
+				"arrest": 14
+			},
+			{
+				"block": "005XX W DE KOVEN ST",
+				"liquor": 0,
+				"crime": 25,
+				"arrest": 0
+			},
+			{
+				"block": "003XX E 21ST ST",
+				"liquor": 0,
+				"crime": 136,
+				"arrest": 13
+			},
+			{
+				"block": "012XX S STATE ST",
+				"liquor": 0,
+				"crime": 651,
+				"arrest": 131
+			},
+			{
+				"block": "0000X E LOWER WACKER DR",
+				"liquor": 0,
+				"crime": 182,
+				"arrest": 75
+			},
+			{
+				"block": "019XX S STATE ST",
+				"liquor": 0,
+				"crime": 353,
+				"arrest": 55
+			},
+			{
+				"block": "001XX E RANDOLPH ST",
+				"liquor": 0,
+				"crime": 529,
+				"arrest": 51
+			},
+			{
+				"block": "007XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 74,
+				"arrest": 12
+			},
+			{
+				"block": "023XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 214,
+				"arrest": 51
+			},
+			{
+				"block": "001XX N GARLAND CT",
+				"liquor": 0,
+				"crime": 88,
+				"arrest": 9
+			},
+			{
+				"block": "020XX S JEFFERSON ST",
+				"liquor": 0,
+				"crime": 23,
+				"arrest": 5
+			},
+			{
+				"block": "002XX W 24TH ST",
+				"liquor": 0,
+				"crime": 132,
+				"arrest": 9
+			},
+			{
+				"block": "018XX S STATE ST",
+				"liquor": 0,
+				"crime": 117,
+				"arrest": 31
+			},
+			{
+				"block": "005XX W FULTON ST",
+				"liquor": 0,
+				"crime": 104,
+				"arrest": 3
+			},
+			{
+				"block": "001XX S RIVERSIDE PLZ",
+				"liquor": 0,
+				"crime": 165,
+				"arrest": 32
+			},
+			{
+				"block": "021XX S WENTWORTH AVE",
+				"liquor": 0,
+				"crime": 144,
+				"arrest": 22
+			},
+			{
+				"block": "0000X N WACKER DR",
+				"liquor": 0,
+				"crime": 547,
+				"arrest": 59
+			},
+			{
+				"block": "012XX S COLUMBUS DR",
+				"liquor": 0,
+				"crime": 48,
+				"arrest": 21
+			},
+			{
+				"block": "0000X E VAN BUREN ST",
+				"liquor": 0,
+				"crime": 293,
+				"arrest": 54
+			},
+			{
+				"block": "0000X W HARRISON ST",
+				"liquor": 0,
+				"crime": 107,
+				"arrest": 18
+			},
+			{
+				"block": "005XX S CANAL ST",
+				"liquor": 0,
+				"crime": 40,
+				"arrest": 9
+			},
+			{
+				"block": "001XX E JACKSON DR",
+				"liquor": 0,
+				"crime": 77,
+				"arrest": 22
+			},
+			{
+				"block": "0000X E 11TH ST",
+				"liquor": 0,
+				"crime": 83,
+				"arrest": 13
+			},
+			{
+				"block": "005XX S CONGRESS PLAZA DR",
+				"liquor": 0,
+				"crime": 19,
+				"arrest": 3
+			},
+			{
+				"block": "020XX S CALUMET AVE",
+				"liquor": 0,
+				"crime": 106,
+				"arrest": 7
+			},
+			{
+				"block": "002XX W ROOSEVELT RD",
+				"liquor": 0,
+				"crime": 23,
+				"arrest": 7
+			},
+			{
+				"block": "004XX W POLK ST",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 5
+			},
+			{
+				"block": "0000X N FRANKLIN ST",
+				"liquor": 0,
+				"crime": 190,
+				"arrest": 23
+			},
+			{
+				"block": "003XX N CLINTON ST",
+				"liquor": 0,
+				"crime": 228,
+				"arrest": 9
+			},
+			{
+				"block": "017XX S INDIANA AVE",
+				"liquor": 0,
+				"crime": 212,
+				"arrest": 18
+			},
+			{
+				"block": "004XX W VAN BUREN ST",
+				"liquor": 0,
+				"crime": 94,
+				"arrest": 10
+			},
+			{
+				"block": "0000X W 16TH ST",
+				"liquor": 0,
+				"crime": 29,
+				"arrest": 2
+			},
+			{
+				"block": "017XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 171,
+				"arrest": 18
+			},
+			{
+				"block": "022XX S PRAIRIE AVE",
+				"liquor": 0,
+				"crime": 34,
+				"arrest": 3
+			},
+			{
+				"block": "005XX W VAN BUREN ST",
+				"liquor": 0,
+				"crime": 259,
+				"arrest": 26
+			},
+			{
+				"block": "0000X E 16TH ST",
+				"liquor": 0,
+				"crime": 185,
+				"arrest": 19
+			},
+			{
+				"block": "004XX W MADISON ST",
+				"liquor": 0,
+				"crime": 214,
+				"arrest": 72
+			},
+			{
+				"block": "017XX S JEFFERSON ST",
+				"liquor": 0,
+				"crime": 75,
+				"arrest": 11
+			},
+			{
+				"block": "001XX W WASHINGTON ST",
+				"liquor": 0,
+				"crime": 688,
+				"arrest": 84
+			},
+			{
+				"block": "008XX S PARK TER",
+				"liquor": 0,
+				"crime": 83,
+				"arrest": 11
+			},
+			{
+				"block": "003XX W WACKER DR",
+				"liquor": 0,
+				"crime": 187,
+				"arrest": 14
+			},
+			{
+				"block": "022XX S CANAL ST",
+				"liquor": 0,
+				"crime": 70,
+				"arrest": 8
+			},
+			{
+				"block": "019XX S JEFFERSON ST",
+				"liquor": 0,
+				"crime": 76,
+				"arrest": 9
+			},
+			{
+				"block": "004XX W WASHINGTON ST",
+				"liquor": 0,
+				"crime": 56,
+				"arrest": 7
+			},
+			{
+				"block": "0000X W CONGRESS PKWY",
+				"liquor": 0,
+				"crime": 321,
+				"arrest": 114
+			},
+			{
+				"block": "004XX N WELLS ST",
+				"liquor": 0,
+				"crime": 196,
+				"arrest": 28
+			},
+			{
+				"block": "018XX S CALUMET AVE",
+				"liquor": 0,
+				"crime": 155,
+				"arrest": 17
+			},
+			{
+				"block": "016XX S LUMBER ST",
+				"liquor": 0,
+				"crime": 11,
+				"arrest": 1
+			},
+			{
+				"block": "023XX S MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 437,
+				"arrest": 87
+			},
+			{
+				"block": "0000X S WELLS ST",
+				"liquor": 0,
+				"crime": 67,
+				"arrest": 12
+			},
+			{
+				"block": "018XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 313,
+				"arrest": 61
+			},
+			{
+				"block": "002XX E CONGRESS DR",
+				"liquor": 0,
+				"crime": 53,
+				"arrest": 20
+			},
+			{
+				"block": "018XX S PRAIRIE AVE",
+				"liquor": 0,
+				"crime": 93,
+				"arrest": 9
+			},
+			{
+				"block": "018XX S INDIANA AVE",
+				"liquor": 0,
+				"crime": 187,
+				"arrest": 16
+			},
+			{
+				"block": "023XX S CANAL ST",
+				"liquor": 0,
+				"crime": 190,
+				"arrest": 14
+			},
+			{
+				"block": "005XX W QUINCY ST",
+				"liquor": 0,
+				"crime": 31,
+				"arrest": 1
+			},
+			{
+				"block": "018XX S CLARK ST",
+				"liquor": 0,
+				"crime": 96,
+				"arrest": 13
+			},
+			{
+				"block": "005XX W TILDEN ST",
+				"liquor": 0,
+				"crime": 34,
+				"arrest": 5
+			},
+			{
+				"block": "004XX N KINGSBURY ST",
+				"liquor": 0,
+				"crime": 13,
+				"arrest": 2
+			},
+			{
+				"block": "0000X S RIVERSIDE PLZ",
+				"liquor": 0,
+				"crime": 125,
+				"arrest": 10
+			},
+			{
+				"block": "004XX N MC CLURG CT",
+				"liquor": 0,
+				"crime": 241,
+				"arrest": 17
+			},
+			{
+				"block": "002XX N CLINTON ST",
+				"liquor": 0,
+				"crime": 233,
+				"arrest": 21
+			},
+			{
+				"block": "001XX W ROOSEVELT RD",
+				"liquor": 0,
+				"crime": 221,
+				"arrest": 47
+			},
+			{
+				"block": "005XX S LOWER WACKER DR",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 4
+			},
+			{
+				"block": "002XX E BALBO DR",
+				"liquor": 0,
+				"crime": 31,
+				"arrest": 12
+			},
+			{
+				"block": "004XX W RANDOLPH ST",
+				"liquor": 0,
+				"crime": 72,
+				"arrest": 13
+			},
+			{
+				"block": "010XX S PLYMOUTH CT",
+				"liquor": 0,
+				"crime": 19,
+				"arrest": 0
+			},
+			{
+				"block": "0000X E 9TH ST",
+				"liquor": 0,
+				"crime": 259,
+				"arrest": 50
+			},
+			{
+				"block": "011XX S PLYMOUTH CT",
+				"liquor": 0,
+				"crime": 198,
+				"arrest": 19
+			},
+			{
+				"block": "021XX S PRINCETON AVE",
+				"liquor": 0,
+				"crime": 104,
+				"arrest": 10
+			},
+			{
+				"block": "002XX E SOUTH WATER ST",
+				"liquor": 0,
+				"crime": 39,
+				"arrest": 9
+			},
+			{
+				"block": "018XX S DEARBORN ST",
+				"liquor": 0,
+				"crime": 40,
+				"arrest": 4
+			},
+			{
+				"block": "003XX W WASHINGTON ST",
+				"liquor": 0,
+				"crime": 164,
+				"arrest": 14
+			},
+			{
+				"block": "005XX W TAYLOR ST",
+				"liquor": 0,
+				"crime": 124,
+				"arrest": 12
+			},
+			{
+				"block": "002XX W LAKE ST",
+				"liquor": 0,
+				"crime": 539,
+				"arrest": 87
+			},
+			{
+				"block": "003XX W LAKE ST",
+				"liquor": 0,
+				"crime": 121,
+				"arrest": 12
+			},
+			{
+				"block": "005XX W KINZIE ST",
+				"liquor": 0,
+				"crime": 303,
+				"arrest": 12
+			},
+			{
+				"block": "001XX E ROOSEVELT RD",
+				"liquor": 0,
+				"crime": 78,
+				"arrest": 24
+			},
+			{
+				"block": "0000X E KINZIE ST",
+				"liquor": 0,
+				"crime": 56,
+				"arrest": 8
+			},
+			{
+				"block": "012XX S PRAIRIE AVE",
+				"liquor": 0,
+				"crime": 196,
+				"arrest": 22
+			},
+			{
+				"block": "004XX S LA SALLE ST",
+				"liquor": 0,
+				"crime": 432,
+				"arrest": 127
+			},
+			{
+				"block": "001XX W HARRISON ST",
+				"liquor": 0,
+				"crime": 142,
+				"arrest": 9
+			},
+			{
+				"block": "006XX S WELLS ST",
+				"liquor": 0,
+				"crime": 262,
+				"arrest": 27
+			},
+			{
+				"block": "004XX E SOUTH WATER ST",
+				"liquor": 0,
+				"crime": 146,
+				"arrest": 8
+			},
+			{
+				"block": "001XX W POLK ST",
+				"liquor": 0,
+				"crime": 354,
+				"arrest": 20
+			},
+			{
+				"block": "003XX E LOWER NORTH WATER ST",
+				"liquor": 0,
+				"crime": 31,
+				"arrest": 9
+			},
+			{
+				"block": "017XX S WENTWORTH ST",
+				"liquor": 0,
+				"crime": 62,
+				"arrest": 8
+			},
+			{
+				"block": "0000X S COLUMBUS DR",
+				"liquor": 0,
+				"crime": 87,
+				"arrest": 18
+			},
+			{
+				"block": "014XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 65,
+				"arrest": 27
+			},
+			{
+				"block": "004XX W ROOSEVELT RD",
+				"liquor": 0,
+				"crime": 172,
+				"arrest": 28
+			},
+			{
+				"block": "002XX W HARRISON ST",
+				"liquor": 0,
+				"crime": 29,
+				"arrest": 6
+			},
+			{
+				"block": "003XX W VAN BUREN ST",
+				"liquor": 0,
+				"crime": 109,
+				"arrest": 18
+			},
+			{
+				"block": "001XX W CERMAK RD",
+				"liquor": 0,
+				"crime": 1203,
+				"arrest": 659
+			},
+			{
+				"block": "0000X E 14TH ST",
+				"liquor": 0,
+				"crime": 42,
+				"arrest": 8
+			},
+			{
+				"block": "0000X E WACKER PL",
+				"liquor": 0,
+				"crime": 129,
+				"arrest": 9
+			},
+			{
+				"block": "006XX S CANAL ST",
+				"liquor": 0,
+				"crime": 62,
+				"arrest": 27
+			},
+			{
+				"block": "004XX S DEARBORN ST",
+				"liquor": 0,
+				"crime": 290,
+				"arrest": 52
+			},
+			{
+				"block": "003XX W RANDOLPH ST",
+				"liquor": 0,
+				"crime": 182,
+				"arrest": 16
+			},
+			{
+				"block": "002XX S RIVERSIDE PLZ",
+				"liquor": 0,
+				"crime": 224,
+				"arrest": 75
+			},
+			{
+				"block": "006XX S PLYMOUTH CT",
+				"liquor": 0,
+				"crime": 118,
+				"arrest": 11
+			},
+			{
+				"block": "002XX W KINZIE ST",
+				"liquor": 0,
+				"crime": 133,
+				"arrest": 11
+			},
+			{
+				"block": "0000X S CANAL ST",
+				"liquor": 0,
+				"crime": 92,
+				"arrest": 13
+			},
+			{
+				"block": "009XX S WELLS ST",
+				"liquor": 0,
+				"crime": 102,
+				"arrest": 5
+			},
+			{
+				"block": "0000X W POLK ST",
+				"liquor": 0,
+				"crime": 245,
+				"arrest": 34
+			},
+			{
+				"block": "001XX W VAN BUREN ST",
+				"liquor": 0,
+				"crime": 380,
+				"arrest": 127
+			},
+			{
+				"block": "019XX S WENTWORTH AVE",
+				"liquor": 0,
+				"crime": 187,
+				"arrest": 15
+			},
+			{
+				"block": "007XX S FINANCIAL PL",
+				"liquor": 0,
+				"crime": 169,
+				"arrest": 14
+			},
+			{
+				"block": "022XX S INDIANA AVE",
+				"liquor": 0,
+				"crime": 82,
+				"arrest": 9
+			},
+			{
+				"block": "0000X E CULLERTON ST",
+				"liquor": 0,
+				"crime": 193,
+				"arrest": 39
+			},
+			{
+				"block": "004XX W 23RD PL",
+				"liquor": 0,
+				"crime": 35,
+				"arrest": 5
+			},
+			{
+				"block": "002XX N CANAL ST",
+				"liquor": 0,
+				"crime": 184,
+				"arrest": 21
+			},
+			{
+				"block": "0000X N CLINTON ST",
+				"liquor": 0,
+				"crime": 55,
+				"arrest": 6
+			},
+			{
+				"block": "009XX S STATE ST",
+				"liquor": 0,
+				"crime": 119,
+				"arrest": 26
+			},
+			{
+				"block": "0000X E 14TH PL",
+				"liquor": 0,
+				"crime": 120,
+				"arrest": 26
+			},
+			{
+				"block": "002XX E WACKER DR",
+				"liquor": 0,
+				"crime": 235,
+				"arrest": 29
+			},
+			{
+				"block": "0000X N RIVERSIDE PLZ",
+				"liquor": 0,
+				"crime": 104,
+				"arrest": 15
+			},
+			{
+				"block": "018XX S NORMAL AVE",
+				"liquor": 0,
+				"crime": 56,
+				"arrest": 16
+			},
+			{
+				"block": "0000X N CANAL ST",
+				"liquor": 0,
+				"crime": 81,
+				"arrest": 13
+			},
+			{
+				"block": "010XX S WELLS ST",
+				"liquor": 0,
+				"crime": 47,
+				"arrest": 0
+			},
+			{
+				"block": "005XX W RANDOLPH ST",
+				"liquor": 0,
+				"crime": 83,
+				"arrest": 12
+			},
+			{
+				"block": "002XX E 13TH ST",
+				"liquor": 0,
+				"crime": 59,
+				"arrest": 4
+			},
+			{
+				"block": "0000X W RIVERWALK S",
+				"liquor": 0,
+				"crime": 27,
+				"arrest": 7
+			},
+			{
+				"block": "001XX N FIELD BLVD",
+				"liquor": 0,
+				"crime": 19,
+				"arrest": 3
+			},
+			{
+				"block": "001XX S WELLS ST",
+				"liquor": 0,
+				"crime": 86,
+				"arrest": 14
+			},
+			{
+				"block": "021XX S JEFFERSON ST",
+				"liquor": 0,
+				"crime": 30,
+				"arrest": 4
+			},
+			{
+				"block": "0000X W 18TH ST",
+				"liquor": 0,
+				"crime": 24,
+				"arrest": 10
+			},
+			{
+				"block": "005XX S FINANCIAL PL",
+				"liquor": 0,
+				"crime": 50,
+				"arrest": 8
+			},
+			{
+				"block": "002XX N GARVEY CT",
+				"liquor": 0,
+				"crime": 17,
+				"arrest": 4
+			},
+			{
+				"block": "003XX N WABASH AVE",
+				"liquor": 0,
+				"crime": 233,
+				"arrest": 18
+			},
+			{
+				"block": "009XX S PARK TER",
+				"liquor": 0,
+				"crime": 39,
+				"arrest": 5
+			},
+			{
+				"block": "003XX N WELLS ST",
+				"liquor": 0,
+				"crime": 175,
+				"arrest": 17
+			},
+			{
+				"block": "0000X E LOWER WACKER PL",
+				"liquor": 0,
+				"crime": 21,
+				"arrest": 6
+			},
+			{
+				"block": "012XX S INDIANA AVE",
+				"liquor": 0,
+				"crime": 98,
+				"arrest": 14
+			},
+			{
+				"block": "023XX S PRAIRIE AVE",
+				"liquor": 0,
+				"crime": 18,
+				"arrest": 1
+			},
+			{
+				"block": "019XX S INDIANA AVE",
+				"liquor": 0,
+				"crime": 197,
+				"arrest": 16
+			},
+			{
+				"block": "019XX S MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 184,
+				"arrest": 23
+			},
+			{
+				"block": "002XX S CLARK ST",
+				"liquor": 0,
+				"crime": 186,
+				"arrest": 27
+			},
+			{
+				"block": "003XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 261,
+				"arrest": 47
+			},
+			{
+				"block": "004XX S COLUMBUS DR",
+				"liquor": 0,
+				"crime": 89,
+				"arrest": 43
+			},
+			{
+				"block": "004XX W KINZIE ST",
+				"liquor": 0,
+				"crime": 48,
+				"arrest": 2
+			},
+			{
+				"block": "018XX S MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 440,
+				"arrest": 40
+			},
+			{
+				"block": "018XX S WENTWORTH AVE",
+				"liquor": 0,
+				"crime": 270,
+				"arrest": 11
+			},
+			{
+				"block": "020XX S WENTWORTH AVE",
+				"liquor": 0,
+				"crime": 181,
+				"arrest": 15
+			},
+			{
+				"block": "006XX S FEDERAL ST",
+				"liquor": 0,
+				"crime": 134,
+				"arrest": 10
+			},
+			{
+				"block": "001XX E CULLERTON ST",
+				"liquor": 0,
+				"crime": 76,
+				"arrest": 12
+			},
+			{
+				"block": "002XX E CULLERTON ST",
+				"liquor": 0,
+				"crime": 250,
+				"arrest": 21
+			},
+			{
+				"block": "008XX S CLARK ST",
+				"liquor": 0,
+				"crime": 186,
+				"arrest": 19
+			},
+			{
+				"block": "0000X N LOWER WACKER DR",
+				"liquor": 0,
+				"crime": 22,
+				"arrest": 2
+			},
+			{
+				"block": "003XX E 18TH ST",
+				"liquor": 0,
+				"crime": 48,
+				"arrest": 2
+			},
+			{
+				"block": "003XX E BALBO DR",
+				"liquor": 0,
+				"crime": 44,
+				"arrest": 13
+			},
+			{
+				"block": "019XX S LUMBER ST",
+				"liquor": 0,
+				"crime": 21,
+				"arrest": 3
+			},
+			{
+				"block": "005XX S WELLS ST",
+				"liquor": 0,
+				"crime": 81,
+				"arrest": 20
+			},
+			{
+				"block": "003XX W MADISON ST",
+				"liquor": 0,
+				"crime": 179,
+				"arrest": 17
+			},
+			{
+				"block": "003XX S CANAL ST",
+				"liquor": 0,
+				"crime": 353,
+				"arrest": 59
+			},
+			{
+				"block": "002XX W 23RD PL",
+				"liquor": 0,
+				"crime": 145,
+				"arrest": 13
+			},
+			{
+				"block": "018XX S MELODY CT",
+				"liquor": 0,
+				"crime": 16,
+				"arrest": 0
+			},
+			{
+				"block": "003XX W MONROE ST",
+				"liquor": 0,
+				"crime": 175,
+				"arrest": 13
+			},
+			{
+				"block": "008XX S LA SALLE ST",
+				"liquor": 0,
+				"crime": 73,
+				"arrest": 7
+			},
+			{
+				"block": "001XX N STETSON AVE",
+				"liquor": 0,
+				"crime": 94,
+				"arrest": 5
+			},
+			{
+				"block": "003XX N COLUMBUS DR",
+				"liquor": 0,
+				"crime": 42,
+				"arrest": 9
+			},
+			{
+				"block": "004XX W MONROE ST",
+				"liquor": 0,
+				"crime": 22,
+				"arrest": 4
+			},
+			{
+				"block": "019XX S ARCHER AVE",
+				"liquor": 0,
+				"crime": 203,
+				"arrest": 21
+			},
+			{
+				"block": "002XX E LOWER WACKER DR",
+				"liquor": 0,
+				"crime": 26,
+				"arrest": 2
+			},
+			{
+				"block": "001XX E BALBO DR",
+				"liquor": 0,
+				"crime": 40,
+				"arrest": 19
+			},
+			{
+				"block": "004XX S WELLS ST",
+				"liquor": 0,
+				"crime": 294,
+				"arrest": 80
+			},
+			{
+				"block": "007XX S CANAL ST",
+				"liquor": 0,
+				"crime": 62,
+				"arrest": 25
+			},
+			{
+				"block": "010XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 126,
+				"arrest": 20
+			},
+			{
+				"block": "006XX S LA SALLE ST",
+				"liquor": 0,
+				"crime": 212,
+				"arrest": 11
+			},
+			{
+				"block": "004XX N LOWER WABASH AVE",
+				"liquor": 0,
+				"crime": 27,
+				"arrest": 12
+			},
+			{
+				"block": "000XX W 15TH ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 2
+			},
+			{
+				"block": "002XX W CULLERTON ST",
+				"liquor": 0,
+				"crime": 24,
+				"arrest": 3
+			},
+			{
+				"block": "012XX S PLYMOUTH CT",
+				"liquor": 0,
+				"crime": 160,
+				"arrest": 22
+			},
+			{
+				"block": "018XX S LUMBER ST",
+				"liquor": 0,
+				"crime": 20,
+				"arrest": 3
+			},
+			{
+				"block": "019XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 172,
+				"arrest": 23
+			},
+			{
+				"block": "002XX W 18TH ST",
+				"liquor": 0,
+				"crime": 40,
+				"arrest": 6
+			},
+			{
+				"block": "008XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 39,
+				"arrest": 5
+			},
+			{
+				"block": "001XX N COLUMBUS DR",
+				"liquor": 0,
+				"crime": 68,
+				"arrest": 11
+			},
+			{
+				"block": "005XX S PLYMOUTH CT",
+				"liquor": 0,
+				"crime": 80,
+				"arrest": 14
+			},
+			{
+				"block": "023XX S STEWART AVE",
+				"liquor": 0,
+				"crime": 55,
+				"arrest": 11
+			},
+			{
+				"block": "003XX S LAKE SHORE DR SB",
+				"liquor": 0,
+				"crime": 21,
+				"arrest": 11
+			},
+			{
+				"block": "004XX S CANAL ST",
+				"liquor": 0,
+				"crime": 48,
+				"arrest": 13
+			},
+			{
+				"block": "003XX S PLYMOUTH CT",
+				"liquor": 0,
+				"crime": 181,
+				"arrest": 30
+			},
+			{
+				"block": "003XX E JACKSON DR",
+				"liquor": 0,
+				"crime": 98,
+				"arrest": 33
+			},
+			{
+				"block": "019XX S CALUMET AVE",
+				"liquor": 0,
+				"crime": 61,
+				"arrest": 9
+			},
+			{
+				"block": "0000X E 23RD ST",
+				"liquor": 0,
+				"crime": 149,
+				"arrest": 61
+			},
+			{
+				"block": "004XX W CERMAK RD",
+				"liquor": 0,
+				"crime": 53,
+				"arrest": 11
+			},
+			{
+				"block": "014XX S CLARK ST",
+				"liquor": 0,
+				"crime": 39,
+				"arrest": 8
+			},
+			{
+				"block": "010XX S CLARK ST",
+				"liquor": 0,
+				"crime": 48,
+				"arrest": 6
+			},
+			{
+				"block": "013XX S LAKE SHORE DR E",
+				"liquor": 0,
+				"crime": 68,
+				"arrest": 8
+			},
+			{
+				"block": "016XX S CANAL ST",
+				"liquor": 0,
+				"crime": 68,
+				"arrest": 23
+			},
+			{
+				"block": "003XX E RIVERWALK S",
+				"liquor": 0,
+				"crime": 17,
+				"arrest": 1
+			},
+			{
+				"block": "018XX S JEFFERSON ST",
+				"liquor": 0,
+				"crime": 50,
+				"arrest": 9
+			},
+			{
+				"block": "019XX S LEE PKWY",
+				"liquor": 0,
+				"crime": 19,
+				"arrest": 1
+			},
+			{
+				"block": "003XX N LOWER MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 92,
+				"arrest": 61
+			},
+			{
+				"block": "003XX W 18TH ST",
+				"liquor": 0,
+				"crime": 107,
+				"arrest": 4
+			},
+			{
+				"block": "019XX S LOUIE PKWY",
+				"liquor": 0,
+				"crime": 37,
+				"arrest": 0
+			},
+			{
+				"block": "007XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 276,
+				"arrest": 61
+			},
+			{
+				"block": "019XX S YOUNG PKWY",
+				"liquor": 0,
+				"crime": 9,
+				"arrest": 1
+			},
+			{
+				"block": "001XX E 23RD ST",
+				"liquor": 0,
+				"crime": 49,
+				"arrest": 3
+			},
+			{
+				"block": "005XX S CLARK ST",
+				"liquor": 0,
+				"crime": 128,
+				"arrest": 35
+			},
+			{
+				"block": "014XX S PRAIRIE AVE",
+				"liquor": 0,
+				"crime": 108,
+				"arrest": 8
+			},
+			{
+				"block": "022XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 208,
+				"arrest": 50
+			},
+			{
+				"block": "002XX E ROOSEVELT RD",
+				"liquor": 0,
+				"crime": 32,
+				"arrest": 7
+			},
+			{
+				"block": "002XX W 23RD ST",
+				"liquor": 0,
+				"crime": 180,
+				"arrest": 21
+			},
+			{
+				"block": "023XX S GROVE ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 2
+			},
+			{
+				"block": "004XX E WACKER RAMP",
+				"liquor": 0,
+				"crime": 67,
+				"arrest": 10
+			},
+			{
+				"block": "016XX S JEFFERSON ST",
+				"liquor": 0,
+				"crime": 32,
+				"arrest": 7
+			},
+			{
+				"block": "018XX S CANAL ST",
+				"liquor": 0,
+				"crime": 165,
+				"arrest": 30
+			},
+			{
+				"block": "019XX S CANAL ST",
+				"liquor": 0,
+				"crime": 15,
+				"arrest": 2
+			},
+			{
+				"block": "002XX N POST PL",
+				"liquor": 0,
+				"crime": 35,
+				"arrest": 2
+			},
+			{
+				"block": "005XX W CULLERTON ST",
+				"liquor": 0,
+				"crime": 39,
+				"arrest": 9
+			},
+			{
+				"block": "001XX E LAKE ST",
+				"liquor": 0,
+				"crime": 123,
+				"arrest": 16
+			},
+			{
+				"block": "019XX S FEDERAL ST",
+				"liquor": 0,
+				"crime": 44,
+				"arrest": 7
+			},
+			{
+				"block": "005XX W 18TH ST",
+				"liquor": 0,
+				"crime": 70,
+				"arrest": 7
+			},
+			{
+				"block": "007XX S LA SALLE ST",
+				"liquor": 0,
+				"crime": 69,
+				"arrest": 2
+			},
+			{
+				"block": "010XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 37,
+				"arrest": 4
+			},
+			{
+				"block": "013XX S PLYMOUTH CT",
+				"liquor": 0,
+				"crime": 69,
+				"arrest": 6
+			},
+			{
+				"block": "004XX N ORLEANS ST",
+				"liquor": 0,
+				"crime": 130,
+				"arrest": 9
+			},
+			{
+				"block": "020XX S PRAIRIE AVE",
+				"liquor": 0,
+				"crime": 64,
+				"arrest": 8
+			},
+			{
+				"block": "007XX S LAKE SHORE DR W",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 0
+			},
+			{
+				"block": "003XX E LOWER WACKER DR",
+				"liquor": 0,
+				"crime": 74,
+				"arrest": 13
+			},
+			{
+				"block": "020XX S ARCHER AVE",
+				"liquor": 0,
+				"crime": 114,
+				"arrest": 22
+			},
+			{
+				"block": "017XX S PRAIRIE AVE",
+				"liquor": 0,
+				"crime": 148,
+				"arrest": 22
+			},
+			{
+				"block": "002XX E 18TH ST",
+				"liquor": 0,
+				"crime": 29,
+				"arrest": 3
+			},
+			{
+				"block": "022XX S FEDERAL ST",
+				"liquor": 0,
+				"crime": 54,
+				"arrest": 13
+			},
+			{
+				"block": "0000X E RIVERWALK S",
+				"liquor": 0,
+				"crime": 18,
+				"arrest": 6
+			},
+			{
+				"block": "001XX E 13TH ST",
+				"liquor": 0,
+				"crime": 70,
+				"arrest": 8
+			},
+			{
+				"block": "001XX N RIVERSIDE PLZ",
+				"liquor": 0,
+				"crime": 64,
+				"arrest": 16
+			},
+			{
+				"block": "023XX S DEARBORN ST",
+				"liquor": 0,
+				"crime": 70,
+				"arrest": 32
+			},
+			{
+				"block": "022XX S GROVE ST",
+				"liquor": 0,
+				"crime": 22,
+				"arrest": 3
+			},
+			{
+				"block": "017XX S CLARK ST",
+				"liquor": 0,
+				"crime": 46,
+				"arrest": 14
+			},
+			{
+				"block": "019XX S CLARK ST",
+				"liquor": 0,
+				"crime": 108,
+				"arrest": 9
+			},
+			{
+				"block": "023XX S STATE ST",
+				"liquor": 0,
+				"crime": 5182,
+				"arrest": 3263
+			},
+			{
+				"block": "015XX S LUMBER ST",
+				"liquor": 0,
+				"crime": 16,
+				"arrest": 2
+			},
+			{
+				"block": "007XX S FEDERAL ST",
+				"liquor": 0,
+				"crime": 134,
+				"arrest": 21
+			},
+			{
+				"block": "004XX E CERMAK RD",
+				"liquor": 0,
+				"crime": 6,
+				"arrest": 0
+			},
+			{
+				"block": "004XX N FRANKLIN ST",
+				"liquor": 0,
+				"crime": 57,
+				"arrest": 4
+			},
+			{
+				"block": "003XX E CULLERTON ST",
+				"liquor": 0,
+				"crime": 47,
+				"arrest": 1
+			},
+			{
+				"block": "005XX S FEDERAL ST",
+				"liquor": 0,
+				"crime": 46,
+				"arrest": 5
+			},
+			{
+				"block": "003XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 131,
+				"arrest": 15
+			},
+			{
+				"block": "018XX S FEDERAL ST",
+				"liquor": 0,
+				"crime": 26,
+				"arrest": 2
+			},
+			{
+				"block": "003XX N STETSON AVE",
+				"liquor": 0,
+				"crime": 9,
+				"arrest": 3
+			},
+			{
+				"block": "002XX N GARLAND CT",
+				"liquor": 0,
+				"crime": 32,
+				"arrest": 12
+			},
+			{
+				"block": "023XX S INDIANA AVE",
+				"liquor": 0,
+				"crime": 120,
+				"arrest": 34
+			},
+			{
+				"block": "002XX E 21ST ST",
+				"liquor": 0,
+				"crime": 39,
+				"arrest": 7
+			},
+			{
+				"block": "010XX S COLUMBUS DR",
+				"liquor": 0,
+				"crime": 15,
+				"arrest": 7
+			},
+			{
+				"block": "012XX S CLARK ST",
+				"liquor": 0,
+				"crime": 51,
+				"arrest": 6
+			},
+			{
+				"block": "014XX S LUMBER ST",
+				"liquor": 0,
+				"crime": 18,
+				"arrest": 2
+			},
+			{
+				"block": "002XX S LOWER WACKER DR",
+				"liquor": 0,
+				"crime": 38,
+				"arrest": 0
+			},
+			{
+				"block": "018XX S PRAIRIE PKWY",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 0
+			},
+			{
+				"block": "003XX S RIVERSIDE PLZ",
+				"liquor": 0,
+				"crime": 112,
+				"arrest": 14
+			},
+			{
+				"block": "001XX S FRANKLIN ST",
+				"liquor": 0,
+				"crime": 77,
+				"arrest": 8
+			},
+			{
+				"block": "001XX W 9TH ST",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 2
+			},
+			{
+				"block": "010XX S MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 101,
+				"arrest": 14
+			},
+			{
+				"block": "003XX E 17TH ST",
+				"liquor": 0,
+				"crime": 14,
+				"arrest": 0
+			},
+			{
+				"block": "002XX N PARK DR",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "005XX S FRANKLIN ST",
+				"liquor": 0,
+				"crime": 87,
+				"arrest": 62
+			},
+			{
+				"block": "014XX S PLYMOUTH CT",
+				"liquor": 0,
+				"crime": 36,
+				"arrest": 2
+			},
+			{
+				"block": "002XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 89,
+				"arrest": 31
+			},
+			{
+				"block": "017XX S STEWART AVE",
+				"liquor": 0,
+				"crime": 71,
+				"arrest": 8
+			},
+			{
+				"block": "004XX W 23RD ST",
+				"liquor": 0,
+				"crime": 26,
+				"arrest": 2
+			},
+			{
+				"block": "001XX E CERMAK RD",
+				"liquor": 0,
+				"crime": 71,
+				"arrest": 27
+			},
+			{
+				"block": "002XX E NORTH WATER ST",
+				"liquor": 0,
+				"crime": 10,
+				"arrest": 1
+			},
+			{
+				"block": "004XX W ADAMS ST",
+				"liquor": 0,
+				"crime": 234,
+				"arrest": 159
+			},
+			{
+				"block": "005XX W POLK ST",
+				"liquor": 0,
+				"crime": 62,
+				"arrest": 11
+			},
+			{
+				"block": "002XX E 15TH PL",
+				"liquor": 0,
+				"crime": 14,
+				"arrest": 0
+			},
+			{
+				"block": "005XX W CONGRESS PKWY",
+				"liquor": 0,
+				"crime": 35,
+				"arrest": 8
+			},
+			{
+				"block": "005XX W CERMAK RD",
+				"liquor": 0,
+				"crime": 230,
+				"arrest": 32
+			},
+			{
+				"block": "0000X E 18TH ST",
+				"liquor": 0,
+				"crime": 52,
+				"arrest": 11
+			},
+			{
+				"block": "014XX S FEDERAL ST",
+				"liquor": 0,
+				"crime": 46,
+				"arrest": 4
+			},
+			{
+				"block": "0000X N GARLAND CT",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 0
+			},
+			{
+				"block": "0000X W LOWER WACKER DR",
+				"liquor": 0,
+				"crime": 56,
+				"arrest": 12
+			},
+			{
+				"block": "023XX S FEDERAL ST",
+				"liquor": 0,
+				"crime": 68,
+				"arrest": 26
+			},
+			{
+				"block": "003XX N LOWER COLUMBUS DR",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 4
+			},
+			{
+				"block": "004XX S FEDERAL ST",
+				"liquor": 0,
+				"crime": 30,
+				"arrest": 9
+			},
+			{
+				"block": "004XX N CANAL ST",
+				"liquor": 0,
+				"crime": 22,
+				"arrest": 1
+			},
+			{
+				"block": "002XX E CERMAK RD",
+				"liquor": 0,
+				"crime": 34,
+				"arrest": 8
+			},
+			{
+				"block": "001XX E 18TH ST",
+				"liquor": 0,
+				"crime": 47,
+				"arrest": 5
+			},
+			{
+				"block": "019XX S WONG PKWY",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 0
+			},
+			{
+				"block": "016XX S STATE ST",
+				"liquor": 0,
+				"crime": 151,
+				"arrest": 27
+			},
+			{
+				"block": "001XX S LOWER WACKER DR",
+				"liquor": 0,
+				"crime": 38,
+				"arrest": 2
+			},
+			{
+				"block": "021XX S LUMBER ST",
+				"liquor": 0,
+				"crime": 119,
+				"arrest": 21
+			},
+			{
+				"block": "002XX N STETSON AVE",
+				"liquor": 0,
+				"crime": 174,
+				"arrest": 15
+			},
+			{
+				"block": "0000X S LOWER WACKER DR",
+				"liquor": 0,
+				"crime": 14,
+				"arrest": 4
+			},
+			{
+				"block": "019XX S PRAIRIE AVE",
+				"liquor": 0,
+				"crime": 73,
+				"arrest": 6
+			},
+			{
+				"block": "002XX E 16TH ST",
+				"liquor": 0,
+				"crime": 17,
+				"arrest": 1
+			},
+			{
+				"block": "013XX S INDIANA PKWY",
+				"liquor": 0,
+				"crime": 12,
+				"arrest": 2
+			},
+			{
+				"block": "004XX N CLINTON ST",
+				"liquor": 0,
+				"crime": 42,
+				"arrest": 6
+			},
+			{
+				"block": "002XX E LOWER NORTH WATER ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "002XX W QUINCY ST",
+				"liquor": 0,
+				"crime": 20,
+				"arrest": 4
+			},
+			{
+				"block": "004XX N NEW ST",
+				"liquor": 0,
+				"crime": 6,
+				"arrest": 2
+			},
+			{
+				"block": "013XX S INDIANA AVE",
+				"liquor": 0,
+				"crime": 68,
+				"arrest": 10
+			},
+			{
+				"block": "0000X E BENTON PL",
+				"liquor": 0,
+				"crime": 17,
+				"arrest": 4
+			},
+			{
+				"block": "021XX S CALUMET AVE",
+				"liquor": 0,
+				"crime": 61,
+				"arrest": 7
+			},
+			{
+				"block": "015XX S CANAL ST",
+				"liquor": 0,
+				"crime": 42,
+				"arrest": 12
+			},
+			{
+				"block": "011XX S PARK TER",
+				"liquor": 0,
+				"crime": 7,
+				"arrest": 2
+			},
+			{
+				"block": "009XX S PLYMOUTH CT",
+				"liquor": 0,
+				"crime": 69,
+				"arrest": 6
+			},
+			{
+				"block": "003XX S FINANCIAL PL",
+				"liquor": 0,
+				"crime": 31,
+				"arrest": 8
+			},
+			{
+				"block": "003XX S CLARK ST",
+				"liquor": 0,
+				"crime": 35,
+				"arrest": 5
+			},
+			{
+				"block": "024XX S DR MARTIN LUTHER KING JR DR",
+				"liquor": 0,
+				"crime": 34,
+				"arrest": 12
+			},
+			{
+				"block": "0000X W 17TH ST",
+				"liquor": 0,
+				"crime": 31,
+				"arrest": 10
+			},
+			{
+				"block": "003XX S LOWER WACKER DR",
+				"liquor": 0,
+				"crime": 18,
+				"arrest": 2
+			},
+			{
+				"block": "001XX N LOWER WACKER DR",
+				"liquor": 0,
+				"crime": 25,
+				"arrest": 3
+			},
+			{
+				"block": "013XX S CLARK ST",
+				"liquor": 0,
+				"crime": 16,
+				"arrest": 4
+			},
+			{
+				"block": "0000X W 14TH ST",
+				"liquor": 0,
+				"crime": 14,
+				"arrest": 0
+			},
+			{
+				"block": "018XX S CANALPORT AVE",
+				"liquor": 0,
+				"crime": 75,
+				"arrest": 12
+			},
+			{
+				"block": "005XX W LEXINGTON ST",
+				"liquor": 0,
+				"crime": 10,
+				"arrest": 2
+			},
+			{
+				"block": "022XX S LA SALLE ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "001XX E 16TH ST",
+				"liquor": 0,
+				"crime": 21,
+				"arrest": 2
+			},
+			{
+				"block": "011XX S LUMBER ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "001XX E 11TH PL",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 3
+			},
+			{
+				"block": "023XX S NORMAL AVE",
+				"liquor": 0,
+				"crime": 14,
+				"arrest": 2
+			},
+			{
+				"block": "002XX E 14TH ST",
+				"liquor": 0,
+				"crime": 18,
+				"arrest": 2
+			},
+			{
+				"block": "003XX W LOWER WACKER DR",
+				"liquor": 0,
+				"crime": 17,
+				"arrest": 5
+			},
+			{
+				"block": "017XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 71,
+				"arrest": 11
+			},
+			{
+				"block": "003XX N LOWER LA SALLE ST",
+				"liquor": 0,
+				"crime": 13,
+				"arrest": 1
+			},
+			{
+				"block": "002XX E LAKE LOWER ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "004XX S CONGRESS PLAZA DR",
+				"liquor": 0,
+				"crime": 11,
+				"arrest": 4
+			},
+			{
+				"block": "016XX S WENTWORTH ST",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 0
+			},
+			{
+				"block": "006XX S LAKE SHORE DR SB",
+				"liquor": 0,
+				"crime": 9,
+				"arrest": 3
+			},
+			{
+				"block": "001XX E LOWER RANDOLPH ST",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 0
+			},
+			{
+				"block": "013XX S LAKE SHORE DR W",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 1
+			},
+			{
+				"block": "005XX W 16TH ST",
+				"liquor": 0,
+				"crime": 29,
+				"arrest": 2
+			},
+			{
+				"block": "019XX S DEARBORN ST",
+				"liquor": 0,
+				"crime": 7,
+				"arrest": 0
+			},
+			{
+				"block": "015XX S CLARK ST",
+				"liquor": 0,
+				"crime": 14,
+				"arrest": 6
+			},
+			{
+				"block": "002XX W RIVERWALK S",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 4
+			},
+			{
+				"block": "004XX N RUSH ST",
+				"liquor": 0,
+				"crime": 13,
+				"arrest": 1
+			},
+			{
+				"block": "010XX S DELANO CT W",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 0
+			},
+			{
+				"block": "016XX S DEARBORN ST",
+				"liquor": 0,
+				"crime": 20,
+				"arrest": 4
+			},
+			{
+				"block": "004XX W 14TH ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 2
+			},
+			{
+				"block": "005XX W VERNON PARK PL",
+				"liquor": 0,
+				"crime": 9,
+				"arrest": 3
+			},
+			{
+				"block": "009XX S FINANCIAL PL",
+				"liquor": 0,
+				"crime": 17,
+				"arrest": 1
+			},
+			{
+				"block": "0000X E 13TH ST",
+				"liquor": 0,
+				"crime": 68,
+				"arrest": 16
+			},
+			{
+				"block": "016XX S STEWART AVE",
+				"liquor": 0,
+				"crime": 11,
+				"arrest": 1
+			},
+			{
+				"block": "013XX S COLUMBUS DR",
+				"liquor": 0,
+				"crime": 25,
+				"arrest": 14
+			},
+			{
+				"block": "004XX E RIVER DR",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 0
+			},
+			{
+				"block": "0000X E 24TH ST",
+				"liquor": 0,
+				"crime": 64,
+				"arrest": 31
+			},
+			{
+				"block": "003XX W ROOSEVELT RD",
+				"liquor": 0,
+				"crime": 42,
+				"arrest": 8
+			},
+			{
+				"block": "006XX S FINANCIAL PL",
+				"liquor": 0,
+				"crime": 74,
+				"arrest": 4
+			},
+			{
+				"block": "001XX W 17TH ST",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 1
+			},
+			{
+				"block": "002XX N LOWER STETSON AVE",
+				"liquor": 0,
+				"crime": 13,
+				"arrest": 3
+			},
+			{
+				"block": "0000X W 24TH ST",
+				"liquor": 0,
+				"crime": 440,
+				"arrest": 235
+			},
+			{
+				"block": "001XX W 18TH ST",
+				"liquor": 0,
+				"crime": 20,
+				"arrest": 5
+			},
+			{
+				"block": "004XX W 17TH ST",
+				"liquor": 0,
+				"crime": 9,
+				"arrest": 1
+			},
+			{
+				"block": "006XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 29,
+				"arrest": 2
+			},
+			{
+				"block": "002XX N MILWAUKEE AVE",
+				"liquor": 0,
+				"crime": 21,
+				"arrest": 6
+			},
+			{
+				"block": "0000X W QUINCY ST",
+				"liquor": 0,
+				"crime": 7,
+				"arrest": 1
+			},
+			{
+				"block": "020XX S LUMBER ST",
+				"liquor": 0,
+				"crime": 13,
+				"arrest": 2
+			},
+			{
+				"block": "001XX W TAYLOR ST",
+				"liquor": 0,
+				"crime": 7,
+				"arrest": 0
+			},
+			{
+				"block": "010XX S PARK TER",
+				"liquor": 0,
+				"crime": 18,
+				"arrest": 3
+			},
+			{
+				"block": "0000X W 19TH ST",
+				"liquor": 0,
+				"crime": 23,
+				"arrest": 2
+			},
+			{
+				"block": "005XX W 14TH ST",
+				"liquor": 0,
+				"crime": 9,
+				"arrest": 1
+			},
+			{
+				"block": "001XX E LOWER SOUTH WATER ST",
+				"liquor": 0,
+				"crime": 10,
+				"arrest": 6
+			},
+			{
+				"block": "004XX E LOWER WACKER DR",
+				"liquor": 0,
+				"crime": 12,
+				"arrest": 2
+			},
+			{
+				"block": "0000X W CHICAGO RIVER",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "003XX W TAYLOR ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 0
+			},
+			{
+				"block": "0000X E HADDOCK PL",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 1
+			},
+			{
+				"block": "015XX S DEARBORN ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "011XX S LAKE SHORE DR E",
+				"liquor": 0,
+				"crime": 19,
+				"arrest": 8
+			},
+			{
+				"block": "011XX S HOLDEN CT",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 1
+			},
+			{
+				"block": "005XX S LAKE SHORE DR SB",
+				"liquor": 0,
+				"crime": 24,
+				"arrest": 13
+			},
+			{
+				"block": "003XX W CONGRESS PKWY",
+				"liquor": 0,
+				"crime": 16,
+				"arrest": 4
+			},
+			{
+				"block": "004XX N COLUMBUS DR",
+				"liquor": 0,
+				"crime": 14,
+				"arrest": 1
+			},
+			{
+				"block": "004XX W 18TH ST",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 2
+			},
+			{
+				"block": "016XX S HOLDEN CT",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "002XX E SOUTH WATER RAMP",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 1
+			},
+			{
+				"block": "017XX S LUMBER ST",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 0
+			},
+			{
+				"block": "001XX E RIVERWALK S",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "005XX W GRENSHAW ST",
+				"liquor": 0,
+				"crime": 63,
+				"arrest": 10
+			},
+			{
+				"block": "008XX S WABASH AV",
+				"liquor": 0,
+				"crime": 44,
+				"arrest": 19
+			},
+			{
+				"block": "001XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 182,
+				"arrest": 13
+			},
+			{
+				"block": "002XX W JACKSON BL",
+				"liquor": 0,
+				"crime": 23,
+				"arrest": 2
+			},
+			{
+				"block": "020XX S WABASH AV",
+				"liquor": 0,
+				"crime": 38,
+				"arrest": 7
+			},
+			{
+				"block": "014XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 61,
+				"arrest": 8
+			},
+			{
+				"block": "017XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 54,
+				"arrest": 15
+			},
+			{
+				"block": "005XX S WABASH AV",
+				"liquor": 0,
+				"crime": 28,
+				"arrest": 8
+			},
+			{
+				"block": "002XX N MICHIGAN AV",
+				"liquor": 0,
+				"crime": 188,
+				"arrest": 19
+			},
+			{
+				"block": "012XX S WABASH AV",
+				"liquor": 0,
+				"crime": 154,
+				"arrest": 102
+			},
+			{
+				"block": "022XX S INDIANA AV",
+				"liquor": 0,
+				"crime": 12,
+				"arrest": 1
+			},
+			{
+				"block": "004XX N MICHIGAN AV",
+				"liquor": 0,
+				"crime": 40,
+				"arrest": 4
+			},
+			{
+				"block": "007XX N LA SALLE ST",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 2
+			},
+			{
+				"block": "013XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 109,
+				"arrest": 30
+			},
+			{
+				"block": "002XX S WABASH AV",
+				"liquor": 0,
+				"crime": 177,
+				"arrest": 96
+			},
+			{
+				"block": "014XX S WABASH AV",
+				"liquor": 0,
+				"crime": 26,
+				"arrest": 2
+			},
+			{
+				"block": "006XX N LA SALLE ST",
+				"liquor": 0,
+				"crime": 12,
+				"arrest": 7
+			},
+			{
+				"block": "004XX N WABASH AV",
+				"liquor": 0,
+				"crime": 59,
+				"arrest": 5
+			},
+			{
+				"block": "0000X E JACKSON BL",
+				"liquor": 0,
+				"crime": 85,
+				"arrest": 28
+			},
+			{
+				"block": "001XX N STETSON AV",
+				"liquor": 0,
+				"crime": 25,
+				"arrest": 1
+			},
+			{
+				"block": "001XX S WABASH AV",
+				"liquor": 0,
+				"crime": 65,
+				"arrest": 20
+			},
+			{
+				"block": "023XX S INDIANA AV",
+				"liquor": 0,
+				"crime": 23,
+				"arrest": 3
+			},
+			{
+				"block": "004XX S WACKER DR",
+				"liquor": 0,
+				"crime": 34,
+				"arrest": 12
+			},
+			{
+				"block": "0000X N MICHIGAN AV",
+				"liquor": 0,
+				"crime": 69,
+				"arrest": 13
+			},
+			{
+				"block": "023XX S WENTWORTH AV",
+				"liquor": 0,
+				"crime": 53,
+				"arrest": 10
+			},
+			{
+				"block": "023XX S DR MARTN LUTHR KING JR DR",
+				"liquor": 0,
+				"crime": 43,
+				"arrest": 10
+			},
+			{
+				"block": "004XX E WACKER DR",
+				"liquor": 0,
+				"crime": 33,
+				"arrest": 10
+			},
+			{
+				"block": "0000X W WASHINGTON BV",
+				"liquor": 0,
+				"crime": 96,
+				"arrest": 17
+			},
+			{
+				"block": "003XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 47,
+				"arrest": 6
+			},
+			{
+				"block": "016XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 33,
+				"arrest": 8
+			},
+			{
+				"block": "017XX S WABASH AV",
+				"liquor": 0,
+				"crime": 15,
+				"arrest": 6
+			},
+			{
+				"block": "005XX W MAXWELL ST",
+				"liquor": 0,
+				"crime": 13,
+				"arrest": 3
+			},
+			{
+				"block": "0000X E CONGRESS PW",
+				"liquor": 0,
+				"crime": 41,
+				"arrest": 8
+			},
+			{
+				"block": "011XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 51,
+				"arrest": 10
+			},
+			{
+				"block": "003XX E ROOSEVELT RD",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "007XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 138,
+				"arrest": 20
+			},
+			{
+				"block": "0000X E 16 ST",
+				"liquor": 0,
+				"crime": 17,
+				"arrest": 3
+			},
+			{
+				"block": "015XX S WABASH AV",
+				"liquor": 0,
+				"crime": 57,
+				"arrest": 17
+			},
+			{
+				"block": "002XX W 23 PL",
+				"liquor": 0,
+				"crime": 18,
+				"arrest": 3
+			},
+			{
+				"block": "021XX S ARCHER AV",
+				"liquor": 0,
+				"crime": 80,
+				"arrest": 8
+			},
+			{
+				"block": "001XX W WASHINGTON BV",
+				"liquor": 0,
+				"crime": 39,
+				"arrest": 10
+			},
+			{
+				"block": "002XX N STETSON AV",
+				"liquor": 0,
+				"crime": 27,
+				"arrest": 2
+			},
+			{
+				"block": "0000X E JACKSON BV",
+				"liquor": 0,
+				"crime": 134,
+				"arrest": 37
+			},
+			{
+				"block": "0000X S WABASH AV",
+				"liquor": 0,
+				"crime": 121,
+				"arrest": 25
+			},
+			{
+				"block": "002XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 87,
+				"arrest": 13
+			},
+			{
+				"block": "022XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 73,
+				"arrest": 10
+			},
+			{
+				"block": "011XX S WABASH AV",
+				"liquor": 0,
+				"crime": 40,
+				"arrest": 11
+			},
+			{
+				"block": "009XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 19,
+				"arrest": 10
+			},
+			{
+				"block": "0000X E 21 ST",
+				"liquor": 0,
+				"crime": 27,
+				"arrest": 8
+			},
+			{
+				"block": "018XX S WABASH AV",
+				"liquor": 0,
+				"crime": 56,
+				"arrest": 18
+			},
+			{
+				"block": "006XX S WABASH AV",
+				"liquor": 0,
+				"crime": 76,
+				"arrest": 20
+			},
+			{
+				"block": "004XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 59,
+				"arrest": 9
+			},
+			{
+				"block": "004XX N MCCLURG CT",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 2
+			},
+			{
+				"block": "007XX S WABASH AV",
+				"liquor": 0,
+				"crime": 37,
+				"arrest": 12
+			},
+			{
+				"block": "021XX S INDIANA AV",
+				"liquor": 0,
+				"crime": 32,
+				"arrest": 4
+			},
+			{
+				"block": "004XX N LA SALLE ST",
+				"liquor": 0,
+				"crime": 38,
+				"arrest": 34
+			},
+			{
+				"block": "022XX S WABASH AV",
+				"liquor": 0,
+				"crime": 12,
+				"arrest": 5
+			},
+			{
+				"block": "0000X W JACKSON BL",
+				"liquor": 0,
+				"crime": 64,
+				"arrest": 19
+			},
+			{
+				"block": "020XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 162,
+				"arrest": 37
+			},
+			{
+				"block": "013XX N STATE ST",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 1
+			},
+			{
+				"block": "001XX N MICHIGAN AV",
+				"liquor": 0,
+				"crime": 123,
+				"arrest": 22
+			},
+			{
+				"block": "002XX E 24 ST",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 3
+			},
+			{
+				"block": "124XX S STATE ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "002XX N WABASH AV",
+				"liquor": 0,
+				"crime": 41,
+				"arrest": 7
+			},
+			{
+				"block": "0000X W JACKSON BV",
+				"liquor": 0,
+				"crime": 52,
+				"arrest": 5
+			},
+			{
+				"block": "022XX S WENTWORTH AV",
+				"liquor": 0,
+				"crime": 62,
+				"arrest": 15
+			},
+			{
+				"block": "024XX S INDIANA AV",
+				"liquor": 0,
+				"crime": 11,
+				"arrest": 1
+			},
+			{
+				"block": "021XX S WABASH AV",
+				"liquor": 0,
+				"crime": 72,
+				"arrest": 42
+			},
+			{
+				"block": "003XX W 23 PL",
+				"liquor": 0,
+				"crime": 11,
+				"arrest": 2
+			},
+			{
+				"block": "0000X W 24 ST",
+				"liquor": 0,
+				"crime": 93,
+				"arrest": 47
+			},
+			{
+				"block": "022XX S ARCHER AV",
+				"liquor": 0,
+				"crime": 28,
+				"arrest": 1
+			},
+			{
+				"block": "005XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 58,
+				"arrest": 22
+			},
+			{
+				"block": "015XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 27,
+				"arrest": 6
+			},
+			{
+				"block": "023XX S WABASH AV",
+				"liquor": 0,
+				"crime": 18,
+				"arrest": 8
+			},
+			{
+				"block": "003XX N MICHIGAN AV",
+				"liquor": 0,
+				"crime": 142,
+				"arrest": 18
+			},
+			{
+				"block": "0000X S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 33,
+				"arrest": 4
+			},
+			{
+				"block": "005XX N LA SALLE ST",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 0
+			},
+			{
+				"block": "014XX S PRAIRIE AV",
+				"liquor": 0,
+				"crime": 12,
+				"arrest": 0
+			},
+			{
+				"block": "001XX W JACKSON BV",
+				"liquor": 0,
+				"crime": 81,
+				"arrest": 16
+			},
+			{
+				"block": "0000X E 11 ST",
+				"liquor": 0,
+				"crime": 6,
+				"arrest": 1
+			},
+			{
+				"block": "022XX S PRINCETON AV",
+				"liquor": 0,
+				"crime": 26,
+				"arrest": 3
+			},
+			{
+				"block": "0000X E BALBO AV",
+				"liquor": 0,
+				"crime": 31,
+				"arrest": 7
+			},
+			{
+				"block": "020XX S WENTWORTH AV",
+				"liquor": 0,
+				"crime": 15,
+				"arrest": 2
+			},
+			{
+				"block": "023XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 98,
+				"arrest": 23
+			},
+			{
+				"block": "002XX W JACKSON BV",
+				"liquor": 0,
+				"crime": 33,
+				"arrest": 6
+			},
+			{
+				"block": "002XX W 22 PL",
+				"liquor": 0,
+				"crime": 22,
+				"arrest": 4
+			},
+			{
+				"block": "022XX S COTTAGE GROVE AVE",
+				"liquor": 0,
+				"crime": 14,
+				"arrest": 0
+			},
+			{
+				"block": "016XX S WABASH AV",
+				"liquor": 0,
+				"crime": 9,
+				"arrest": 5
+			},
+			{
+				"block": "002XX S RIVERSIDE PZ",
+				"liquor": 0,
+				"crime": 21,
+				"arrest": 8
+			},
+			{
+				"block": "001XX W JACKSON BL",
+				"liquor": 0,
+				"crime": 40,
+				"arrest": 7
+			},
+			{
+				"block": "013XX S WABASH AV",
+				"liquor": 0,
+				"crime": 38,
+				"arrest": 7
+			},
+			{
+				"block": "004XX W JACKSON BV",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 3
+			},
+			{
+				"block": "003XX N LA SALLE ST",
+				"liquor": 0,
+				"crime": 65,
+				"arrest": 3
+			},
+			{
+				"block": "010XX S WABASH AV",
+				"liquor": 0,
+				"crime": 19,
+				"arrest": 5
+			},
+			{
+				"block": "0000X W 9TH ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 1
+			},
+			{
+				"block": "003XX W WASHINGTON BV",
+				"liquor": 0,
+				"crime": 15,
+				"arrest": 4
+			},
+			{
+				"block": "003XX W 24 ST",
+				"liquor": 0,
+				"crime": 10,
+				"arrest": 2
+			},
+			{
+				"block": "001XX N LOWER STETSON AVE",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 0
+			},
+			{
+				"block": "021XX S PRAIRIE AV",
+				"liquor": 0,
+				"crime": 15,
+				"arrest": 2
+			},
+			{
+				"block": "001XX W CARROLL AV",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "018XX S NORMAL AV",
+				"liquor": 0,
+				"crime": 7,
+				"arrest": 0
+			},
+			{
+				"block": "001XX N WABASH AV",
+				"liquor": 0,
+				"crime": 128,
+				"arrest": 38
+			},
+			{
+				"block": "012XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 65,
+				"arrest": 10
+			},
+			{
+				"block": "011XX S LAKE SHORE DR W",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 2
+			},
+			{
+				"block": "002XX W WASHINGTON BV",
+				"liquor": 0,
+				"crime": 22,
+				"arrest": 4
+			},
+			{
+				"block": "003XX S WABASH AV",
+				"liquor": 0,
+				"crime": 52,
+				"arrest": 10
+			},
+			{
+				"block": "015XX S PRAIRIE AV",
+				"liquor": 0,
+				"crime": 7,
+				"arrest": 0
+			},
+			{
+				"block": "001XX S RIVERSIDE PZ",
+				"liquor": 0,
+				"crime": 26,
+				"arrest": 3
+			},
+			{
+				"block": "020XX S ARCHER AV",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 3
+			},
+			{
+				"block": "012XX N STATE ST",
+				"liquor": 0,
+				"crime": 9,
+				"arrest": 0
+			},
+			{
+				"block": "003XX W 18 ST",
+				"liquor": 0,
+				"crime": 12,
+				"arrest": 2
+			},
+			{
+				"block": "002XX W 24 ST",
+				"liquor": 0,
+				"crime": 11,
+				"arrest": 1
+			},
+			{
+				"block": "002XX W COUCH PL",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 4
+			},
+			{
+				"block": "0000X E 14 ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 1
+			},
+			{
+				"block": "022XX S COTTAGE GROVE",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 0
+			},
+			{
+				"block": "019XX S INDIANA AV",
+				"liquor": 0,
+				"crime": 21,
+				"arrest": 2
+			},
+			{
+				"block": "006XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 47,
+				"arrest": 15
+			},
+			{
+				"block": "003XX E 18 ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 1
+			},
+			{
+				"block": "002XX W CALHOUN PL",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 1
+			},
+			{
+				"block": "004XX E MC FETRIDGE DR",
+				"liquor": 0,
+				"crime": 33,
+				"arrest": 16
+			},
+			{
+				"block": "001XX W QUINCY ST",
+				"liquor": 0,
+				"crime": 18,
+				"arrest": 3
+			},
+			{
+				"block": "001XX E CHICAGO RIVER",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "0000X W 23RD ST",
+				"liquor": 0,
+				"crime": 29,
+				"arrest": 12
+			},
+			{
+				"block": "017XX S CANAL ST",
+				"liquor": 0,
+				"crime": 31,
+				"arrest": 4
+			},
+			{
+				"block": "004XX E WACKER RAMP ER",
+				"liquor": 0,
+				"crime": 7,
+				"arrest": 1
+			},
+			{
+				"block": "001XX E 24TH ST",
+				"liquor": 0,
+				"crime": 6,
+				"arrest": 2
+			},
+			{
+				"block": "007XX S HOLDEN CT",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 2
+			},
+			{
+				"block": "009XX S LA SALLE ST",
+				"liquor": 0,
+				"crime": 12,
+				"arrest": 0
+			},
+			{
+				"block": "020XX S DEARBORN ST",
+				"liquor": 0,
+				"crime": 13,
+				"arrest": 3
+			},
+			{
+				"block": "020XX S CANAL ST",
+				"liquor": 0,
+				"crime": 40,
+				"arrest": 9
+			},
+			{
+				"block": "016XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 17,
+				"arrest": 2
+			},
+			{
+				"block": "008XX S HOLDEN CT",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 1
+			},
+			{
+				"block": "023XX S COTTAGE GROVE AVE",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 0
+			},
+			{
+				"block": "016XX S LAKE SHORE DR E",
+				"liquor": 0,
+				"crime": 11,
+				"arrest": 2
+			},
+			{
+				"block": "002XX E 24TH ST",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 0
+			},
+			{
+				"block": "004XX W 16TH ST",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 0
+			},
+			{
+				"block": "024XX S INDIANA AVE",
+				"liquor": 0,
+				"crime": 32,
+				"arrest": 8
+			},
+			{
+				"block": "001XX E 24 ST",
+				"liquor": 0,
+				"crime": 6,
+				"arrest": 1
+			},
+			{
+				"block": "001XX N WACKER RAMP",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "0000X N WABASH AV",
+				"liquor": 0,
+				"crime": 43,
+				"arrest": 9
+			},
+			{
+				"block": "017XX S DEARBORN ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 0
+			},
+			{
+				"block": "014XX N STATE ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "022XX S DEARBORN ST",
+				"liquor": 0,
+				"crime": 6,
+				"arrest": 3
+			},
+			{
+				"block": "013XX S INDIANA AV",
+				"liquor": 0,
+				"crime": 17,
+				"arrest": 1
+			},
+			{
+				"block": "003XX E WACKER RAMP",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 1
+			},
+			{
+				"block": "0000X W CONGRESS PW",
+				"liquor": 0,
+				"crime": 28,
+				"arrest": 14
+			},
+			{
+				"block": "002XX E CONGRESS PW",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "010XX N LA SALLE ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 0
+			},
+			{
+				"block": "022XX S FRANKLIN EXT RYAN ER OB",
+				"liquor": 0,
+				"crime": 6,
+				"arrest": 5
+			},
+			{
+				"block": "0000X W 11TH PL",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 2
+			},
+			{
+				"block": "0000X E 24 ST",
+				"liquor": 0,
+				"crime": 11,
+				"arrest": 4
+			},
+			{
+				"block": "001XX W 24TH ST",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 0
+			},
+			{
+				"block": "018XX S CLINTON ST",
+				"liquor": 0,
+				"crime": 36,
+				"arrest": 8
+			},
+			{
+				"block": "002XX W MERCHANDISE MART PZ",
+				"liquor": 0,
+				"crime": 40,
+				"arrest": 13
+			},
+			{
+				"block": "002XX E 23RD ST",
+				"liquor": 0,
+				"crime": 11,
+				"arrest": 2
+			},
+			{
+				"block": "005XX W JACKSON BV",
+				"liquor": 0,
+				"crime": 17,
+				"arrest": 1
+			},
+			{
+				"block": "0000X S RIVERSIDE PZ",
+				"liquor": 0,
+				"crime": 17,
+				"arrest": 2
+			},
+			{
+				"block": "010XX S LA SALLE ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "009XX S WABASH AV",
+				"liquor": 0,
+				"crime": 17,
+				"arrest": 4
+			},
+			{
+				"block": "001XX W COURT PL",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "003XX S RIVERSIDE PZ",
+				"liquor": 0,
+				"crime": 28,
+				"arrest": 5
+			},
+			{
+				"block": "001XX W 23RD ST",
+				"liquor": 0,
+				"crime": 6,
+				"arrest": 0
+			},
+			{
+				"block": "017XX S CANALPORT AVE",
+				"liquor": 0,
+				"crime": 6,
+				"arrest": 0
+			},
+			{
+				"block": "016XX S FEDERAL ST",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 0
+			},
+			{
+				"block": "018XX S INDIANA AV",
+				"liquor": 0,
+				"crime": 18,
+				"arrest": 4
+			},
+			{
+				"block": "0000X E 23 ST",
+				"liquor": 0,
+				"crime": 19,
+				"arrest": 5
+			},
+			{
+				"block": "001XX W RIVERWALK S",
+				"liquor": 0,
+				"crime": 12,
+				"arrest": 9
+			},
+			{
+				"block": "010XX S LUMBER ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "001XX W 19TH ST",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 1
+			},
+			{
+				"block": "004XX N LOWER COLUMBUS DR",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "005XX S WACKER DR",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 1
+			},
+			{
+				"block": "001XX W CULLERTON ST",
+				"liquor": 0,
+				"crime": 6,
+				"arrest": 1
+			},
+			{
+				"block": "005XX W JACKSON BL",
+				"liquor": 0,
+				"crime": 12,
+				"arrest": 3
+			},
+			{
+				"block": "003XX N LOWER STETSON AVE",
+				"liquor": 0,
+				"crime": 6,
+				"arrest": 2
+			},
+			{
+				"block": "0000X S LAKE SHORE DR NB",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 3
+			},
+			{
+				"block": "023XX S ARCHER AV",
+				"liquor": 0,
+				"crime": 30,
+				"arrest": 5
+			},
+			{
+				"block": "001XX N LOWER COLUMBUS DR",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 1
+			},
+			{
+				"block": "004XX S LOWER WACKER DR",
+				"liquor": 0,
+				"crime": 9,
+				"arrest": 5
+			},
+			{
+				"block": "0000X W 13TH ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 1
+			},
+			{
+				"block": "008XX S LUMBER ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "018XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 38,
+				"arrest": 10
+			},
+			{
+				"block": "023XX S COTTAGE GROVE AV",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 1
+			},
+			{
+				"block": "0000X W 17 ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "005XX W WASHINGTON BL",
+				"liquor": 0,
+				"crime": 14,
+				"arrest": 0
+			},
+			{
+				"block": "002XX W 23 ST",
+				"liquor": 0,
+				"crime": 14,
+				"arrest": 2
+			},
+			{
+				"block": "020XX S INDIANA AV",
+				"liquor": 0,
+				"crime": 12,
+				"arrest": 0
+			},
+			{
+				"block": "019XX S PRAIRIE AV",
+				"liquor": 0,
+				"crime": 7,
+				"arrest": 1
+			},
+			{
+				"block": "0000X W 15 ST",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 2
+			},
+			{
+				"block": "018XX S CALUMET AV",
+				"liquor": 0,
+				"crime": 11,
+				"arrest": 8
+			},
+			{
+				"block": "022XX S KING DR",
+				"liquor": 0,
+				"crime": 16,
+				"arrest": 3
+			},
+			{
+				"block": "015XX S INDIANA AV",
+				"liquor": 0,
+				"crime": 15,
+				"arrest": 1
+			},
+			{
+				"block": "021XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 79,
+				"arrest": 19
+			},
+			{
+				"block": "016XX S INDIANA AV",
+				"liquor": 0,
+				"crime": 14,
+				"arrest": 2
+			},
+			{
+				"block": "0000X E 22 ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 1
+			},
+			{
+				"block": "024XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 20,
+				"arrest": 6
+			},
+			{
+				"block": "003XX N WABASH AV",
+				"liquor": 0,
+				"crime": 29,
+				"arrest": 2
+			},
+			{
+				"block": "008XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 40,
+				"arrest": 15
+			},
+			{
+				"block": "021XX S WENTWORTH AV",
+				"liquor": 0,
+				"crime": 26,
+				"arrest": 9
+			},
+			{
+				"block": "022XX S STATE STREET",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "006XX W 18 ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "009XX S PARK TR",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "002XX S WACKER RAMP",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 0
+			},
+			{
+				"block": "003XX E 21 ST",
+				"liquor": 0,
+				"crime": 10,
+				"arrest": 3
+			},
+			{
+				"block": "003XX W JACKSON BL",
+				"liquor": 0,
+				"crime": 10,
+				"arrest": 1
+			},
+			{
+				"block": "023XX S PRAIRIE AV",
+				"liquor": 0,
+				"crime": 20,
+				"arrest": 6
+			},
+			{
+				"block": "019XX S CALUMET AV",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 2
+			},
+			{
+				"block": "003XX W 23 ST",
+				"liquor": 0,
+				"crime": 9,
+				"arrest": 1
+			},
+			{
+				"block": "004XX W JACKSON BL",
+				"liquor": 0,
+				"crime": 14,
+				"arrest": 2
+			},
+			{
+				"block": "017XX S INDIANA AV",
+				"liquor": 0,
+				"crime": 18,
+				"arrest": 3
+			},
+			{
+				"block": "002XX E 21 ST",
+				"liquor": 0,
+				"crime": 10,
+				"arrest": 1
+			},
+			{
+				"block": "0000X E 8 ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "001XX E 23 ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "004XX S WABASH AV",
+				"liquor": 0,
+				"crime": 37,
+				"arrest": 8
+			},
+			{
+				"block": "018XX S PRAIRIE AV",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 1
+			},
+			{
+				"block": "001XX N RIVERSIDE PZ",
+				"liquor": 0,
+				"crime": 14,
+				"arrest": 1
+			},
+			{
+				"block": "0000X E 13 ST",
+				"liquor": 0,
+				"crime": 12,
+				"arrest": 1
+			},
+			{
+				"block": "021XX S CALUMET AV",
+				"liquor": 0,
+				"crime": 12,
+				"arrest": 2
+			},
+			{
+				"block": "005XX W 18 ST",
+				"liquor": 0,
+				"crime": 9,
+				"arrest": 4
+			},
+			{
+				"block": "019XX S WABASH AV",
+				"liquor": 0,
+				"crime": 14,
+				"arrest": 11
+			},
+			{
+				"block": "023XX S KING DR",
+				"liquor": 0,
+				"crime": 30,
+				"arrest": 17
+			},
+			{
+				"block": "024XX S STATE ST",
+				"liquor": 0,
+				"crime": 11,
+				"arrest": 3
+			},
+			{
+				"block": "014XX S JEFFERSON ST",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 0
+			},
+			{
+				"block": "0000X E 14 PL",
+				"liquor": 0,
+				"crime": 9,
+				"arrest": 3
+			},
+			{
+				"block": "005XX W CABRINI ST",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 2
+			},
+			{
+				"block": "024XX S WENTWORTH AV",
+				"liquor": 0,
+				"crime": 15,
+				"arrest": 4
+			},
+			{
+				"block": "008XX S PARK TR",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 1
+			},
+			{
+				"block": "022XX S DR MARTN LUTHR KING JR DR",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 0
+			},
+			{
+				"block": "0000X N RIVERSIDE PZ",
+				"liquor": 0,
+				"crime": 11,
+				"arrest": 2
+			},
+			{
+				"block": "019XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 19,
+				"arrest": 6
+			},
+			{
+				"block": "003XX W QUINCY ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "014XX S INDIANA AV",
+				"liquor": 0,
+				"crime": 20,
+				"arrest": 2
+			},
+			{
+				"block": "018XX S CANALPORT AV",
+				"liquor": 0,
+				"crime": 12,
+				"arrest": 1
+			},
+			{
+				"block": "002XX N LOWER STETSON AV",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "003XX E JACKSON BV",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 1
+			},
+			{
+				"block": "019XX S WENTWORTH AV",
+				"liquor": 0,
+				"crime": 29,
+				"arrest": 2
+			},
+			{
+				"block": "0000X W 19 ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 1
+			},
+			{
+				"block": "001XX E 13 ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 0
+			},
+			{
+				"block": "021XX S PRINCETON AV",
+				"liquor": 0,
+				"crime": 10,
+				"arrest": 0
+			},
+			{
+				"block": "022XX S PRAIRIE AV",
+				"liquor": 0,
+				"crime": 12,
+				"arrest": 2
+			},
+			{
+				"block": "010XX S MICHIGAN AV",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 0
+			},
+			{
+				"block": "023XX S PRINCETON AV",
+				"liquor": 0,
+				"crime": 7,
+				"arrest": 0
+			},
+			{
+				"block": "023XX S STATE STREET",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "004XX W 23 PL",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 0
+			},
+			{
+				"block": "0000X W 14 ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "024XX S DEARBORN ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 1
+			},
+			{
+				"block": "023XX S STEWART AV",
+				"liquor": 0,
+				"crime": 7,
+				"arrest": 2
+			},
+			{
+				"block": "001XX W CONGRESS PW",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 2
+			},
+			{
+				"block": "017XX S PRAIRIE AV",
+				"liquor": 0,
+				"crime": 9,
+				"arrest": 1
+			},
+			{
+				"block": "003XX E MONROE ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 0
+			},
+			{
+				"block": "005XX W CONGRESS PW",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "005XX S HOLDEN CT",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "005XX W 15 PL",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "005XX W 14 PL",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 1
+			},
+			{
+				"block": "003XX W JACKSON BV",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 1
+			},
+			{
+				"block": "006XX S HOLDEN CT",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 4
+			},
+			{
+				"block": "005XX W WASHINGTON BV",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "0000X E 18 ST",
+				"liquor": 0,
+				"crime": 6,
+				"arrest": 1
+			},
+			{
+				"block": "003XX N LOWER MICHIGAN AV",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "010XX S PARK TR",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 1
+			},
+			{
+				"block": "024XX S WABASH AV",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 1
+			},
+			{
+				"block": "022XX S CHICAGO RIVER",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "003XX W CONGRESS PW",
+				"liquor": 0,
+				"crime": 8,
+				"arrest": 3
+			},
+			{
+				"block": "002XX E 16 ST",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 2
+			},
+			{
+				"block": "001XX W 23 ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "018XX S WENTWORTH AV",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 1
+			},
+			{
+				"block": "019XX S LA SALLE ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "001XX E 21 ST",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 1
+			},
+			{
+				"block": "020XX S CALUMET AV",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 1
+			},
+			{
+				"block": "002XX E MONROE ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "002XX E JACKSON BV",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 2
+			},
+			{
+				"block": "016XX S PRAIRIE AV",
+				"liquor": 0,
+				"crime": 5,
+				"arrest": 2
+			},
+			{
+				"block": "004XX W 24 ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 0
+			},
+			{
+				"block": "024XX S WABASH AVE",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "024XX S PRAIRIE AV",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 0
+			},
+			{
+				"block": "004XX E NORTH WATER ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 0
+			},
+			{
+				"block": "019XX S ARCHER AV",
+				"liquor": 0,
+				"crime": 6,
+				"arrest": 0
+			},
+			{
+				"block": "001XX E JACKSON BV",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "005XX W 16 ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 2
+			},
+			{
+				"block": "004XX W 17 ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "001XX W 18 ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 1
+			},
+			{
+				"block": "002XX N MILWAUKEE AV",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "002XX E 18 ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "017XX S WENTWORTH AV",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "020XX S PRAIRIE AV",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 0
+			},
+			{
+				"block": "0000X W 16 ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "001XX W 19 ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "015XX S JEFFERSON ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "001XX E 16 ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "022XX S COTTAGE GROVE AV",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "012XX S INDIANA AV",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 0
+			},
+			{
+				"block": "001XX E 18 ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 1
+			},
+			{
+				"block": "003XX W 19 ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "016XX S STEWART AV",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "022XX S LUMBER ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "002XX E BALBO AV",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "001XX E BALBO AV",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "002XX W 19 ST",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 0
+			},
+			{
+				"block": "023XX S COTTAGE GROVE",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "001XX E 14 ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 0
+			},
+			{
+				"block": "004XX W WASHINGTON BV",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 1
+			},
+			{
+				"block": "009XX S HOLDEN CT",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 1
+			},
+			{
+				"block": "005XX W 15TH PL",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 3
+			},
+			{
+				"block": "001XX W CALHOUN PL",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 2
+			},
+			{
+				"block": "017XX S FEDERAL ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "002XX E 23 ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "005XX W ARCADE PL",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "008XX N LA SALLE ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 3
+			},
+			{
+				"block": "000XX N STATE ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "001XX E CONGRESS PW",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 1
+			},
+			{
+				"block": "020XX S CHINA PL",
+				"liquor": 0,
+				"crime": 7,
+				"arrest": 0
+			},
+			{
+				"block": "022XX S RYAN FRANKLIN EXT XR IB",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 1
+			},
+			{
+				"block": "009XX S LUMBER ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "003XX E RIVER DR",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 2
+			},
+			{
+				"block": "001XX W CARROLL AVE",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 0
+			},
+			{
+				"block": "002XX W ARCADE PL",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "0000X W CALHOUN PL",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "0000X E CHICAGO RIVER",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 1
+			},
+			{
+				"block": "000XX E JACKSON BLVD",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "0000X S LAKE SHORE DR SB",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "004XX E MC FETRIDGE SD",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "016XX N LA SALLE ST",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 0
+			},
+			{
+				"block": "020XX S LA SALLE ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "017XX S MOE DR",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "004XX W 22ND PL",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "009XX S LAKE SHORE DR W",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "003XX W POLK ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "015XX N STATE ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "009XX N LA SALLE ST",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 1
+			},
+			{
+				"block": "015XX N DEARBORN ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "004XX W 23 ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "001XX W 24 ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "001XX N WACKER RAMP DR",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "0000X S WACKER RAMP",
+				"liquor": 0,
+				"crime": 6,
+				"arrest": 0
+			},
+			{
+				"block": "000XX S MICHIGAN AVE",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "001XX E NORTH WATER ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "003XX W WOLF POINT PLZ",
+				"liquor": 0,
+				"crime": 7,
+				"arrest": 0
+			},
+			{
+				"block": "003XX N LOWER WABASH AVE",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 1
+			},
+			{
+				"block": "003XX E CHICAGO RIVER",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "018XX S CALUMET PKWY",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "023XX S FRANKLIN EXT RYAN ER OB",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "001XX S WACKER RAMP",
+				"liquor": 0,
+				"crime": 4,
+				"arrest": 0
+			},
+			{
+				"block": "003XX W COURT PL",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "016XX S LAKE SHORE DR W",
+				"liquor": 0,
+				"crime": 3,
+				"arrest": 0
+			},
+			{
+				"block": "005XX W 20TH PL",
+				"liquor": 0,
+				"crime": 2,
+				"arrest": 0
+			},
+			{
+				"block": "003XX W WACKER RAMP",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "017XX S LA SALLE ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "020XX S STEWART AVE",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "012XX S LUMBER ST",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			},
+			{
+				"block": "012XX S CHICAGO RIVER",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "013XX S CHICAGO RIVER",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "001XX W ARCADE PL",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 0
+			},
+			{
+				"block": "010XX S LAKE SHORE DR W",
+				"liquor": 0,
+				"crime": 1,
+				"arrest": 1
+			}
+		]
+
+
+
+	function populateScatterPlot() {
+		var ctx = document.getElementById("myChart").getContext('2d');
+		crimes = []
+		arrests = []
+		added_blue = []
+		added_orange = []
+		orange = {}
+		blue = {}
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].liquor > 0) {
+				var key = data[i].liquor + "|" + data[i].crime
+				if (added_blue.indexOf(key) < 0) {
+					crimes.push({
+						x: data[i].liquor,
+						y: data[i].crime,
+						r: 5
+					})
+					added_blue.push(key)
+					blue[key] = 1
+				} else {
+					blue[key] = blue[key] + 1
+					added_blue.push(key)
+					crimes.push({
+						x: data[i].liquor,
+						y: data[i].crime,
+						r: 5 * blue[key]
+					})
+				}
+				var key = data[i].liquor + "|" + data[i].arrest
+				if (added_orange.indexOf(key) < 0) {
+					arrests.push({
+						x: data[i].liquor,
+						y: data[i].arrest,
+						r: 5
+					})
+					added_orange.push(key)
+					orange[key] = 1
+				} else {
+					orange[key] = orange[key] + 1
+					arrests.push({
+						x: data[i].liquor,
+						y: data[i].arrest,
+						r: 5 * orange[key]
+					})
+				}
+			}
+
+		}
+
+		var scatterChart = new Chart(ctx, {
+			type: 'bubble',
+			data: {
+				datasets: [{
+					backgroundColor: "#40A3CB",
+					label: '# of Crimes',
+					data: crimes
+				},
+				{
+					label: '# of Arrests',
+					backgroundColor: "#CB7F40",
+					data: arrests
+				}],
+			},
+			options: {
+				title: {
+					display: true,
+					text: 'Crime Distribution'
+				},
+				scales: {
+					xAxes: [{
+						type: 'linear',
+						position: 'bottom',
+						gridLines: {
+							display: false
+						},
+						scaleLabel: {
+							display: true,
+							labelString: '# of businesses with liquor license'
+						},
+					}],
+					yAxes: [{
+
+						gridLines: {
+							display: false
+						}
+					}]
+				}
+			}
+		});
+	}
+	function chooseBlock(name) {
+		if(myChart2) {
+			myChart2.destroy()
+		}
+		d = []
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].block == name) {
+				d.push(data[i].liquor)
+				d.push(data[i].crime)
+				d.push(data[i].arrest)
+				break
+			}
+		}
+
+		var ctx = document.getElementById("myChart2").getContext('2d');
+		myChart2 = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["# of Businesses with liquor license", "# of crimes", "# of arrests"],
+				datasets: [{
+					data: d,
+					backgroundColor: [
+						'#CB4059',
+						'#40A3CB',
+						'#CB7F40',
+					],
+					borderColor: [
+						'rgba(255,99,132,1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				title: {
+					display: true,
+					text: 'Crime statistics for ' + name
+				},
+				legend: {
+					display: false,
+					labels: {
+						display: false
+					}
+				}
+			}
+		});
+	}
+	function loadBlocks() {
+		availableTags = []
+		for (var i = 0; i < data.length; i++) {
+			availableTags.push(data[i].block)
+		}
+		$(function () {
+			$("#tags").autocomplete({
+				source: availableTags
+			});
+		});
+	}
+	chooseBlock("002XX E LOWER RANDOLPH ST")
+	populateScatterPlot()
+	loadBlocks()
+
+
+</script>

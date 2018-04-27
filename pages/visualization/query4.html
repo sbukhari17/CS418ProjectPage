@@ -1,0 +1,5867 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Query 4</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <script src="../../assets/js/chart.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <h1>
+                <a href="../../index.html">Chi411</a>
+            </h1>
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <div class="inner">
+                <h2>Menu</h2>
+                <ul class="links">
+                    <li>
+                        <a href="../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Sentiment Counts vs Rating</a>
+                    </li>
+                </ul>
+                <a href="#" class="close">Close</a>
+            </div>
+        </nav>
+
+        <!-- Wrapper -->
+        <section id="wrapper">
+            <header>
+                <div class="inner">
+                    <h2 class="text-center">Query 4: Correlation between Food Inspection Results and Average of Review Ratings of a Restaurant.</h2>
+                </div>
+            </header>
+            <section>
+                <div style="margin-left:350px;">
+                    <div style="height:600px;width:800px;">
+                        <canvas id="myChart" style="background-color:rgba(255,255,255, 0.8);padding:10px"></canvas>
+                    </div>
+                    <div style="height:600px;width:800px;">
+                        <canvas id="myChart3" style="background-color:rgba(255,255,255, 0.8);padding:10px"></canvas>
+                    </div>
+                    <div>
+                        <label for="tags">Choose a restaurant: </label>
+                        <input id="tags" style="color:grey" value="Corner Bakery Cafe">
+                        <br/>
+                        <br/>
+                    </div>
+                    <div style="height:600px;width:800px;">
+                        <canvas id="myChart2" style="background-color:rgba(255,255,255, 0.8);padding:10px"></canvas>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+
+
+    </div>
+
+</body>
+
+</html>
+
+
+
+<script>
+    var myChart2
+    $("#tags").autocomplete({
+        select: function (event, ui) {
+            chooseRestaurant(ui.item.label)
+        }
+    });
+
+    var data = [
+        {
+            "name": "Harry's Hot Dogs",
+            "address": "Harry's Hot Dogs - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Terzo Piano",
+            "address": "Terzo Piano - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Delmonico",
+            "address": "Delmonico - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 11,
+            "conditional": 4,
+            "fail": 4
+        },
+        {
+            "name": "Roti Mediterranean Grill",
+            "address": "Roti Mediterranean Grill - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 31,
+            "conditional": 4,
+            "fail": 4
+        },
+        {
+            "name": "Chipotle Mexican Grill",
+            "address": "Chipotle Mexican Grill - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 73,
+            "conditional": 20,
+            "fail": 12
+        },
+        {
+            "name": "Mei's Kitchen",
+            "address": "Mei's Kitchen - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Au Bon Pain",
+            "address": "Au Bon Pain - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 80,
+            "conditional": 14,
+            "fail": 12
+        },
+        {
+            "name": "Corner Bakery Cafe",
+            "address": "Corner Bakery Cafe - Near Southside - Chicago, IL",
+            "review": 3,
+            "pass": 118,
+            "conditional": 23,
+            "fail": 19
+        },
+        {
+            "name": "Cajun Grill At Union Station",
+            "address": "Cajun Grill At Union Station - Near West Side - Chicago, IL",
+            "review": 2,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "IPO",
+            "address": "IPO - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "A' Cappella Bistro",
+            "address": "A' Cappella Bistro - Near Southside - Chicago, IL",
+            "review": 2,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Tesori",
+            "address": "Tesori - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 16,
+            "conditional": 3,
+            "fail": 4
+        },
+        {
+            "name": "Sopraffina",
+            "address": "Sopraffina - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 14,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Hackney's Printers' Row",
+            "address": "Hackney's Printers' Row - Printer's Row - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Off-Track Betting-Otb",
+            "address": "Off-Track Betting-Otb - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Patty Burger",
+            "address": "Patty Burger - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 1,
+            "conditional": 1,
+            "fail": 0
+        },
+        {
+            "name": "Custom House Tavern",
+            "address": "Custom House Tavern - Printer's Row - Chicago, IL",
+            "review": 4,
+            "pass": 3,
+            "conditional": 0,
+            "fail": 3
+        },
+        {
+            "name": "Au Bon Pain",
+            "address": "Au Bon Pain - Chicago, IL",
+            "review": 3,
+            "pass": 80,
+            "conditional": 14,
+            "fail": 12
+        },
+        {
+            "name": "Spa Cafe",
+            "address": "Spa Cafe - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "The Grille on State",
+            "address": "The Grille on State - CLOSED - South Loop - Chicago, IL",
+            "review": 2,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "BomBon 4",
+            "address": "BomBon 4 - CLOSED - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Au Bon Pain",
+            "address": "Au Bon Pain - Near West Side - Chicago, IL",
+            "review": 3,
+            "pass": 80,
+            "conditional": 14,
+            "fail": 12
+        },
+        {
+            "name": "Encore Liquid Lounge",
+            "address": "Encore Liquid Lounge - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Harold's Chicken Shack No 77",
+            "address": "Harold's Chicken Shack No 77 - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 5,
+            "conditional": 1,
+            "fail": 2
+        },
+        {
+            "name": "Cafecito",
+            "address": "Cafecito - South Loop - Chicago, IL",
+            "review": 5,
+            "pass": 18,
+            "conditional": 2,
+            "fail": 3
+        },
+        {
+            "name": "Chicago Windy House",
+            "address": "Chicago Windy House - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Giordano's Pizzeria",
+            "address": "Giordano's Pizzeria - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Roti Mediterranean Grill",
+            "address": "Roti Mediterranean Grill - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 31,
+            "conditional": 4,
+            "fail": 4
+        },
+        {
+            "name": "Around the Corner",
+            "address": "Around the Corner - CLOSED - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Protein Bar",
+            "address": "Protein Bar - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 46,
+            "conditional": 8,
+            "fail": 6
+        },
+        {
+            "name": "Roti Mediterranean Grill",
+            "address": "Roti Mediterranean Grill - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 31,
+            "conditional": 4,
+            "fail": 4
+        },
+        {
+            "name": "Corner Bakery Cafe",
+            "address": "Corner Bakery Cafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 118,
+            "conditional": 23,
+            "fail": 19
+        },
+        {
+            "name": "Lockwood",
+            "address": "Lockwood - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 8,
+            "conditional": 2,
+            "fail": 2
+        },
+        {
+            "name": "10 & 30 Sundry",
+            "address": "10 & 30 Sundry - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "M Burger",
+            "address": "M Burger - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 10,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Au Bon Pain Company",
+            "address": "Au Bon Pain Company - Chicago, IL",
+            "review": 3,
+            "pass": 80,
+            "conditional": 14,
+            "fail": 12
+        },
+        {
+            "name": "Corner Bakery Cafe",
+            "address": "Corner Bakery Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 118,
+            "conditional": 23,
+            "fail": 19
+        },
+        {
+            "name": "Falafill",
+            "address": "Falafill - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 4,
+            "conditional": 2,
+            "fail": 1
+        },
+        {
+            "name": "Protein Bar",
+            "address": "Protein Bar - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 46,
+            "conditional": 8,
+            "fail": 6
+        },
+        {
+            "name": "Halsted Street Deli",
+            "address": "Halsted Street Deli - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 44,
+            "conditional": 11,
+            "fail": 12
+        },
+        {
+            "name": "Mezza Grilled Wraps and Pitas",
+            "address": "Mezza Grilled Wraps and Pitas - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 19,
+            "conditional": 6,
+            "fail": 5
+        },
+        {
+            "name": "MySpa Chicago",
+            "address": "MySpa Chicago - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Potbelly's",
+            "address": "Potbelly's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Nicola's Pizzeria",
+            "address": "Nicola's Pizzeria - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Tokyo Lunch Boxes & Catering",
+            "address": "Tokyo Lunch Boxes & Catering - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 44,
+            "conditional": 11,
+            "fail": 6
+        },
+        {
+            "name": "Jimmy John's",
+            "address": "Jimmy John's - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 13,
+            "fail": 8
+        },
+        {
+            "name": "Cellars Market",
+            "address": "Cellars Market - Chicago, IL",
+            "review": 4,
+            "pass": 11,
+            "conditional": 2,
+            "fail": 2
+        },
+        {
+            "name": "Flo & Santos",
+            "address": "Flo & Santos - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 13,
+            "conditional": 2,
+            "fail": 8
+        },
+        {
+            "name": "Caffecafe",
+            "address": "Caffecafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 8,
+            "conditional": 1,
+            "fail": 0
+        },
+        {
+            "name": "U Food Grill",
+            "address": "U Food Grill - CLOSED - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Max's Take Out",
+            "address": "Max's Take Out - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 1,
+            "fail": 4
+        },
+        {
+            "name": "Arby's",
+            "address": "Arby's - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Chen's Chinese Express",
+            "address": "Chen's Chinese Express - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 2,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Hannah's Bretzel",
+            "address": "Hannah's Bretzel - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 2,
+            "fail": 0
+        },
+        {
+            "name": "Ronny's Original Chicago Steak House",
+            "address": "Ronny's Original Chicago Steak House - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "The Big Downtown",
+            "address": "The Big Downtown - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 1,
+            "fail": 0
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "Haifa Cafe",
+            "address": "Haifa Cafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 8,
+            "conditional": 2,
+            "fail": 5
+        },
+        {
+            "name": "The Italian Village Restaurants",
+            "address": "The Italian Village Restaurants - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Pockets",
+            "address": "Pockets - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 16,
+            "conditional": 3,
+            "fail": 2
+        },
+        {
+            "name": "McDonald's",
+            "address": "McDonald's - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 42,
+            "conditional": 1,
+            "fail": 13
+        },
+        {
+            "name": "Wow Bao",
+            "address": "Wow Bao - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 37,
+            "conditional": 4,
+            "fail": 3
+        },
+        {
+            "name": "Taco Fresco",
+            "address": "Taco Fresco - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 31,
+            "conditional": 2,
+            "fail": 5
+        },
+        {
+            "name": "KFC Express",
+            "address": "KFC Express - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Jimmy John's",
+            "address": "Jimmy John's - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 13,
+            "fail": 8
+        },
+        {
+            "name": "Kamehachi",
+            "address": "Kamehachi - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Which Wich Superior Sandwiches",
+            "address": "Which Wich Superior Sandwiches - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 4,
+            "fail": 2
+        },
+        {
+            "name": "Pret A Manger",
+            "address": "Pret A Manger - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 68,
+            "conditional": 5,
+            "fail": 9
+        },
+        {
+            "name": "Opart Thai House",
+            "address": "Opart Thai House - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Pizza-Ria",
+            "address": "Pizza-Ria - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "West Egg Cafe",
+            "address": "West Egg Cafe - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Exposure Restaurant & Lounge",
+            "address": "Exposure Restaurant & Lounge - CLOSED - Near Southside - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "The Garden Restaurant",
+            "address": "The Garden Restaurant - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "French Quarter Restaurant",
+            "address": "French Quarter Restaurant - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Bennigan's",
+            "address": "Bennigan's - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Pizzahut Express",
+            "address": "Pizzahut Express - Near West Side - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Oysy Japanese Sushi Restaurant",
+            "address": "Oysy Japanese Sushi Restaurant - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 6,
+            "conditional": 2,
+            "fail": 4
+        },
+        {
+            "name": "Popeye's Famous Fried Chicken",
+            "address": "Popeye's Famous Fried Chicken - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Vivere",
+            "address": "Vivere - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Gino's East Sports Bar",
+            "address": "Gino's East Sports Bar - Printer's Row - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Simply Greens",
+            "address": "Simply Greens - Near West Side - Chicago, IL",
+            "review": 2,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Wow Bao",
+            "address": "Wow Bao - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 37,
+            "conditional": 4,
+            "fail": 3
+        },
+        {
+            "name": "Indian Express",
+            "address": "Indian Express - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Bionda To Go",
+            "address": "Bionda To Go - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Ruby of Siam",
+            "address": "Ruby of Siam - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 5,
+            "conditional": 0,
+            "fail": 2
+        },
+        {
+            "name": "Chicago Kernel Gourmet Popcorn",
+            "address": "Chicago Kernel Gourmet Popcorn - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 6,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "The Vault",
+            "address": "The Vault - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Corner Bakery Cafe",
+            "address": "Corner Bakery Cafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 118,
+            "conditional": 23,
+            "fail": 19
+        },
+        {
+            "name": "Courtway Restaurant",
+            "address": "Courtway Restaurant - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Qdoba Mexican Grill",
+            "address": "Qdoba Mexican Grill - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 9,
+            "conditional": 1,
+            "fail": 3
+        },
+        {
+            "name": "Thai Spoon",
+            "address": "Thai Spoon - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 6,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Market Creations",
+            "address": "Market Creations - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 33,
+            "conditional": 12,
+            "fail": 7
+        },
+        {
+            "name": "Mac Kelly's Greens & Things",
+            "address": "Mac Kelly's Greens & Things - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 4,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Epic Burger",
+            "address": "Epic Burger - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 6,
+            "conditional": 2,
+            "fail": 5
+        },
+        {
+            "name": "Ara On",
+            "address": "Ara On - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 11,
+            "conditional": 2,
+            "fail": 1
+        },
+        {
+            "name": "Naf Naf Grill",
+            "address": "Naf Naf Grill - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 17,
+            "conditional": 5,
+            "fail": 3
+        },
+        {
+            "name": "Ricobene's",
+            "address": "Ricobene's - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "La Rosetta",
+            "address": "La Rosetta - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Fish Port",
+            "address": "Fish Port - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Mama Falco Pizza",
+            "address": "Mama Falco Pizza - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Rudy's Bar & Grille",
+            "address": "Rudy's Bar & Grille - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 9,
+            "conditional": 3,
+            "fail": 1
+        },
+        {
+            "name": "Freshii",
+            "address": "Freshii - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 63,
+            "conditional": 21,
+            "fail": 14
+        },
+        {
+            "name": "Caffe Baci",
+            "address": "Caffe Baci - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 33,
+            "conditional": 5,
+            "fail": 5
+        },
+        {
+            "name": "Howie's",
+            "address": "Howie's - CLOSED - Near Southside - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "CrÃªpe Bistro",
+            "address": "CrÃªpe Bistro - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Hannah's Bretzel",
+            "address": "Hannah's Bretzel - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 2,
+            "fail": 0
+        },
+        {
+            "name": "Cibo Matto",
+            "address": "Cibo Matto - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Sbarro",
+            "address": "Sbarro - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 36,
+            "conditional": 5,
+            "fail": 6
+        },
+        {
+            "name": "Pizano's Pizza",
+            "address": "Pizano's Pizza - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 12,
+            "conditional": 4,
+            "fail": 4
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "Roly Poly Sandwiches",
+            "address": "Roly Poly Sandwiches - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 5,
+            "conditional": 1,
+            "fail": 2
+        },
+        {
+            "name": "Park Grill",
+            "address": "Park Grill - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Maxim's Restaurant",
+            "address": "Maxim's Restaurant - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Johnny Rockets",
+            "address": "Johnny Rockets - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 9,
+            "conditional": 0,
+            "fail": 4
+        },
+        {
+            "name": "Pedersen Room",
+            "address": "Pedersen Room - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Tokyo Lunch Boxes & Catering",
+            "address": "Tokyo Lunch Boxes & Catering - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 44,
+            "conditional": 11,
+            "fail": 6
+        },
+        {
+            "name": "Pret A Manger",
+            "address": "Pret A Manger - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 68,
+            "conditional": 5,
+            "fail": 9
+        },
+        {
+            "name": "Weather Mark Tavern",
+            "address": "Weather Mark Tavern - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Wall Street Deli",
+            "address": "Wall Street Deli - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Potbelly Sandwich Works",
+            "address": "Potbelly Sandwich Works - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 48,
+            "conditional": 11,
+            "fail": 8
+        },
+        {
+            "name": "Pittsfield Cafe",
+            "address": "Pittsfield Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 9,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Osaka Express",
+            "address": "Osaka Express - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 9,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Au Bon Pain",
+            "address": "Au Bon Pain - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 80,
+            "conditional": 14,
+            "fail": 12
+        },
+        {
+            "name": "Taco Fresco",
+            "address": "Taco Fresco - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 31,
+            "conditional": 2,
+            "fail": 5
+        },
+        {
+            "name": "Oodles Of Noodles",
+            "address": "Oodles Of Noodles - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 2,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "The Berghoff Restaurant",
+            "address": "The Berghoff Restaurant - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Cosi",
+            "address": "Cosi - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 31,
+            "conditional": 7,
+            "fail": 8
+        },
+        {
+            "name": "Corner Bakery Cafe",
+            "address": "Corner Bakery Cafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 118,
+            "conditional": 23,
+            "fail": 19
+        },
+        {
+            "name": "The Green at Grant Park",
+            "address": "The Green at Grant Park - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Ronny's Original Steakhouse",
+            "address": "Ronny's Original Steakhouse - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Burrito Beach",
+            "address": "Burrito Beach - Near West Side - Chicago, IL",
+            "review": 3,
+            "pass": 28,
+            "conditional": 3,
+            "fail": 3
+        },
+        {
+            "name": "Bella Bacino's",
+            "address": "Bella Bacino's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "BB's",
+            "address": "BB's - CLOSED - Near North Side - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Buen Apetito",
+            "address": "Buen Apetito - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Trattoria Caterina",
+            "address": "Trattoria Caterina - Printer's Row - Chicago, IL",
+            "review": 3,
+            "pass": 5,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Beef and Brandy",
+            "address": "Beef and Brandy - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Uncle Abe's Deli",
+            "address": "Uncle Abe's Deli - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Blackbird",
+            "address": "Blackbird - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Sopraffina Marketcaffe",
+            "address": "Sopraffina Marketcaffe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 5,
+            "fail": 4
+        },
+        {
+            "name": "Mezcalina",
+            "address": "Mezcalina - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 6,
+            "conditional": 2,
+            "fail": 1
+        },
+        {
+            "name": "Flaco's Tacos",
+            "address": "Flaco's Tacos - Printer's Row - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "U.B. Dogs",
+            "address": "U.B. Dogs - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 8,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Hot Woks Cool Sushi",
+            "address": "Hot Woks Cool Sushi - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 18,
+            "conditional": 5,
+            "fail": 2
+        },
+        {
+            "name": "Giordano's Pizzeria",
+            "address": "Giordano's Pizzeria - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Bodega N.5",
+            "address": "Bodega N.5 - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Eleven City Diner",
+            "address": "Eleven City Diner - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 13,
+            "conditional": 2,
+            "fail": 0
+        },
+        {
+            "name": "Brasserie By LM",
+            "address": "Brasserie By LM - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 6,
+            "conditional": 1,
+            "fail": 5
+        },
+        {
+            "name": "231 Cafe",
+            "address": "231 Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Mr Submarine",
+            "address": "Mr Submarine - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Palmer House Conference Center 7",
+            "address": "Palmer House Conference Center 7 - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Jimmy John's",
+            "address": "Jimmy John's - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 33,
+            "conditional": 13,
+            "fail": 8
+        },
+        {
+            "name": "Pavilion Restaurant",
+            "address": "Pavilion Restaurant - South Loop - Chicago, IL",
+            "review": 2,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Palm Restaurant",
+            "address": "Palm Restaurant - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 8,
+            "conditional": 0,
+            "fail": 3
+        },
+        {
+            "name": "Faycurr's Urban Kitchen & Cafe",
+            "address": "Faycurr's Urban Kitchen & Cafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 4,
+            "conditional": 0,
+            "fail": 4
+        },
+        {
+            "name": "Cosi",
+            "address": "Cosi - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 31,
+            "conditional": 7,
+            "fail": 8
+        },
+        {
+            "name": "Jason's Deli",
+            "address": "Jason's Deli - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 1,
+            "fail": 2
+        },
+        {
+            "name": "Overflow Coffee Bar",
+            "address": "Overflow Coffee Bar - Near Southside - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Grillers",
+            "address": "Grillers - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Alonti Cafe",
+            "address": "Alonti Cafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 10,
+            "conditional": 6,
+            "fail": 1
+        },
+        {
+            "name": "Finkls Deli",
+            "address": "Finkls Deli - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Arby's",
+            "address": "Arby's - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Simply Thalia",
+            "address": "Simply Thalia - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 8,
+            "conditional": 4,
+            "fail": 3
+        },
+        {
+            "name": "Potter's Lounge",
+            "address": "Potter's Lounge - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Dunkin' Donuts",
+            "address": "Dunkin' Donuts - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 4,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Wisma",
+            "address": "Wisma - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "BackStage Bistro",
+            "address": "BackStage Bistro - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Alain's",
+            "address": "Alain's - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Wildberry Cafe",
+            "address": "Wildberry Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Americana Submarine",
+            "address": "Americana Submarine - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 6,
+            "conditional": 7,
+            "fail": 1
+        },
+        {
+            "name": "Silk Road Jackson",
+            "address": "Silk Road Jackson - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Avanti CaffÃ©",
+            "address": "Avanti CaffÃ© - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Pita Belly",
+            "address": "Pita Belly - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Toro Sushi Express",
+            "address": "Toro Sushi Express - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Lloyd's Chicago",
+            "address": "Lloyd's Chicago - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Berghoff CafÃ©",
+            "address": "Berghoff CafÃ© - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Yolk",
+            "address": "Yolk - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 2,
+            "fail": 2
+        },
+        {
+            "name": "Lou Malnati's Pizzeria",
+            "address": "Lou Malnati's Pizzeria - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 15,
+            "conditional": 4,
+            "fail": 1
+        },
+        {
+            "name": "Pazzo's @ 311",
+            "address": "Pazzo's @ 311 - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 2,
+            "fail": 2
+        },
+        {
+            "name": "Haute Sausage",
+            "address": "Haute Sausage - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 4,
+            "conditional": 0,
+            "fail": 2
+        },
+        {
+            "name": "Potbelly Sandwich Shop",
+            "address": "Potbelly Sandwich Shop - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Tokyo Lunch Boxes & Catering",
+            "address": "Tokyo Lunch Boxes & Catering - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 44,
+            "conditional": 11,
+            "fail": 6
+        },
+        {
+            "name": "Coco's Famous Deep Fried Lobster",
+            "address": "Coco's Famous Deep Fried Lobster - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "California Pizza Kitchen",
+            "address": "California Pizza Kitchen - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Hong Kong Cafe",
+            "address": "Hong Kong Cafe - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "The Zodiac Room",
+            "address": "The Zodiac Room - Near North Side - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Pockets",
+            "address": "Pockets - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 16,
+            "conditional": 3,
+            "fail": 2
+        },
+        {
+            "name": "Morton's The Steakhouse",
+            "address": "Morton's The Steakhouse - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Baja Fresh",
+            "address": "Baja Fresh - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Townhouse Restaurant & Wine Bar",
+            "address": "Townhouse Restaurant & Wine Bar - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "III Forks Prime Steakhouse",
+            "address": "III Forks Prime Steakhouse - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 2,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Zapatista",
+            "address": "Zapatista - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 12,
+            "conditional": 1,
+            "fail": 5
+        },
+        {
+            "name": "Au Bon Pain",
+            "address": "Au Bon Pain - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 80,
+            "conditional": 14,
+            "fail": 12
+        },
+        {
+            "name": "Arby's",
+            "address": "Arby's - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Tamalefoodie",
+            "address": "Tamalefoodie - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "The Florentine",
+            "address": "The Florentine - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 9,
+            "conditional": 2,
+            "fail": 5
+        },
+        {
+            "name": "KFC",
+            "address": "KFC - CLOSED - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Petterino's",
+            "address": "Petterino's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 20,
+            "conditional": 1,
+            "fail": 2
+        },
+        {
+            "name": "City Tavern",
+            "address": "City Tavern - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Panera Bread",
+            "address": "Panera Bread - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 15,
+            "conditional": 1,
+            "fail": 7
+        },
+        {
+            "name": "McDonald's",
+            "address": "McDonald's - The Loop - Chicago, IL",
+            "review": 1,
+            "pass": 42,
+            "conditional": 1,
+            "fail": 13
+        },
+        {
+            "name": "Jazzman's Cafe & Bakery",
+            "address": "Jazzman's Cafe & Bakery - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Wow Bao Restaurant",
+            "address": "Wow Bao Restaurant - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 37,
+            "conditional": 4,
+            "fail": 3
+        },
+        {
+            "name": "The L Cafe",
+            "address": "The L Cafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Panozzo's Italian Market",
+            "address": "Panozzo's Italian Market - Near Southside - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Subway Sandwiches",
+            "address": "Subway Sandwiches - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 196,
+            "conditional": 25,
+            "fail": 31
+        },
+        {
+            "name": "Shark's Fish & Chicken",
+            "address": "Shark's Fish & Chicken - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Gioco",
+            "address": "Gioco - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 8,
+            "conditional": 2,
+            "fail": 4
+        },
+        {
+            "name": "Korean Express",
+            "address": "Korean Express - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Wow Bow",
+            "address": "Wow Bow - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Bacci Pizzeria",
+            "address": "Bacci Pizzeria - Chicago, IL",
+            "review": 4,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Micky's Chicken & Fish",
+            "address": "Micky's Chicken & Fish - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Pastoral",
+            "address": "Pastoral - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 7,
+            "conditional": 1,
+            "fail": 2
+        },
+        {
+            "name": "Connie's Pizza",
+            "address": "Connie's Pizza - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Taza",
+            "address": "Taza - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 6,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "McDonald's",
+            "address": "McDonald's - Near West Side - Chicago, IL",
+            "review": 3,
+            "pass": 42,
+            "conditional": 1,
+            "fail": 13
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "I Dream Of Falafel",
+            "address": "I Dream Of Falafel - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 16,
+            "conditional": 6,
+            "fail": 5
+        },
+        {
+            "name": "Cardozo's Pub",
+            "address": "Cardozo's Pub - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 10,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Robinson's No 1 Ribs",
+            "address": "Robinson's No 1 Ribs - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Trattoria No. 10",
+            "address": "Trattoria No. 10 - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Five Guys Burgers & Fries",
+            "address": "Five Guys Burgers & Fries - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "Augustino's Rock & Roll Deli",
+            "address": "Augustino's Rock & Roll Deli - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Chicago Curry House",
+            "address": "Chicago Curry House - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 6,
+            "conditional": 3,
+            "fail": 3
+        },
+        {
+            "name": "The Walnut Room",
+            "address": "The Walnut Room - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Halsted Street Deli",
+            "address": "Halsted Street Deli - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 44,
+            "conditional": 11,
+            "fail": 12
+        },
+        {
+            "name": "Emil's Bar & Grill",
+            "address": "Emil's Bar & Grill - CLOSED - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "DOS Hermanos Mexican Restaurante",
+            "address": "DOS Hermanos Mexican Restaurante - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "au bon pain",
+            "address": "au bon pain - The Loop - Chicago, IL",
+            "review": 1,
+            "pass": 80,
+            "conditional": 14,
+            "fail": 12
+        },
+        {
+            "name": "Bacci Pizzeria",
+            "address": "Bacci Pizzeria - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Sbarro Italian Eatery",
+            "address": "Sbarro Italian Eatery - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 36,
+            "conditional": 5,
+            "fail": 6
+        },
+        {
+            "name": "The Metropolitan Club",
+            "address": "The Metropolitan Club - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 8,
+            "conditional": 6,
+            "fail": 3
+        },
+        {
+            "name": "Flavor 180",
+            "address": "Flavor 180 - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 9,
+            "conditional": 0,
+            "fail": 4
+        },
+        {
+            "name": "The Scout",
+            "address": "The Scout - Near Southside - Chicago, IL",
+            "review": 3,
+            "pass": 10,
+            "conditional": 2,
+            "fail": 1
+        },
+        {
+            "name": "Petra Cafe",
+            "address": "Petra Cafe - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Alonti Market Cafe",
+            "address": "Alonti Market Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Jimmy John's",
+            "address": "Jimmy John's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 13,
+            "fail": 8
+        },
+        {
+            "name": "Davino's Little Pompei",
+            "address": "Davino's Little Pompei - CLOSED - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Cafe 200",
+            "address": "Cafe 200 - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Chipotle Mexican Grill",
+            "address": "Chipotle Mexican Grill - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 73,
+            "conditional": 20,
+            "fail": 12
+        },
+        {
+            "name": "The India Grill",
+            "address": "The India Grill - CLOSED - South Loop - Chicago, IL",
+            "review": 2,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Mediterranean Delight",
+            "address": "Mediterranean Delight - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Lalo's Restaurant",
+            "address": "Lalo's Restaurant - CLOSED - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Green Apple Cafe",
+            "address": "Green Apple Cafe - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Ponte Fresco",
+            "address": "Ponte Fresco - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 3,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Quizno's Sub's",
+            "address": "Quizno's Sub's - CLOSED - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "5411 Empanadas",
+            "address": "5411 Empanadas - Lakeview - Chicago, IL",
+            "review": 4,
+            "pass": 2,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "Alonti Cafe",
+            "address": "Alonti Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 6,
+            "fail": 1
+        },
+        {
+            "name": "Russian Tea Time",
+            "address": "Russian Tea Time - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 9,
+            "conditional": 3,
+            "fail": 2
+        },
+        {
+            "name": "Shikago Restaurant",
+            "address": "Shikago Restaurant - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Marcello's Market & Deli",
+            "address": "Marcello's Market & Deli - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 14,
+            "conditional": 2,
+            "fail": 5
+        },
+        {
+            "name": "Popeye's Famous Fried Chicken",
+            "address": "Popeye's Famous Fried Chicken - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Med Kitchen",
+            "address": "Med Kitchen - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 8,
+            "conditional": 1,
+            "fail": 3
+        },
+        {
+            "name": "Haifa Cafe",
+            "address": "Haifa Cafe - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 8,
+            "conditional": 2,
+            "fail": 5
+        },
+        {
+            "name": "Off the Tracks Grill",
+            "address": "Off the Tracks Grill - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 8,
+            "conditional": 3,
+            "fail": 0
+        },
+        {
+            "name": "McDonald's",
+            "address": "McDonald's - Near Southside - Chicago, IL",
+            "review": 3,
+            "pass": 42,
+            "conditional": 1,
+            "fail": 13
+        },
+        {
+            "name": "Einstein Bros Bagels",
+            "address": "Einstein Bros Bagels - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "A Mano",
+            "address": "A Mano - CLOSED - Near North Side - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Eat & Drink",
+            "address": "Eat & Drink - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 4,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "The Chicago Firehouse Restaurant",
+            "address": "The Chicago Firehouse Restaurant - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 4,
+            "conditional": 0,
+            "fail": 5
+        },
+        {
+            "name": "Potbelly Sandwich Works",
+            "address": "Potbelly Sandwich Works - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 48,
+            "conditional": 11,
+            "fail": 8
+        },
+        {
+            "name": "Cosi",
+            "address": "Cosi - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 31,
+            "conditional": 7,
+            "fail": 8
+        },
+        {
+            "name": "Olive Mediterranean Grill",
+            "address": "Olive Mediterranean Grill - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 4,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Mezza",
+            "address": "Mezza - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 19,
+            "conditional": 6,
+            "fail": 5
+        },
+        {
+            "name": "KFC & Pizza Hut Express",
+            "address": "KFC & Pizza Hut Express - CLOSED - South Loop - Chicago, IL",
+            "review": 1,
+            "pass": 3,
+            "conditional": 2,
+            "fail": 1
+        },
+        {
+            "name": "Cocina Barro",
+            "address": "Cocina Barro - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Potbelly Sandwich Works",
+            "address": "Potbelly Sandwich Works - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 48,
+            "conditional": 11,
+            "fail": 8
+        },
+        {
+            "name": "Tavern At The Park",
+            "address": "Tavern At The Park - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 0,
+            "fail": 4
+        },
+        {
+            "name": "Cereality Cereal Bar & Cafe",
+            "address": "Cereality Cereal Bar & Cafe - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Caffe Baci",
+            "address": "Caffe Baci - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 5,
+            "fail": 5
+        },
+        {
+            "name": "Houlihan's",
+            "address": "Houlihan's - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 7,
+            "conditional": 1,
+            "fail": 3
+        },
+        {
+            "name": "Hi Tea",
+            "address": "Hi Tea - CLOSED - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Panda Express",
+            "address": "Panda Express - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 12,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Chipotle Mexican Grill",
+            "address": "Chipotle Mexican Grill - CLOSED - The Loop - Chicago, IL",
+            "review": 1,
+            "pass": 73,
+            "conditional": 20,
+            "fail": 12
+        },
+        {
+            "name": "Nino Paninos",
+            "address": "Nino Paninos - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Barro Mexican Cruisine",
+            "address": "Barro Mexican Cruisine - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Sixty Five Chinese Restaurants",
+            "address": "Sixty Five Chinese Restaurants - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 11,
+            "conditional": 1,
+            "fail": 0
+        },
+        {
+            "name": "Potbelly Sandwich Shop",
+            "address": "Potbelly Sandwich Shop - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "La Cocina",
+            "address": "La Cocina - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "The Grille on Jackson",
+            "address": "The Grille on Jackson - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Mac Kelly's Greens & Things",
+            "address": "Mac Kelly's Greens & Things - Chicago, IL",
+            "review": 4,
+            "pass": 4,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Tokyo Lunch Boxes & Catering",
+            "address": "Tokyo Lunch Boxes & Catering - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 44,
+            "conditional": 11,
+            "fail": 6
+        },
+        {
+            "name": "China Grill",
+            "address": "China Grill - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 2,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Chutney Joe's",
+            "address": "Chutney Joe's - Near West Side - Chicago, IL",
+            "review": 2,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Caffe Baci",
+            "address": "Caffe Baci - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 5,
+            "fail": 5
+        },
+        {
+            "name": "McDonald's",
+            "address": "McDonald's - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 42,
+            "conditional": 1,
+            "fail": 13
+        },
+        {
+            "name": "Waffles",
+            "address": "Waffles - Near Southside - Chicago, IL",
+            "review": 3,
+            "pass": 7,
+            "conditional": 1,
+            "fail": 5
+        },
+        {
+            "name": "Venice Cafe",
+            "address": "Venice Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 7,
+            "conditional": 3,
+            "fail": 2
+        },
+        {
+            "name": "Tokyo Lunchbox",
+            "address": "Tokyo Lunchbox - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Rosebud Prime",
+            "address": "Rosebud Prime - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 8,
+            "conditional": 2,
+            "fail": 2
+        },
+        {
+            "name": "Hot Woks Cool Sushi",
+            "address": "Hot Woks Cool Sushi - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 18,
+            "conditional": 5,
+            "fail": 2
+        },
+        {
+            "name": "Alonti Cafe",
+            "address": "Alonti Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 6,
+            "fail": 1
+        },
+        {
+            "name": "Potbelly Sandwich Works",
+            "address": "Potbelly Sandwich Works - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 48,
+            "conditional": 11,
+            "fail": 8
+        },
+        {
+            "name": "Trader Vics",
+            "address": "Trader Vics - CLOSED - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Bennigan's Grill & Tavern",
+            "address": "Bennigan's Grill & Tavern - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Tahini Mediterranean Cafe",
+            "address": "Tahini Mediterranean Cafe - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Pizza-Ria",
+            "address": "Pizza-Ria - CLOSED - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Panera Bread",
+            "address": "Panera Bread - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 15,
+            "conditional": 1,
+            "fail": 7
+        },
+        {
+            "name": "Pockets",
+            "address": "Pockets - Printer's Row - Chicago, IL",
+            "review": 4,
+            "pass": 16,
+            "conditional": 3,
+            "fail": 2
+        },
+        {
+            "name": "Corner Bakery Cafe",
+            "address": "Corner Bakery Cafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 118,
+            "conditional": 23,
+            "fail": 19
+        },
+        {
+            "name": "Vista Carry Out",
+            "address": "Vista Carry Out - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Triple 1 Chinese Restaurant",
+            "address": "Triple 1 Chinese Restaurant - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "La Cocina",
+            "address": "La Cocina - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Allstars Sports Bar & Grill",
+            "address": "Allstars Sports Bar & Grill - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "The Lounge",
+            "address": "The Lounge - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Jimmy John's",
+            "address": "Jimmy John's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 13,
+            "fail": 8
+        },
+        {
+            "name": "Chicago Carry Out",
+            "address": "Chicago Carry Out - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Chicago Pizza Tours",
+            "address": "Chicago Pizza Tours - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Primebar Chicago",
+            "address": "Primebar Chicago - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Potbelly Sandwich Works",
+            "address": "Potbelly Sandwich Works - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 48,
+            "conditional": 11,
+            "fail": 8
+        },
+        {
+            "name": "Market Creations",
+            "address": "Market Creations - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 12,
+            "fail": 7
+        },
+        {
+            "name": "Chi-Town Pizza Express",
+            "address": "Chi-Town Pizza Express - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 1,
+            "fail": 0
+        },
+        {
+            "name": "Metro Deli & Cafe",
+            "address": "Metro Deli & Cafe - Near West Side - Chicago, IL",
+            "review": 3,
+            "pass": 5,
+            "conditional": 5,
+            "fail": 0
+        },
+        {
+            "name": "Asian Chao and Villa Italian",
+            "address": "Asian Chao and Villa Italian - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "La Cocina",
+            "address": "La Cocina - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Sidebar Grille",
+            "address": "Sidebar Grille - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 4,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Nick's Fishmarket",
+            "address": "Nick's Fishmarket - CLOSED - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Taco Fresco",
+            "address": "Taco Fresco - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 31,
+            "conditional": 2,
+            "fail": 5
+        },
+        {
+            "name": "Au Bon Pain",
+            "address": "Au Bon Pain - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 80,
+            "conditional": 14,
+            "fail": 12
+        },
+        {
+            "name": "Native Foods Cafe",
+            "address": "Native Foods Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 6,
+            "conditional": 1,
+            "fail": 5
+        },
+        {
+            "name": "ItaliAsia",
+            "address": "ItaliAsia - Near North Side - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Keefer's Kaffe",
+            "address": "Keefer's Kaffe - Near North Side - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Mezza Grilled Wraps & Pitas",
+            "address": "Mezza Grilled Wraps & Pitas - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 19,
+            "conditional": 6,
+            "fail": 5
+        },
+        {
+            "name": "Market Thyme",
+            "address": "Market Thyme - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 9,
+            "conditional": 4,
+            "fail": 4
+        },
+        {
+            "name": "Chicken Planet",
+            "address": "Chicken Planet - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 12,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Lobby Lounge",
+            "address": "Lobby Lounge - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "The African Truck",
+            "address": "The African Truck - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Dagwood's Sandwich Factory",
+            "address": "Dagwood's Sandwich Factory - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Burrito Beach",
+            "address": "Burrito Beach - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 28,
+            "conditional": 3,
+            "fail": 3
+        },
+        {
+            "name": "Frango Cafe",
+            "address": "Frango Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Bon Appetit",
+            "address": "Bon Appetit - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 1,
+            "conditional": 1,
+            "fail": 0
+        },
+        {
+            "name": "Bonivino Restaurant",
+            "address": "Bonivino Restaurant - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "McCormick & Schmick's",
+            "address": "McCormick & Schmick's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Chicago Sub",
+            "address": "Chicago Sub - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Franklin Tap",
+            "address": "Franklin Tap - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Panda Express",
+            "address": "Panda Express - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 12,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Ricobene's",
+            "address": "Ricobene's - CLOSED - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Bockwinkel's",
+            "address": "Bockwinkel's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 3,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Jimmy John's",
+            "address": "Jimmy John's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 13,
+            "fail": 8
+        },
+        {
+            "name": "Panda Express",
+            "address": "Panda Express - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 12,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Pret A Manger",
+            "address": "Pret A Manger - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 68,
+            "conditional": 5,
+            "fail": 9
+        },
+        {
+            "name": "Trotter's To Go Express",
+            "address": "Trotter's To Go Express - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Corner Bakery Cafe",
+            "address": "Corner Bakery Cafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 118,
+            "conditional": 23,
+            "fail": 19
+        },
+        {
+            "name": "Heaven On Seven On Wabash",
+            "address": "Heaven On Seven On Wabash - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 16,
+            "conditional": 1,
+            "fail": 6
+        },
+        {
+            "name": "New Orleans Kitchen",
+            "address": "New Orleans Kitchen - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 9,
+            "conditional": 4,
+            "fail": 4
+        },
+        {
+            "name": "Popeyes",
+            "address": "Popeyes - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "McDonald's",
+            "address": "McDonald's - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 42,
+            "conditional": 1,
+            "fail": 13
+        },
+        {
+            "name": "The Plaza at Park Grill",
+            "address": "The Plaza at Park Grill - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Estelle's Kitchens",
+            "address": "Estelle's Kitchens - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Au Bon Pain",
+            "address": "Au Bon Pain - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 80,
+            "conditional": 14,
+            "fail": 12
+        },
+        {
+            "name": "America's Dog",
+            "address": "America's Dog - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 18,
+            "conditional": 2,
+            "fail": 5
+        },
+        {
+            "name": "Burger King Express",
+            "address": "Burger King Express - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 11,
+            "conditional": 1,
+            "fail": 2
+        },
+        {
+            "name": "Panda Express",
+            "address": "Panda Express - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 12,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Panda Express",
+            "address": "Panda Express - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 12,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Typhoon Cafe",
+            "address": "Typhoon Cafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Shalom Deli",
+            "address": "Shalom Deli - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Haifa Cafe",
+            "address": "Haifa Cafe - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 8,
+            "conditional": 2,
+            "fail": 5
+        },
+        {
+            "name": "Atwood Cafe",
+            "address": "Atwood Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 3,
+            "conditional": 1,
+            "fail": 0
+        },
+        {
+            "name": "America's Dog",
+            "address": "America's Dog - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 18,
+            "conditional": 2,
+            "fail": 5
+        },
+        {
+            "name": "Sbarro D Italian Italy",
+            "address": "Sbarro D Italian Italy - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 36,
+            "conditional": 5,
+            "fail": 6
+        },
+        {
+            "name": "Coogan's Riverside Saloon",
+            "address": "Coogan's Riverside Saloon - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 10,
+            "conditional": 8,
+            "fail": 3
+        },
+        {
+            "name": "Sopraffina Marketcaffe",
+            "address": "Sopraffina Marketcaffe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 5,
+            "fail": 4
+        },
+        {
+            "name": "The Dock at Montrose Beach",
+            "address": "The Dock at Montrose Beach - Uptown - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Park Cafe",
+            "address": "Park Cafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Hoyt's Chicago",
+            "address": "Hoyt's Chicago - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Daddy O's",
+            "address": "Daddy O's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Elephant & Castle",
+            "address": "Elephant & Castle - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 2,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Got Pizza",
+            "address": "Got Pizza - CLOSED - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Mr Submarine",
+            "address": "Mr Submarine - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Edwardo's Natural Pizza Restaurant",
+            "address": "Edwardo's Natural Pizza Restaurant - CLOSED - Printer's Row - Chicago, IL",
+            "review": 3,
+            "pass": 9,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Marquette Inn Restaurant",
+            "address": "Marquette Inn Restaurant - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Mixed Greens",
+            "address": "Mixed Greens - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 3,
+            "conditional": 4,
+            "fail": 3
+        },
+        {
+            "name": "Jimmy John's",
+            "address": "Jimmy John's - Near West Side - Chicago, IL",
+            "review": 3,
+            "pass": 33,
+            "conditional": 13,
+            "fail": 8
+        },
+        {
+            "name": "Mac Kelly's Greens & Things",
+            "address": "Mac Kelly's Greens & Things - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 4,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Giordano's Pizzeria",
+            "address": "Giordano's Pizzeria - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Mama Falco's Pizza",
+            "address": "Mama Falco's Pizza - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Manchu Wok",
+            "address": "Manchu Wok - The Loop - Chicago, IL",
+            "review": 1,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Rhapsody",
+            "address": "Rhapsody - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "The Great Steak & Potato Company",
+            "address": "The Great Steak & Potato Company - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Cafe Mediterra",
+            "address": "Cafe Mediterra - CLOSED - Printer's Row - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Sbarro",
+            "address": "Sbarro - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 36,
+            "conditional": 5,
+            "fail": 6
+        },
+        {
+            "name": "Stocks & Blondes Bar & Grille",
+            "address": "Stocks & Blondes Bar & Grille - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 6,
+            "conditional": 2,
+            "fail": 2
+        },
+        {
+            "name": "Tribute",
+            "address": "Tribute - CLOSED - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Rivers",
+            "address": "Rivers - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 7,
+            "conditional": 8,
+            "fail": 2
+        },
+        {
+            "name": "Delhi 6",
+            "address": "Delhi 6 - CLOSED - North Center - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Potbelly Sandwich Works",
+            "address": "Potbelly Sandwich Works - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 48,
+            "conditional": 11,
+            "fail": 8
+        },
+        {
+            "name": "Brian's Juice Bar & Deli",
+            "address": "Brian's Juice Bar & Deli - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - Near North Side - Chicago, IL",
+            "review": 3,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "212 On The River",
+            "address": "212 On The River - Near West Side - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Hilton Chicago",
+            "address": "Hilton Chicago - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Halsted Street Deli",
+            "address": "Halsted Street Deli - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 44,
+            "conditional": 11,
+            "fail": 12
+        },
+        {
+            "name": "CrÃªpes Cafe",
+            "address": "CrÃªpes Cafe - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Eggy's Diner",
+            "address": "Eggy's Diner - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Giordano's",
+            "address": "Giordano's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Simply Fresh",
+            "address": "Simply Fresh - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Avec",
+            "address": "Avec - Near West Side - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Jimmy Johns",
+            "address": "Jimmy Johns - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 30,
+            "conditional": 6,
+            "fail": 6
+        },
+        {
+            "name": "Dairy Queen",
+            "address": "Dairy Queen - CLOSED - Near West Side - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Burrito Beach",
+            "address": "Burrito Beach - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 28,
+            "conditional": 3,
+            "fail": 3
+        },
+        {
+            "name": "Quiznos",
+            "address": "Quiznos - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Qdoba Mexican Grill",
+            "address": "Qdoba Mexican Grill - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 9,
+            "conditional": 1,
+            "fail": 3
+        },
+        {
+            "name": "Auntie Anne's",
+            "address": "Auntie Anne's - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Pret A Manger",
+            "address": "Pret A Manger - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 68,
+            "conditional": 5,
+            "fail": 9
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "My Thai Restaurant On Michigan",
+            "address": "My Thai Restaurant On Michigan - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 8,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Stefani's Tuscany Cafe",
+            "address": "Stefani's Tuscany Cafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 2,
+            "conditional": 1,
+            "fail": 0
+        },
+        {
+            "name": "Fontano's Subs",
+            "address": "Fontano's Subs - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "La Cocina Mexican Grill",
+            "address": "La Cocina Mexican Grill - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Symphony Center",
+            "address": "Symphony Center - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Bombay Wraps",
+            "address": "Bombay Wraps - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 13,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Rosebud Restaurent",
+            "address": "Rosebud Restaurent - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Sixty Five Chinese Restaurant",
+            "address": "Sixty Five Chinese Restaurant - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 11,
+            "conditional": 1,
+            "fail": 0
+        },
+        {
+            "name": "McDonald's",
+            "address": "McDonald's - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 42,
+            "conditional": 1,
+            "fail": 13
+        },
+        {
+            "name": "Corner Bakery Cafe",
+            "address": "Corner Bakery Cafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 118,
+            "conditional": 23,
+            "fail": 19
+        },
+        {
+            "name": "Salad Spinners",
+            "address": "Salad Spinners - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Thai Spoon & Sushi",
+            "address": "Thai Spoon & Sushi - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 6,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Madison Street Cafe",
+            "address": "Madison Street Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 6,
+            "conditional": 1,
+            "fail": 2
+        },
+        {
+            "name": "Jimmy John's",
+            "address": "Jimmy John's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 13,
+            "fail": 8
+        },
+        {
+            "name": "WingStop",
+            "address": "WingStop - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Taco Fresco",
+            "address": "Taco Fresco - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 31,
+            "conditional": 2,
+            "fail": 5
+        },
+        {
+            "name": "Roti Mediterranean Grill",
+            "address": "Roti Mediterranean Grill - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 31,
+            "conditional": 4,
+            "fail": 4
+        },
+        {
+            "name": "Dearborn Street Oyster Bar & Restaurant",
+            "address": "Dearborn Street Oyster Bar & Restaurant - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Corner Bakery Cafe",
+            "address": "Corner Bakery Cafe - Near West Side - Chicago, IL",
+            "review": 3,
+            "pass": 118,
+            "conditional": 23,
+            "fail": 19
+        },
+        {
+            "name": "Standing Room Only",
+            "address": "Standing Room Only - Printer's Row - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Taco Fresco",
+            "address": "Taco Fresco - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 31,
+            "conditional": 2,
+            "fail": 5
+        },
+        {
+            "name": "J. Randolph's Bar & Grill",
+            "address": "J. Randolph's Bar & Grill - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Mercat a la Planxa",
+            "address": "Mercat a la Planxa - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Pockets Restaurant",
+            "address": "Pockets Restaurant - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 16,
+            "conditional": 3,
+            "fail": 2
+        },
+        {
+            "name": "Panda Express",
+            "address": "Panda Express - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 12,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Little Branch Cafe",
+            "address": "Little Branch Cafe - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 3,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "McDonald's",
+            "address": "McDonald's - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 42,
+            "conditional": 1,
+            "fail": 13
+        },
+        {
+            "name": "Zacatacos",
+            "address": "Zacatacos - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 1,
+            "conditional": 1,
+            "fail": 0
+        },
+        {
+            "name": "Noodles & Company",
+            "address": "Noodles & Company - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 29,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Sopraffina Marketcaffe",
+            "address": "Sopraffina Marketcaffe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 5,
+            "fail": 4
+        },
+        {
+            "name": "Quizno's",
+            "address": "Quizno's - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Kim & Carlos Hot Dog Stand",
+            "address": "Kim & Carlos Hot Dog Stand - Near Southside - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Aria",
+            "address": "Aria - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "HomeMade Pizza Company",
+            "address": "HomeMade Pizza Company - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 4,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Curried Loop",
+            "address": "Curried Loop - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 5,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Plymouth Restaurant & Bar",
+            "address": "Plymouth Restaurant & Bar - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 12,
+            "conditional": 1,
+            "fail": 3
+        },
+        {
+            "name": "Chipotle Mexican Grill",
+            "address": "Chipotle Mexican Grill - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 73,
+            "conditional": 20,
+            "fail": 12
+        },
+        {
+            "name": "Potbelly Sandwich Works",
+            "address": "Potbelly Sandwich Works - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 48,
+            "conditional": 11,
+            "fail": 8
+        },
+        {
+            "name": "Amarit Thai Restaurant",
+            "address": "Amarit Thai Restaurant - Printer's Row - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Jamba Juice",
+            "address": "Jamba Juice - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 12,
+            "conditional": 0,
+            "fail": 4
+        },
+        {
+            "name": "Qdoba Mexican Grill",
+            "address": "Qdoba Mexican Grill - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 9,
+            "conditional": 1,
+            "fail": 3
+        },
+        {
+            "name": "Harold's Chicken Shack",
+            "address": "Harold's Chicken Shack - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 5,
+            "conditional": 1,
+            "fail": 2
+        },
+        {
+            "name": "Robinson's Ribs",
+            "address": "Robinson's Ribs - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Bar Louie",
+            "address": "Bar Louie - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 11,
+            "conditional": 2,
+            "fail": 9
+        },
+        {
+            "name": "Great Street Restaurant",
+            "address": "Great Street Restaurant - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Tokyo Lunchbox",
+            "address": "Tokyo Lunchbox - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Goodwin's",
+            "address": "Goodwin's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 9,
+            "conditional": 1,
+            "fail": 4
+        },
+        {
+            "name": "Yang",
+            "address": "Yang - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 6,
+            "conditional": 0,
+            "fail": 2
+        },
+        {
+            "name": "Raw",
+            "address": "Raw - Near West Side - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Sopraffina Marketcaffe",
+            "address": "Sopraffina Marketcaffe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 5,
+            "fail": 4
+        },
+        {
+            "name": "Artist's Cafe",
+            "address": "Artist's Cafe - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 2,
+            "conditional": 0,
+            "fail": 2
+        },
+        {
+            "name": "Delmonico Illinois Center",
+            "address": "Delmonico Illinois Center - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 11,
+            "conditional": 4,
+            "fail": 4
+        },
+        {
+            "name": "Taco Fresco",
+            "address": "Taco Fresco - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 31,
+            "conditional": 2,
+            "fail": 5
+        },
+        {
+            "name": "Corner Bakery Cafe",
+            "address": "Corner Bakery Cafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 118,
+            "conditional": 23,
+            "fail": 19
+        },
+        {
+            "name": "I Dream of Falafel",
+            "address": "I Dream of Falafel - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 16,
+            "conditional": 6,
+            "fail": 5
+        },
+        {
+            "name": "Mangino's",
+            "address": "Mangino's - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "ROOF",
+            "address": "ROOF - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Billy Goat Tavern & Grill",
+            "address": "Billy Goat Tavern & Grill - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 18,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "One North Kitchen & Bar",
+            "address": "One North Kitchen & Bar - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 9,
+            "conditional": 2,
+            "fail": 3
+        },
+        {
+            "name": "Midtown Kitchen + Bar",
+            "address": "Midtown Kitchen + Bar - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 1,
+            "conditional": 1,
+            "fail": 0
+        },
+        {
+            "name": "Tamarind",
+            "address": "Tamarind - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 0,
+            "fail": 3
+        },
+        {
+            "name": "Sushi Sai",
+            "address": "Sushi Sai - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 9,
+            "conditional": 2,
+            "fail": 6
+        },
+        {
+            "name": "Under 55 Cafe",
+            "address": "Under 55 Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 9,
+            "conditional": 2,
+            "fail": 3
+        },
+        {
+            "name": "Pizza Hut Express and KFC",
+            "address": "Pizza Hut Express and KFC - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 3,
+            "conditional": 2,
+            "fail": 1
+        },
+        {
+            "name": "Pollitos Grill & Rotisserie",
+            "address": "Pollitos Grill & Rotisserie - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 14,
+            "conditional": 1,
+            "fail": 2
+        },
+        {
+            "name": "Donna's Cafe",
+            "address": "Donna's Cafe - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 2,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Exchequer Restaurant & Pub",
+            "address": "Exchequer Restaurant & Pub - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 3,
+            "fail": 2
+        },
+        {
+            "name": "Jersey Mike's Subs",
+            "address": "Jersey Mike's Subs - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 23,
+            "conditional": 4,
+            "fail": 5
+        },
+        {
+            "name": "Old Timers Restaurant & Lounge",
+            "address": "Old Timers Restaurant & Lounge - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Alonti Deli",
+            "address": "Alonti Deli - Near West Side - Chicago, IL",
+            "review": 3,
+            "pass": 17,
+            "conditional": 7,
+            "fail": 9
+        },
+        {
+            "name": "Salad Creations",
+            "address": "Salad Creations - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Boston Blackies",
+            "address": "Boston Blackies - Near West Side - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Westminster Hot Dog",
+            "address": "Westminster Hot Dog - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Siam Rice",
+            "address": "Siam Rice - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Quiznos",
+            "address": "Quiznos - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Quizno's Subs",
+            "address": "Quizno's Subs - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "I Love Sushi",
+            "address": "I Love Sushi - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 8,
+            "conditional": 3,
+            "fail": 0
+        },
+        {
+            "name": "Freshii",
+            "address": "Freshii - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 63,
+            "conditional": 21,
+            "fail": 14
+        },
+        {
+            "name": "Jersey Mike's Subs",
+            "address": "Jersey Mike's Subs - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 23,
+            "conditional": 4,
+            "fail": 5
+        },
+        {
+            "name": "Ronny's III",
+            "address": "Ronny's III - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Potbelly Sandwich Works",
+            "address": "Potbelly Sandwich Works - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 48,
+            "conditional": 11,
+            "fail": 8
+        },
+        {
+            "name": "Bowl Square",
+            "address": "Bowl Square - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Fresh Choice",
+            "address": "Fresh Choice - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Chicago Sports Bar & Grill",
+            "address": "Chicago Sports Bar & Grill - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Cyrano's Cafe On The River",
+            "address": "Cyrano's Cafe On The River - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Monday's Restaurant",
+            "address": "Monday's Restaurant - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Orange on Harrison",
+            "address": "Orange on Harrison - CLOSED - Printer's Row - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Panera Bread",
+            "address": "Panera Bread - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 15,
+            "conditional": 1,
+            "fail": 7
+        },
+        {
+            "name": "Ma & I",
+            "address": "Ma & I - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Nick & Tony's Italian Chop House",
+            "address": "Nick & Tony's Italian Chop House - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 5,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Jaffa Bakery",
+            "address": "Jaffa Bakery - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 0,
+            "fail": 7
+        },
+        {
+            "name": "Halsted Street Deli",
+            "address": "Halsted Street Deli - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 44,
+            "conditional": 11,
+            "fail": 12
+        },
+        {
+            "name": "Cosi",
+            "address": "Cosi - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 31,
+            "conditional": 7,
+            "fail": 8
+        },
+        {
+            "name": "La Strada Ristorante",
+            "address": "La Strada Ristorante - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Alonti Deli",
+            "address": "Alonti Deli - Near West Side - Chicago, IL",
+            "review": 3,
+            "pass": 17,
+            "conditional": 7,
+            "fail": 9
+        },
+        {
+            "name": "Pompei Bakery",
+            "address": "Pompei Bakery - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Halsted Street Deli",
+            "address": "Halsted Street Deli - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 44,
+            "conditional": 11,
+            "fail": 12
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "Corner Bakery Cafe",
+            "address": "Corner Bakery Cafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 118,
+            "conditional": 23,
+            "fail": 19
+        },
+        {
+            "name": "Cosi Sandwich Bar",
+            "address": "Cosi Sandwich Bar - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 31,
+            "conditional": 7,
+            "fail": 8
+        },
+        {
+            "name": "Plaza Market Bistro",
+            "address": "Plaza Market Bistro - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Sbarro",
+            "address": "Sbarro - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 36,
+            "conditional": 5,
+            "fail": 6
+        },
+        {
+            "name": "Wok Out",
+            "address": "Wok Out - CLOSED - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Pita Heaven",
+            "address": "Pita Heaven - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 8,
+            "conditional": 2,
+            "fail": 2
+        },
+        {
+            "name": "Salad Spinners",
+            "address": "Salad Spinners - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - South Loop - Chicago, IL",
+            "review": 2,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "Perry's",
+            "address": "Perry's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Utopia International Caribbean Cuisine",
+            "address": "Utopia International Caribbean Cuisine - CLOSED - Near Southside - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Oriental Express",
+            "address": "Oriental Express - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 4,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Mallers Deli",
+            "address": "Mallers Deli - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Maison Brasserie",
+            "address": "Maison Brasserie - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 3,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "The Grill Room Chophouse & Winebar",
+            "address": "The Grill Room Chophouse & Winebar - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 5,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "South Branch",
+            "address": "South Branch - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 8,
+            "conditional": 6,
+            "fail": 1
+        },
+        {
+            "name": "Green Apple",
+            "address": "Green Apple - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Jimmy John's",
+            "address": "Jimmy John's - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 13,
+            "fail": 8
+        },
+        {
+            "name": "Haifa Cafe",
+            "address": "Haifa Cafe - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 8,
+            "conditional": 2,
+            "fail": 5
+        },
+        {
+            "name": "Gold Coast Dogs",
+            "address": "Gold Coast Dogs - Chicago, IL",
+            "review": 4,
+            "pass": 9,
+            "conditional": 5,
+            "fail": 0
+        },
+        {
+            "name": "Miller's Pub",
+            "address": "Miller's Pub - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Subway Sandwiches",
+            "address": "Subway Sandwiches - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 196,
+            "conditional": 25,
+            "fail": 31
+        },
+        {
+            "name": "Al's Beef",
+            "address": "Al's Beef - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 11,
+            "conditional": 1,
+            "fail": 6
+        },
+        {
+            "name": "Protein Bar",
+            "address": "Protein Bar - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 46,
+            "conditional": 8,
+            "fail": 6
+        },
+        {
+            "name": "Taste of Siam Inc",
+            "address": "Taste of Siam Inc - CLOSED - Printer's Row - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Gold Coast Dogs",
+            "address": "Gold Coast Dogs - Near West Side - Chicago, IL",
+            "review": 3,
+            "pass": 9,
+            "conditional": 5,
+            "fail": 0
+        },
+        {
+            "name": "Pierogi Heaven",
+            "address": "Pierogi Heaven - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Catch 35",
+            "address": "Catch 35 - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Works-North Loop the",
+            "address": "Works-North Loop the - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Au Bon Pain",
+            "address": "Au Bon Pain - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 80,
+            "conditional": 14,
+            "fail": 12
+        },
+        {
+            "name": "Corner Bakery Cafe",
+            "address": "Corner Bakery Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 118,
+            "conditional": 23,
+            "fail": 19
+        },
+        {
+            "name": "Rosie's Cafe & Catering",
+            "address": "Rosie's Cafe & Catering - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 5,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Ceres Cafe",
+            "address": "Ceres Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 11,
+            "conditional": 1,
+            "fail": 0
+        },
+        {
+            "name": "Einstein Bros. Bagels",
+            "address": "Einstein Bros. Bagels - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 4,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Chicago River Cafe",
+            "address": "Chicago River Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Halo Asian Mix",
+            "address": "Halo Asian Mix - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 2,
+            "conditional": 1,
+            "fail": 4
+        },
+        {
+            "name": "Ufood Grill",
+            "address": "Ufood Grill - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "McDonald's",
+            "address": "McDonald's - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 42,
+            "conditional": 1,
+            "fail": 13
+        },
+        {
+            "name": "To Pho Cafe",
+            "address": "To Pho Cafe - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "Taco Bell",
+            "address": "Taco Bell - CLOSED - Printer's Row - Chicago, IL",
+            "review": 2,
+            "pass": 9,
+            "conditional": 0,
+            "fail": 4
+        },
+        {
+            "name": "University Club of Chicago",
+            "address": "University Club of Chicago - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 2,
+            "fail": 2
+        },
+        {
+            "name": "Tapas Valencia",
+            "address": "Tapas Valencia - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Specialty's Cafe & Bakery",
+            "address": "Specialty's Cafe & Bakery - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 7,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Rivers To Go",
+            "address": "Rivers To Go - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 7,
+            "conditional": 8,
+            "fail": 2
+        },
+        {
+            "name": "Fast Foo's",
+            "address": "Fast Foo's - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 3,
+            "conditional": 1,
+            "fail": 2
+        },
+        {
+            "name": "Wendy's",
+            "address": "Wendy's - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Diosa on the River",
+            "address": "Diosa on the River - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Chutney Joe's",
+            "address": "Chutney Joe's - CLOSED - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Chipotle Mexican Grill",
+            "address": "Chipotle Mexican Grill - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 73,
+            "conditional": 20,
+            "fail": 12
+        },
+        {
+            "name": "Lavazza Espression",
+            "address": "Lavazza Espression - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 9,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Sweetwater Tavern & Grille",
+            "address": "Sweetwater Tavern & Grille - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 9,
+            "conditional": 2,
+            "fail": 4
+        },
+        {
+            "name": "Market Creations",
+            "address": "Market Creations - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 12,
+            "fail": 7
+        },
+        {
+            "name": "Tokyo Lunch Boxes & Catering",
+            "address": "Tokyo Lunch Boxes & Catering - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 44,
+            "conditional": 11,
+            "fail": 6
+        },
+        {
+            "name": "Mac Kelly's Greens & Things",
+            "address": "Mac Kelly's Greens & Things - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 4,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Arturo Express",
+            "address": "Arturo Express - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 9,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Govnor's Pub",
+            "address": "Govnor's Pub - CLOSED - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Soundings Restaurant",
+            "address": "Soundings Restaurant - Near Southside - Chicago, IL",
+            "review": 3,
+            "pass": 9,
+            "conditional": 0,
+            "fail": 2
+        },
+        {
+            "name": "Marc Burger",
+            "address": "Marc Burger - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Ole Hardwood",
+            "address": "Ole Hardwood - CLOSED - Near Southside - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Opera",
+            "address": "Opera - CLOSED - Near Southside - Chicago, IL",
+            "review": 4,
+            "pass": 1,
+            "conditional": 1,
+            "fail": 0
+        },
+        {
+            "name": "Flat Top Stir-Fry Grill",
+            "address": "Flat Top Stir-Fry Grill - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Kaiyo Sushi",
+            "address": "Kaiyo Sushi - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - The Loop - Chicago, IL",
+            "review": 1,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "Grace O'Malley's",
+            "address": "Grace O'Malley's - CLOSED - Near Southside - Chicago, IL",
+            "review": 3,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "The BISTRO At 151",
+            "address": "The BISTRO At 151 - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "La Cantina",
+            "address": "La Cantina - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Frietkoten Belgian Fries & Beer",
+            "address": "Frietkoten Belgian Fries & Beer - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "State and Lake Chicago Tavern",
+            "address": "State and Lake Chicago Tavern - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Great Steak & Potato Co.",
+            "address": "Great Steak & Potato Co. - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Roma Pizza",
+            "address": "Roma Pizza - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Pat's Pizzeria",
+            "address": "Pat's Pizzeria - Printer's Row - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Gina's Cuisine",
+            "address": "Gina's Cuisine - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Gold Coast Dogs",
+            "address": "Gold Coast Dogs - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 9,
+            "conditional": 5,
+            "fail": 0
+        },
+        {
+            "name": "Silk Road",
+            "address": "Silk Road - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Corner Bakery Cafe",
+            "address": "Corner Bakery Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 118,
+            "conditional": 23,
+            "fail": 19
+        },
+        {
+            "name": "Luke's Italian Beef",
+            "address": "Luke's Italian Beef - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 2,
+            "fail": 3
+        },
+        {
+            "name": "Marquette Inn Restaurant",
+            "address": "Marquette Inn Restaurant - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Pret A Manger",
+            "address": "Pret A Manger - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 68,
+            "conditional": 5,
+            "fail": 9
+        },
+        {
+            "name": "Billy Goat Tavern & Grill",
+            "address": "Billy Goat Tavern & Grill - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 18,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Caffe Baci",
+            "address": "Caffe Baci - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 5,
+            "fail": 5
+        },
+        {
+            "name": "The Gage",
+            "address": "The Gage - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 8,
+            "conditional": 3,
+            "fail": 2
+        },
+        {
+            "name": "65 Asian Kitchen",
+            "address": "65 Asian Kitchen - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Bonjour Cafe",
+            "address": "Bonjour Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 2,
+            "conditional": 1,
+            "fail": 0
+        },
+        {
+            "name": "Toni Patisserie & Cafe",
+            "address": "Toni Patisserie & Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Sixty Five Chinese Restaurant",
+            "address": "Sixty Five Chinese Restaurant - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 11,
+            "conditional": 1,
+            "fail": 0
+        },
+        {
+            "name": "Chickadilly's Charhouse",
+            "address": "Chickadilly's Charhouse - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Currents on the River",
+            "address": "Currents on the River - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 3,
+            "conditional": 0,
+            "fail": 2
+        },
+        {
+            "name": "Cafe 100",
+            "address": "Cafe 100 - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Buddy Guy's Legends",
+            "address": "Buddy Guy's Legends - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 13,
+            "conditional": 0,
+            "fail": 2
+        },
+        {
+            "name": "Sbarro",
+            "address": "Sbarro - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 36,
+            "conditional": 5,
+            "fail": 6
+        },
+        {
+            "name": "Oasis Cafe",
+            "address": "Oasis Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 5,
+            "conditional": 2,
+            "fail": 0
+        },
+        {
+            "name": "Seven Bar & Restaurant",
+            "address": "Seven Bar & Restaurant - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 8,
+            "conditional": 1,
+            "fail": 3
+        },
+        {
+            "name": "Pazzo's Cucina Italiana",
+            "address": "Pazzo's Cucina Italiana - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 28,
+            "conditional": 3,
+            "fail": 11
+        },
+        {
+            "name": "Rosebud Express",
+            "address": "Rosebud Express - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Urban Market",
+            "address": "Urban Market - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 8,
+            "conditional": 2,
+            "fail": 1
+        },
+        {
+            "name": "Pita Express",
+            "address": "Pita Express - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 1,
+            "fail": 6
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "Dunkin' Donuts",
+            "address": "Dunkin' Donuts - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 4,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Solo 1530",
+            "address": "Solo 1530 - CLOSED - Near Southside - Chicago, IL",
+            "review": 2,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "South Water Kitchen",
+            "address": "South Water Kitchen - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Cavanaugh's",
+            "address": "Cavanaugh's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Burrito Beach",
+            "address": "Burrito Beach - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 28,
+            "conditional": 3,
+            "fail": 3
+        },
+        {
+            "name": "Dairy Queen Grill & Chill Restraunt",
+            "address": "Dairy Queen Grill & Chill Restraunt - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Jaffa Bakery",
+            "address": "Jaffa Bakery - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 0,
+            "fail": 7
+        },
+        {
+            "name": "Salad Spinners",
+            "address": "Salad Spinners - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Blackie's",
+            "address": "Blackie's - Printer's Row - Chicago, IL",
+            "review": 4,
+            "pass": 8,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Freshii",
+            "address": "Freshii - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 63,
+            "conditional": 21,
+            "fail": 14
+        },
+        {
+            "name": "Eleventh St Diner",
+            "address": "Eleventh St Diner - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Ada's Famous Deli",
+            "address": "Ada's Famous Deli - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Abou Andre",
+            "address": "Abou Andre - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Harry's Sandwich Shop",
+            "address": "Harry's Sandwich Shop - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 8,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Poag Mahone's",
+            "address": "Poag Mahone's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 5,
+            "fail": 0
+        },
+        {
+            "name": "Qdoba Mexican Grill",
+            "address": "Qdoba Mexican Grill - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 9,
+            "conditional": 1,
+            "fail": 3
+        },
+        {
+            "name": "The Great Steak and Potato Company",
+            "address": "The Great Steak and Potato Company - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Marquette Inn No 4 Restaurant",
+            "address": "Marquette Inn No 4 Restaurant - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Frontera Fresco",
+            "address": "Frontera Fresco - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Elephant & Castle",
+            "address": "Elephant & Castle - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 2,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Villains Bar and Grill",
+            "address": "Villains Bar and Grill - Printer's Row - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Mista",
+            "address": "Mista - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Nesh Mediterranean Grill",
+            "address": "Nesh Mediterranean Grill - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 9,
+            "conditional": 0,
+            "fail": 2
+        },
+        {
+            "name": "Chipotle Mexican Grill",
+            "address": "Chipotle Mexican Grill - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 73,
+            "conditional": 20,
+            "fail": 12
+        },
+        {
+            "name": "Hey Sushi",
+            "address": "Hey Sushi - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Henri",
+            "address": "Henri - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Everest",
+            "address": "Everest - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Cosi",
+            "address": "Cosi - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 31,
+            "conditional": 7,
+            "fail": 8
+        },
+        {
+            "name": "The Southern Mac & Cheese Store",
+            "address": "The Southern Mac & Cheese Store - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "CaffÃ¨ RÅM",
+            "address": "CaffÃ¨ RÅM - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Wine Bar at the Walnut Room",
+            "address": "Wine Bar at the Walnut Room - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Panda Express",
+            "address": "Panda Express - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 12,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Jimmy John's",
+            "address": "Jimmy John's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 13,
+            "fail": 8
+        },
+        {
+            "name": "Jimmy John's",
+            "address": "Jimmy John's - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 33,
+            "conditional": 13,
+            "fail": 8
+        },
+        {
+            "name": "Florian Opera Bistro",
+            "address": "Florian Opera Bistro - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 1,
+            "conditional": 1,
+            "fail": 0
+        },
+        {
+            "name": "Petro's Restaurant & Bakery",
+            "address": "Petro's Restaurant & Bakery - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Networks",
+            "address": "Networks - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "My Thai Restaurant",
+            "address": "My Thai Restaurant - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 8,
+            "conditional": 0,
+            "fail": 1
+        },
+        {
+            "name": "Potbelly Sandwich Works",
+            "address": "Potbelly Sandwich Works - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 48,
+            "conditional": 11,
+            "fail": 8
+        },
+        {
+            "name": "Max's Take Out",
+            "address": "Max's Take Out - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 10,
+            "conditional": 1,
+            "fail": 4
+        },
+        {
+            "name": "Jimmy John's",
+            "address": "Jimmy John's - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 33,
+            "conditional": 13,
+            "fail": 8
+        },
+        {
+            "name": "O'Briens Riverwalk Cafe",
+            "address": "O'Briens Riverwalk Cafe - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Potbelly's Sandwich Works",
+            "address": "Potbelly's Sandwich Works - Printer's Row - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Garden Village Deli",
+            "address": "Garden Village Deli - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Lai Lai & Korean Express",
+            "address": "Lai Lai & Korean Express - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Haifa Cafe",
+            "address": "Haifa Cafe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 8,
+            "conditional": 2,
+            "fail": 5
+        },
+        {
+            "name": "Snuggery Union Train Station",
+            "address": "Snuggery Union Train Station - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Potbelly",
+            "address": "Potbelly - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "312 Chicago",
+            "address": "312 Chicago - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 9,
+            "conditional": 0,
+            "fail": 2
+        },
+        {
+            "name": "Lai Lai Oriental Express",
+            "address": "Lai Lai Oriental Express - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 4,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Artist's Cafe",
+            "address": "Artist's Cafe - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 2,
+            "conditional": 0,
+            "fail": 2
+        },
+        {
+            "name": "Skrine Chops",
+            "address": "Skrine Chops - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 5,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Jimmy Green's",
+            "address": "Jimmy Green's - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 13,
+            "conditional": 0,
+            "fail": 2
+        },
+        {
+            "name": "Yelp! Office Hours @ Lunch Rolls",
+            "address": "Yelp! Office Hours @ Lunch Rolls - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Frietkoten Belgian Fries and Beer",
+            "address": "Frietkoten Belgian Fries and Beer - Near West Side - Chicago, IL",
+            "review": 2,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Lunch Rolls",
+            "address": "Lunch Rolls - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "The Bongo Room",
+            "address": "The Bongo Room - South Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Jimmy John's",
+            "address": "Jimmy John's - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 33,
+            "conditional": 13,
+            "fail": 8
+        },
+        {
+            "name": "McDonald's",
+            "address": "McDonald's - Near West Side - Chicago, IL",
+            "review": 2,
+            "pass": 42,
+            "conditional": 1,
+            "fail": 13
+        },
+        {
+            "name": "Chipotle Mexican Grill",
+            "address": "Chipotle Mexican Grill - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 73,
+            "conditional": 20,
+            "fail": 12
+        },
+        {
+            "name": "Pazzo's Express",
+            "address": "Pazzo's Express - Chicago, IL",
+            "review": 4,
+            "pass": 11,
+            "conditional": 2,
+            "fail": 2
+        },
+        {
+            "name": "N9NE Steakhouse",
+            "address": "N9NE Steakhouse - Near West Side - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Freshii",
+            "address": "Freshii - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 63,
+            "conditional": 21,
+            "fail": 14
+        },
+        {
+            "name": "Hannah's Bretzel",
+            "address": "Hannah's Bretzel - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 10,
+            "conditional": 2,
+            "fail": 0
+        },
+        {
+            "name": "Filini",
+            "address": "Filini - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Stetson's Chop House & Bar",
+            "address": "Stetson's Chop House & Bar - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 16,
+            "conditional": 1,
+            "fail": 3
+        },
+        {
+            "name": "The Park Shoppe",
+            "address": "The Park Shoppe - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Tortas Frontera by Rick Bayless",
+            "address": "Tortas Frontera by Rick Bayless - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Johnny Rockets",
+            "address": "Johnny Rockets - The Loop - Chicago, IL",
+            "review": 2,
+            "pass": 9,
+            "conditional": 0,
+            "fail": 4
+        },
+        {
+            "name": "Pazzo's Cucina Italiana",
+            "address": "Pazzo's Cucina Italiana - CLOSED - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 28,
+            "conditional": 3,
+            "fail": 11
+        },
+        {
+            "name": "Jimmy John's Gourmet Sandwiches",
+            "address": "Jimmy John's Gourmet Sandwiches - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 34,
+            "conditional": 13,
+            "fail": 8
+        },
+        {
+            "name": "Subway",
+            "address": "Subway - Near Southside - Chicago, IL",
+            "review": 3,
+            "pass": 187,
+            "conditional": 21,
+            "fail": 29
+        },
+        {
+            "name": "Pittsfield Cafe",
+            "address": "Pittsfield Cafe - The Loop - Chicago, IL",
+            "review": 4,
+            "pass": 9,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Banh Mi Express Sandwiches",
+            "address": "Banh Mi Express Sandwiches - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 1,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "South Loop Club",
+            "address": "South Loop Club - South Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Baba's Village",
+            "address": "Baba's Village - Near West Side - Chicago, IL",
+            "review": 3,
+            "pass": 8,
+            "conditional": 1,
+            "fail": 1
+        },
+        {
+            "name": "Armand's Pizzeria",
+            "address": "Armand's Pizzeria - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Pompei Dearborn",
+            "address": "Pompei Dearborn - CLOSED - The Loop - Chicago, IL",
+            "review": 3,
+            "pass": 0,
+            "conditional": 0,
+            "fail": 0
+        },
+        {
+            "name": "Hot Woks Cool Sushi",
+            "address": "Hot Woks Cool Sushi - The Loop - Chicago, IL",
+            "review": 5,
+            "pass": 18,
+            "conditional": 5,
+            "fail": 2
+        }
+    ]
+
+    function populateScatterPlot() {
+        var ctx = document.getElementById("myChart").getContext('2d');
+        pass = []
+        fail = []
+        conditional = []
+        added_blue = []
+        added_orange = []
+        added_red = []
+        orange = {}
+        blue = {}
+        red = {}
+        for (var i = 0; i < data.length; i++) {
+
+            var key = data[i].review + "|" + data[i].pass
+            if (added_blue.indexOf(key) < 0) {
+                pass.push({
+                    x: data[i].review,
+                    y: data[i].pass,
+                    r: 2.5
+                })
+                added_blue.push(key)
+                blue[key] = 1
+            } else {
+                blue[key] = blue[key] + 1
+                added_blue.push(key)
+                pass.push({
+                    x: data[i].review,
+                    y: data[i].pass,
+                    r: 5//0.5 * blue[key]
+                })
+            }
+
+
+            var key = data[i].review + "|" + data[i].fail
+            if (added_orange.indexOf(key) < 0) {
+                fail.push({
+                    x: data[i].review,
+                    y: data[i].fail,
+                    r: 2.5
+                })
+                added_orange.push(key)
+                orange[key] = 1
+            } else {
+                orange[key] = orange[key] + 1
+                fail.push({
+                    x: data[i].review,
+                    y: data[i].fail,
+                    r: 5,//0.5 * orange[key]
+                })
+            }
+
+
+
+            var key = data[i].review + "|" + data[i].conditional
+            if (added_red.indexOf(key) < 0) {
+                conditional.push({
+                    x: data[i].review,
+                    y: data[i].conditional,
+                    r: 2.5
+                })
+                added_red.push(key)
+                red[key] = 1
+            } else {
+                red[key] = red[key] + 1
+                conditional.push({
+                    x: data[i].review,
+                    y: data[i].conditional,
+                    r: 5,//0.5 * red[key]
+                })
+            }
+
+
+
+
+        }
+
+        var scatterChart = new Chart(ctx, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    backgroundColor: "#40A3CB",
+                    label: '# of passed inspections',
+                    data: pass
+                },
+                {
+                    label: '# of failed inspections',
+                    backgroundColor: "#CB7F40",
+                    data: fail
+                },
+                {
+                    label: '# of conditionally passed inspections',
+                    backgroundColor: "#CB4059",
+                    data: fail
+                }],
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Food Inspection Result Distribution'
+                },
+                scales: {
+                    xAxes: [{
+                        type: 'linear',
+                        position: 'bottom',
+                        gridLines: {
+                            display: false
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'avg review rating'
+                        },
+                    }],
+                    yAxes: [{
+
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function populateScatterPlot2() {
+        var ctx = document.getElementById("myChart3").getContext('2d');
+        pass = []
+        fail = []
+        conditional = []
+        added_blue = []
+        added_orange = []
+        added_red = []
+        orange = {}
+        blue = {}
+        red = {}
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].pass < 10) {
+                var key = data[i].review + "|" + data[i].pass
+                if (added_blue.indexOf(key) < 0) {
+                    pass.push({
+                        x: data[i].review,
+                        y: data[i].pass,
+                        r: 2.5
+                    })
+                    added_blue.push(key)
+                    blue[key] = 1
+                } else {
+                    blue[key] = blue[key] + 1
+                    added_blue.push(key)
+                    pass.push({
+                        x: data[i].review,
+                        y: data[i].pass,
+                        r: 5//0.5 * blue[key]
+                    })
+                }
+            }
+            if (data[i].fail < 10) {
+                var key = data[i].review + "|" + data[i].fail
+                if (added_orange.indexOf(key) < 0) {
+                    fail.push({
+                        x: data[i].review,
+                        y: data[i].fail,
+                        r: 2.5
+                    })
+                    added_orange.push(key)
+                    orange[key] = 1
+                } else {
+                    orange[key] = orange[key] + 1
+                    fail.push({
+                        x: data[i].review,
+                        y: data[i].fail,
+                        r: 5,//0.5 * orange[key]
+                    })
+                }
+            }
+
+            if (data[i].conditional < 10) {
+                var key = data[i].review + "|" + data[i].conditional
+                if (added_red.indexOf(key) < 0) {
+                    conditional.push({
+                        x: data[i].review,
+                        y: data[i].conditional,
+                        r: 2.5
+                    })
+                    added_red.push(key)
+                    red[key] = 1
+                } else {
+                    red[key] = red[key] + 1
+                    conditional.push({
+                        x: data[i].review,
+                        y: data[i].conditional,
+                        r: 5,//0.5 * red[key]
+                    })
+                }
+            }
+
+
+
+        }
+
+        var scatterChart = new Chart(ctx, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    backgroundColor: "#40A3CB",
+                    label: '# of passed inspections',
+                    data: pass
+                },
+                {
+                    label: '# of failed inspections',
+                    backgroundColor: "#CB7F40",
+                    data: fail
+                },
+                {
+                    label: '# of conditionally passed inspections',
+                    backgroundColor: "#CB4059",
+                    data: fail
+                }],
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Food Inspection Result Distribution (N < 10) <zoomed in>'
+                },
+                scales: {
+                    xAxes: [{
+                        type: 'linear',
+                        position: 'bottom',
+                        gridLines: {
+                            display: false
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'avg review rating'
+                        },
+                    }],
+                    yAxes: [{
+
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
+            }
+        });
+    }
+    function chooseRestaurant(name) {
+        if (myChart2) {
+            myChart2.destroy()
+        }
+        d = []
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].name == name) {
+                d.push(data[i].review)
+                d.push(data[i].pass)
+                d.push(data[i].fail)
+                d.push(data[i].conditional)
+                break
+            }
+        }
+
+        var ctx = document.getElementById("myChart2").getContext('2d');
+        myChart2 = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Average yelp rating", '# of passed inspections', '# of failed inspections', '# of conditionally passed'],
+                datasets: [{
+                    data: d,
+                    backgroundColor: [
+                        "#5900b3",
+                        '#CB4059',
+                        '#40A3CB',
+                        '#CB7F40',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Crime statistics for ' + name
+                },
+                legend: {
+                    display: false,
+                    labels: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
+    function loadRestaurants() {
+        availableTags = []
+        for (var i = 0; i < data.length; i++) {
+            if (availableTags.indexOf(data[i].name) < 0) {
+                availableTags.push(data[i].name)
+            }
+        }
+        $(function () {
+            $("#tags").autocomplete({
+                source: availableTags
+            });
+        });
+    }
+    chooseRestaurant("Corner Bakery Cafe")
+    populateScatterPlot()
+    populateScatterPlot2()
+    loadRestaurants()
+</script>
