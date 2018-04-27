@@ -1,0 +1,3034 @@
+{
+  "Restaurants" : [
+   {
+     "Name": "Warehouse Liquors",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.375
+   },
+   {
+     "Name": "Harry's Hot Dogs",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.75
+   },
+   {
+     "Name": "Terzo Piano",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3
+   },
+   {
+     "Name": "Delmonico",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6666666666666665
+   },
+   {
+     "Name": "Rainbow Cone At the Park Grill Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Nuts On Clark Union Station Inc",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.333333333333333
+   },
+   {
+     "Name": "Roti Mediterranean Grill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.8807339449541285
+   },
+   {
+     "Name": "Chipotle Mexican Grill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6153846153846154
+   },
+   {
+     "Name": "Caribou Coffee",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.7567567567567566
+   },
+   {
+     "Name": "Mei's Kitchen",
+     "Most Common Sent": "negative",
+     "Avg Rev": 1.75
+   },
+   {
+     "Name": "Au Bon Pain",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.017857142857143
+   },
+   {
+     "Name": "Corner Bakery Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.0898876404494384
+   },
+   {
+     "Name": "Fannie May Candies",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Cajun Grill At Union Station",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Einstein Bros Bagels",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.888888888888889
+   },
+   {
+     "Name": "Seattle's Best Coffee",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Walgreens",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.657142857142857
+   },
+   {
+     "Name": "IPO",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.125
+   },
+   {
+     "Name": "Beard Papa's Cream Puffs",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.322916666666667
+   },
+   {
+     "Name": "A' Cappella Bistro",
+     "Most Common Sent": "negative",
+     "Avg Rev": 1.7142857142857142
+   },
+   {
+     "Name": "Tesori",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Sarah's Pastries and Candies",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.625
+   },
+   {
+     "Name": "Sopraffina",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Dunkin' Donuts",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.9555555555555557
+   },
+   {
+     "Name": "Hackney's Printers' Row",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6363636363636362
+   },
+   {
+     "Name": "Off-Track Betting-Otb",
+     "Most Common Sent": "negative",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "The Original Rainbow Cone",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.6
+   },
+   {
+     "Name": "Patty Burger",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.8
+   },
+   {
+     "Name": "Custom House Tavern",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.125
+   },
+   {
+     "Name": "NYC Bagel Deli",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.037037037037037
+   },
+   {
+     "Name": "Spa Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.782608695652174
+   },
+   {
+     "Name": "The Grille on State",
+     "Most Common Sent": "positive",
+     "Avg Rev": 1
+   },
+   {
+     "Name": "BomBon 4",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4.428571428571429
+   },
+   {
+     "Name": "Encore Liquid Lounge",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6363636363636362
+   },
+   {
+     "Name": "Harold's Chicken Shack No 77",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Cafecito",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.18018018018018
+   },
+   {
+     "Name": "Wao Bao",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6666666666666665
+   },
+   {
+     "Name": "Chicago Windy House",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Giordano's Pizzeria",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.953488372093023
+   },
+   {
+     "Name": "Around the Corner",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Protein Bar",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.037974683544304
+   },
+   {
+     "Name": "Lockwood",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.212121212121212
+   },
+   {
+     "Name": "10 & 30 Sundry",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "M Burger",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Au Bon Pain Company",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Argo Tea",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.067796610169491
+   },
+   {
+     "Name": "Starbucks",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.4936708860759493
+   },
+   {
+     "Name": "Falafill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.5
+   },
+   {
+     "Name": "Halsted Street Deli",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3636363636363638
+   },
+   {
+     "Name": "Mezza Grilled Wraps and Pitas",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.8666666666666667
+   },
+   {
+     "Name": "Metro Market",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "MySpa Chicago",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Potbelly's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.055555555555555
+   },
+   {
+     "Name": "Nicola's Pizzeria",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Tokyo Lunch Boxes & Catering",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.2096774193548385
+   },
+   {
+     "Name": "Jimmy John's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.473684210526316
+   },
+   {
+     "Name": "Cellars Market",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4.25
+   },
+   {
+     "Name": "Flo & Santos",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.072727272727272
+   },
+   {
+     "Name": "Caffecafe",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "U Food Grill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 1
+   },
+   {
+     "Name": "Max's Take Out",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Arby's",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Chen's Chinese Express",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "Hannah's Bretzel",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.8859060402684564
+   },
+   {
+     "Name": "Edible Arrangements",
+     "Most Common Sent": "positive",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Ronny's Original Chicago Steak House",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.4285714285714284
+   },
+   {
+     "Name": "The Big Downtown",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.25
+   },
+   {
+     "Name": "Haifa Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "The Italian Village Restaurants",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.1066666666666665
+   },
+   {
+     "Name": "Sweet Factory",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.6666666666666665
+   },
+   {
+     "Name": "Pockets",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "McDonald's",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2.5
+   },
+   {
+     "Name": "The Courthouse Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Wow Bao",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6875
+   },
+   {
+     "Name": "7-Eleven",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "Taco Fresco",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2.7857142857142856
+   },
+   {
+     "Name": "KFC Express",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Tri-Star Catering",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Kamehachi",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.1538461538461537
+   },
+   {
+     "Name": "Berry Chill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.90625
+   },
+   {
+     "Name": "Lavazza Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.8125
+   },
+   {
+     "Name": "Which Wich Superior Sandwiches",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.6
+   },
+   {
+     "Name": "Pret A Manger",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.725806451612903
+   },
+   {
+     "Name": "Opart Thai House",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.9545454545454546
+   },
+   {
+     "Name": "Pizza-Ria",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.75
+   },
+   {
+     "Name": "Bombon",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "West Egg Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Exposure Restaurant & Lounge",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.2857142857142856
+   },
+   {
+     "Name": "The Garden Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.6666666666666665
+   },
+   {
+     "Name": "French Quarter Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Bennigan's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.111111111111111
+   },
+   {
+     "Name": "Pizzahut Express",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2.5
+   },
+   {
+     "Name": "7 Eleven",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2.6666666666666665
+   },
+   {
+     "Name": "Oysy Japanese Sushi Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.263157894736842
+   },
+   {
+     "Name": "Popeye's Famous Fried Chicken",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Vivere",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.1666666666666665
+   },
+   {
+     "Name": "Gino's East Sports Bar",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.7142857142857144
+   },
+   {
+     "Name": "Simply Greens",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Indian Express",
+     "Most Common Sent": "negative",
+     "Avg Rev": 1
+   },
+   {
+     "Name": "Bionda To Go",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Ruby of Siam",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.533333333333333
+   },
+   {
+     "Name": "Chicago Kernel Gourmet Popcorn",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "The Vault",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.2
+   },
+   {
+     "Name": "Kingoberry Frozen Yogurt",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6
+   },
+   {
+     "Name": "Courtway Restaurant",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.1666666666666665
+   },
+   {
+     "Name": "Qdoba Mexican Grill",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.257142857142857
+   },
+   {
+     "Name": "Thai Spoon",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.84
+   },
+   {
+     "Name": "Market Creations",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Mac Kelly's Greens & Things",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.566666666666667
+   },
+   {
+     "Name": "Epic Burger",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.595959595959596
+   },
+   {
+     "Name": "Ara On",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.8333333333333335
+   },
+   {
+     "Name": "Lith Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Naf Naf Grill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.25
+   },
+   {
+     "Name": "Ricobene's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "La Rosetta",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Fish Port",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Mama Falco Pizza",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Rudy's Bar & Grille",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5555555555555554
+   },
+   {
+     "Name": "Jewel-Osco",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.0526315789473686
+   },
+   {
+     "Name": "Freshii",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.2686567164179103
+   },
+   {
+     "Name": "Caffe Baci",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3125
+   },
+   {
+     "Name": "Howie's",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "CrÃªpe Bistro",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3513513513513513
+   },
+   {
+     "Name": "Cibo Matto",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3846153846153846
+   },
+   {
+     "Name": "Sbarro",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.2
+   },
+   {
+     "Name": "Pizano's Pizza",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.578125
+   },
+   {
+     "Name": "Subway",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.8260869565217392
+   },
+   {
+     "Name": "North Center Farmer's Market",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.6666666666666665
+   },
+   {
+     "Name": "Roly Poly Sandwiches",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.35
+   },
+   {
+     "Name": "Park Grill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.328767123287671
+   },
+   {
+     "Name": "Maxim's Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.5
+   },
+   {
+     "Name": "Johnny Rockets",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.5384615384615383
+   },
+   {
+     "Name": "Pedersen Room",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Cupcake Counter",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.576923076923077
+   },
+   {
+     "Name": "Crumbs Bake Shop",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.590909090909091
+   },
+   {
+     "Name": "Weather Mark Tavern",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.21875
+   },
+   {
+     "Name": "Wall Street Deli",
+     "Most Common Sent": "negative",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Potbelly Sandwich Works",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.75
+   },
+   {
+     "Name": "Rise 'n Roll Amish Market",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.571428571428571
+   },
+   {
+     "Name": "Pittsfield Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Osaka Express",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.75
+   },
+   {
+     "Name": "Oodles Of Noodles",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "The Berghoff Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.56140350877193
+   },
+   {
+     "Name": "Cosi",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3620689655172415
+   },
+   {
+     "Name": "The Green at Grant Park",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.7142857142857144
+   },
+   {
+     "Name": "Ronny's Original Steakhouse",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.75
+   },
+   {
+     "Name": "Jamba Juice",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.878787878787879
+   },
+   {
+     "Name": "Burrito Beach",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Kramer's Health Foods",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.8076923076923075
+   },
+   {
+     "Name": "Bella Bacino's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.45
+   },
+   {
+     "Name": "BB's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Buen Apetito",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Trattoria Caterina",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.388888888888889
+   },
+   {
+     "Name": "Beef and Brandy",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.230769230769231
+   },
+   {
+     "Name": "Uncle Abe's Deli",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Blackbird",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.010869565217392
+   },
+   {
+     "Name": "Sopraffina Marketcaffe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.2580645161290325
+   },
+   {
+     "Name": "Mezcalina",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Flaco's Tacos",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.488888888888889
+   },
+   {
+     "Name": "U.B. Dogs",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.444444444444445
+   },
+   {
+     "Name": "Hot Woks Cool Sushi",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.610169491525424
+   },
+   {
+     "Name": "Bodega N.5",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.666666666666667
+   },
+   {
+     "Name": "Eleven City Diner",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3176470588235296
+   },
+   {
+     "Name": "Brasserie By LM",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.8
+   },
+   {
+     "Name": "231 Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.5
+   },
+   {
+     "Name": "Mr Submarine",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.588235294117647
+   },
+   {
+     "Name": "Palmer House Conference Center 7",
+     "Most Common Sent": "positive",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Pavilion Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 1
+   },
+   {
+     "Name": "Palm Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.4074074074074074
+   },
+   {
+     "Name": "Godiva Chocolatier",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.8
+   },
+   {
+     "Name": "Faycurr's Urban Kitchen & Cafe",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Jason's Deli",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4.5
+   },
+   {
+     "Name": "World Kitchen",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "City Fresh Market",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Smoothy's Shack",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Overflow Coffee Bar",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Grillers",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Alonti Cafe",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.6666666666666665
+   },
+   {
+     "Name": "Printers Row Wine Shop",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.5
+   },
+   {
+     "Name": "Finkls Deli",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.5
+   },
+   {
+     "Name": "Mrs Fields",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.222222222222222
+   },
+   {
+     "Name": "Simply Thalia",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.611111111111111
+   },
+   {
+     "Name": "Moonstruck Chocolate Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.363636363636363
+   },
+   {
+     "Name": "Potter's Lounge",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.25
+   },
+   {
+     "Name": "Dunkin Donut",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Cinnabon",
+     "Most Common Sent": "positive",
+     "Avg Rev": 1
+   },
+   {
+     "Name": "Wisma",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4.5
+   },
+   {
+     "Name": "BackStage Bistro",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Alain's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Wildberry Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.980392156862745
+   },
+   {
+     "Name": "Americana Submarine",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Silk Road Jackson",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.5714285714285716
+   },
+   {
+     "Name": "Avanti CaffÃ©",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Pita Belly",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Toro Sushi Express",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5454545454545454
+   },
+   {
+     "Name": "Lloyd's Chicago",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.9565217391304346
+   },
+   {
+     "Name": "Berghoff CafÃ©",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.727272727272727
+   },
+   {
+     "Name": "Yolk",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.7300469483568075
+   },
+   {
+     "Name": "Lou Malnati's Pizzeria",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.7948717948717947
+   },
+   {
+     "Name": "Pazzo's @ 311",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.466666666666667
+   },
+   {
+     "Name": "Haute Sausage",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.888888888888889
+   },
+   {
+     "Name": "Potbelly Sandwich Shop",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5714285714285716
+   },
+   {
+     "Name": "Coco's Famous Deep Fried Lobster",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.6666666666666665
+   },
+   {
+     "Name": "California Pizza Kitchen",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Sugar Bliss Cake Boutique",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6240601503759398
+   },
+   {
+     "Name": "Hong Kong Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "The Zodiac Room",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Morton's The Steakhouse",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.069767441860465
+   },
+   {
+     "Name": "Baja Fresh",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.142857142857143
+   },
+   {
+     "Name": "Townhouse Restaurant & Wine Bar",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.272727272727273
+   },
+   {
+     "Name": "III Forks Prime Steakhouse",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.05
+   },
+   {
+     "Name": "Zapatista",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.348684210526316
+   },
+   {
+     "Name": "Tamalefoodie",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.3333333333333335
+   },
+   {
+     "Name": "The Florentine",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "KFC",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Petterino's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.526315789473684
+   },
+   {
+     "Name": "City Tavern",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.8947368421052633
+   },
+   {
+     "Name": "Panera Bread",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3783783783783785
+   },
+   {
+     "Name": "Jazzman's Cafe & Bakery",
+     "Most Common Sent": "negative",
+     "Avg Rev": 1.5
+   },
+   {
+     "Name": "Wow Bao Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.4054054054054053
+   },
+   {
+     "Name": "The L Cafe",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Panozzo's Italian Market",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.407407407407407
+   },
+   {
+     "Name": "Subway Sandwiches",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Shark's Fish & Chicken",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.8
+   },
+   {
+     "Name": "Gioco",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.757575757575758
+   },
+   {
+     "Name": "Korean Express",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Wow Bow",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Bacci Pizzeria",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.1666666666666665
+   },
+   {
+     "Name": "Micky's Chicken & Fish",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.7777777777777777
+   },
+   {
+     "Name": "Pastoral",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.244897959183674
+   },
+   {
+     "Name": "Connie's Pizza",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6666666666666665
+   },
+   {
+     "Name": "Taza",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.395604395604396
+   },
+   {
+     "Name": "I Dream Of Falafel",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.689655172413793
+   },
+   {
+     "Name": "Cardozo's Pub",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.375
+   },
+   {
+     "Name": "Robinson's No 1 Ribs",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.4
+   },
+   {
+     "Name": "Trattoria No. 10",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.983050847457627
+   },
+   {
+     "Name": "Five Guys Burgers & Fries",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Augustino's Rock & Roll Deli",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.272727272727273
+   },
+   {
+     "Name": "Chicago Curry House",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6271186440677967
+   },
+   {
+     "Name": "The Walnut Room",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.9761904761904763
+   },
+   {
+     "Name": "Emil's Bar & Grill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.1666666666666665
+   },
+   {
+     "Name": "DOS Hermanos Mexican Restaurante",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "au bon pain",
+     "Most Common Sent": "positive",
+     "Avg Rev": 1
+   },
+   {
+     "Name": "Dave Candy Store",
+     "Most Common Sent": "negative",
+     "Avg Rev": 1
+   },
+   {
+     "Name": "Sbarro Italian Eatery",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "The Metropolitan Club",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.75
+   },
+   {
+     "Name": "Flavor 180",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.7777777777777777
+   },
+   {
+     "Name": "The Scout",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Petra Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.6
+   },
+   {
+     "Name": "Alonti Market Cafe",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.25
+   },
+   {
+     "Name": "Davino's Little Pompei",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "Cafe 200",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.1666666666666665
+   },
+   {
+     "Name": "The India Grill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Mediterranean Delight",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Lalo's Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.0476190476190474
+   },
+   {
+     "Name": "Ethel's Chocolate Lounge",
+     "Most Common Sent": "positive",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Green Apple Cafe",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Ponte Fresco",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.7142857142857144
+   },
+   {
+     "Name": "Quizno's Sub's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "5411 Empanadas",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Russian Tea Time",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.730769230769231
+   },
+   {
+     "Name": "Shikago Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "Yogen Fruz",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.096774193548387
+   },
+   {
+     "Name": "Marcello's Market & Deli",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.5
+   },
+   {
+     "Name": "Med Kitchen",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.7058823529411766
+   },
+   {
+     "Name": "Off the Tracks Grill",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.75
+   },
+   {
+     "Name": "A Mano",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.772727272727273
+   },
+   {
+     "Name": "Eat & Drink",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.25
+   },
+   {
+     "Name": "Gourmand Coffee & Teas",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "The Chicago Firehouse Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5277777777777777
+   },
+   {
+     "Name": "Olive Mediterranean Grill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.052631578947368
+   },
+   {
+     "Name": "Mezza",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.7
+   },
+   {
+     "Name": "KFC & Pizza Hut Express",
+     "Most Common Sent": "negative",
+     "Avg Rev": 1
+   },
+   {
+     "Name": "Cocina Barro",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Jaffa Bakery",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.5238095238095237
+   },
+   {
+     "Name": "Tavern At The Park",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.1666666666666665
+   },
+   {
+     "Name": "Cereality Cereal Bar & Cafe",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4.190476190476191
+   },
+   {
+     "Name": "Houlihan's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.4827586206896552
+   },
+   {
+     "Name": "Hi Tea",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.125
+   },
+   {
+     "Name": "Panda Express",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "Nino Paninos",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Barro Mexican Cruisine",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.6
+   },
+   {
+     "Name": "Sixty Five Chinese Restaurants",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "La Cocina",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.872340425531915
+   },
+   {
+     "Name": "The Grille on Jackson",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "China Grill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.1842105263157894
+   },
+   {
+     "Name": "Chutney Joe's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.152542372881356
+   },
+   {
+     "Name": "Waffles",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.246153846153846
+   },
+   {
+     "Name": "Venice Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.9166666666666665
+   },
+   {
+     "Name": "Tokyo Lunchbox",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2.6
+   },
+   {
+     "Name": "Rosebud Prime",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5714285714285716
+   },
+   {
+     "Name": "Trader Vics",
+     "Most Common Sent": "positive",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Bennigan's Grill & Tavern",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Tahini Mediterranean Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.875
+   },
+   {
+     "Name": "Garrett Popcorn Shops",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.252747252747253
+   },
+   {
+     "Name": "Vista Carry Out",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2.3333333333333335
+   },
+   {
+     "Name": "Triple 1 Chinese Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.357142857142857
+   },
+   {
+     "Name": "Allstars Sports Bar & Grill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.2
+   },
+   {
+     "Name": "The Lounge",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Chicago Carry Out",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.3333333333333335
+   },
+   {
+     "Name": "Chicago Pizza Tours",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.75
+   },
+   {
+     "Name": "Primebar Chicago",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.375
+   },
+   {
+     "Name": "Zayna Bakes",
+     "Most Common Sent": "positive",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Chi-Town Pizza Express",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Metro Deli & Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.6666666666666665
+   },
+   {
+     "Name": "Asian Chao and Villa Italian",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Sidebar Grille",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.8360655737704916
+   },
+   {
+     "Name": "Nick's Fishmarket",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.7058823529411766
+   },
+   {
+     "Name": "Native Foods Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.2631578947368425
+   },
+   {
+     "Name": "ItaliAsia",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.111111111111111
+   },
+   {
+     "Name": "Keefer's Kaffe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5714285714285716
+   },
+   {
+     "Name": "Mezza Grilled Wraps & Pitas",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Market Thyme",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Chicken Planet",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.326086956521739
+   },
+   {
+     "Name": "Lobby Lounge",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.375
+   },
+   {
+     "Name": "Dagwood's Sandwich Factory",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "Frango Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.75
+   },
+   {
+     "Name": "Bon Appetit",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Bonivino Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "McCormick & Schmick's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3095238095238093
+   },
+   {
+     "Name": "Chicago Sub",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Franklin Tap",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.0357142857142856
+   },
+   {
+     "Name": "Bockwinkel's",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.25
+   },
+   {
+     "Name": "CaffÃ¨ RÅM",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.738095238095238
+   },
+   {
+     "Name": "Trotter's To Go Express",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Heaven On Seven On Wabash",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.576923076923077
+   },
+   {
+     "Name": "New Orleans Kitchen",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Popeyes",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Surf City Squeeze",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Cafe 333",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "The Plaza at Park Grill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.909090909090909
+   },
+   {
+     "Name": "Estelle's Kitchens",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "America's Dog",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.2058823529411766
+   },
+   {
+     "Name": "Intelligentsia Coffee and Tea",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.261904761904762
+   },
+   {
+     "Name": "Burger King Express",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Typhoon Cafe",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Shalom Deli",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.625
+   },
+   {
+     "Name": "Atwood Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3783783783783785
+   },
+   {
+     "Name": "Sbarro D Italian Italy",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Coogan's Riverside Saloon",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.75
+   },
+   {
+     "Name": "The Dock at Montrose Beach",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.105263157894737
+   },
+   {
+     "Name": "Park Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.2857142857142856
+   },
+   {
+     "Name": "Hoyt's Chicago",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5555555555555554
+   },
+   {
+     "Name": "Daddy O's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Elephant & Castle",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.982300884955752
+   },
+   {
+     "Name": "Got Pizza",
+     "Most Common Sent": "positive",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Edwardo's Natural Pizza Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Marquette Inn Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Mixed Greens",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6842105263157894
+   },
+   {
+     "Name": "Trader Joe's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.9473684210526314
+   },
+   {
+     "Name": "Mama Falco's Pizza",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "George's Cocktail Lounge",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Sticky Fingers Gourmet Popcorn",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Wabash Food & Liquor",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Manchu Wok",
+     "Most Common Sent": "positive",
+     "Avg Rev": 1
+   },
+   {
+     "Name": "Marketplace Foods Macy's Food Court",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "Rhapsody",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.0588235294117645
+   },
+   {
+     "Name": "Chicago French Market",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.732142857142857
+   },
+   {
+     "Name": "Torrefazione Italia",
+     "Most Common Sent": "positive",
+     "Avg Rev": 1
+   },
+   {
+     "Name": "Cafe Mediterra",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5555555555555554
+   },
+   {
+     "Name": "Stocks & Blondes Bar & Grille",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.9375
+   },
+   {
+     "Name": "Tribute",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.8333333333333335
+   },
+   {
+     "Name": "Rivers",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.4583333333333335
+   },
+   {
+     "Name": "Delhi 6",
+     "Most Common Sent": "positive",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Brian's Juice Bar & Deli",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.230769230769231
+   },
+   {
+     "Name": "Magnolia Bakery",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.8214285714285716
+   },
+   {
+     "Name": "Hilton Chicago",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6216216216216215
+   },
+   {
+     "Name": "Vanille Patisserie",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.5
+   },
+   {
+     "Name": "CrÃªpes Cafe",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.8333333333333335
+   },
+   {
+     "Name": "Eggy's Diner",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.769230769230769
+   },
+   {
+     "Name": "Giordano's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.641765704584041
+   },
+   {
+     "Name": "Simply Fresh",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6666666666666665
+   },
+   {
+     "Name": "Avec",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.231132075471698
+   },
+   {
+     "Name": "Jimmy Johns",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Dairy Queen",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Quiznos",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4.5
+   },
+   {
+     "Name": "Auntie Anne's",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "My Thai Restaurant On Michigan",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.6666666666666665
+   },
+   {
+     "Name": "Dunkin' Donuts / Baskin-Robbins",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Stefani's Tuscany Cafe",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Fontano's Subs",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.8260869565217392
+   },
+   {
+     "Name": "La Cocina Mexican Grill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.8333333333333335
+   },
+   {
+     "Name": "Symphony Center",
+     "Most Common Sent": "positive",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Bombay Wraps",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.913793103448276
+   },
+   {
+     "Name": "Rosebud Restaurent",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.4583333333333335
+   },
+   {
+     "Name": "Sixty Five Chinese Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.0344827586206895
+   },
+   {
+     "Name": "Salad Spinners",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.0625
+   },
+   {
+     "Name": "Cafe Descartes",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Thai Spoon & Sushi",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Madison Street Cafe",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "WingStop",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.2142857142857144
+   },
+   {
+     "Name": "GiGi's Bake Shop",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Standing Room Only",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.619047619047619
+   },
+   {
+     "Name": "J. Randolph's Bar & Grill",
+     "Most Common Sent": "negative",
+     "Avg Rev": 1
+   },
+   {
+     "Name": "Mercat a la Planxa",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.9133964817320703
+   },
+   {
+     "Name": "Pockets Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Sam's Wines & Spirits",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6666666666666665
+   },
+   {
+     "Name": "Canady Le Chocolatier",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.742857142857143
+   },
+   {
+     "Name": "Little Branch Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.71875
+   },
+   {
+     "Name": "Dunkin'  Donuts",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.5
+   },
+   {
+     "Name": "Zacatacos",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5714285714285716
+   },
+   {
+     "Name": "WineStyles",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.666666666666667
+   },
+   {
+     "Name": "Noodles & Company",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.909090909090909
+   },
+   {
+     "Name": "Australian Homemade",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Quizno's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Federal Plaza Farmers Market",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Kim & Carlos Hot Dog Stand",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.666666666666667
+   },
+   {
+     "Name": "Aria",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.4791666666666665
+   },
+   {
+     "Name": "HomeMade Pizza Company",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Curried Loop",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6923076923076925
+   },
+   {
+     "Name": "Plymouth Restaurant & Bar",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.0625
+   },
+   {
+     "Name": "Amarit Thai Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3877551020408165
+   },
+   {
+     "Name": "Harold's Chicken Shack",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.7586206896551726
+   },
+   {
+     "Name": "Robinson's Ribs",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Urban Pantry",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "Bar Louie",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.2580645161290325
+   },
+   {
+     "Name": "Fannie May Candy Shops",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Great Street Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.5
+   },
+   {
+     "Name": "Goodwin's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.190476190476191
+   },
+   {
+     "Name": "Yang",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2.3076923076923075
+   },
+   {
+     "Name": "Raw",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.466666666666667
+   },
+   {
+     "Name": "Artist's Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.3448275862068964
+   },
+   {
+     "Name": "Delmonico Illinois Center",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.375
+   },
+   {
+     "Name": "I Dream of Falafel",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.761904761904762
+   },
+   {
+     "Name": "Mangino's",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "ROOF",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.207547169811321
+   },
+   {
+     "Name": "Billy Goat Tavern & Grill",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2.8421052631578947
+   },
+   {
+     "Name": "One North Kitchen & Bar",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Midtown Kitchen + Bar",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.161290322580645
+   },
+   {
+     "Name": "Tamarind",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.596774193548387
+   },
+   {
+     "Name": "Sushi Sai",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.75
+   },
+   {
+     "Name": "Under 55 Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.4444444444444446
+   },
+   {
+     "Name": "Pizza Hut Express and KFC",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Pollitos Grill & Rotisserie",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Donna's Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "White Hen Pantry",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.5
+   },
+   {
+     "Name": "Exchequer Restaurant & Pub",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6875
+   },
+   {
+     "Name": "Jersey Mike's Subs",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3684210526315788
+   },
+   {
+     "Name": "Mariano's Fresh Market",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.435897435897436
+   },
+   {
+     "Name": "Old Timers Restaurant & Lounge",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.2
+   },
+   {
+     "Name": "Alonti Deli",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Salad Creations",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.2857142857142856
+   },
+   {
+     "Name": "Boston Blackies",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.342857142857143
+   },
+   {
+     "Name": "Westminster Hot Dog",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.7857142857142856
+   },
+   {
+     "Name": "Do-Rite Donuts",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.395348837209302
+   },
+   {
+     "Name": "Siam Rice",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.63855421686747
+   },
+   {
+     "Name": "Pinkys",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "I Love Sushi",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Krispy Kreme Doughnuts",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.333333333333333
+   },
+   {
+     "Name": "Be Sweet",
+     "Most Common Sent": "positive",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Ronny's III",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Starfruit Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.857142857142857
+   },
+   {
+     "Name": "Godiva Chocolatier Inc",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.25
+   },
+   {
+     "Name": "Bowl Square",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.2
+   },
+   {
+     "Name": "Fresh Choice",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2.4
+   },
+   {
+     "Name": "Sky Grocer",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4.333333333333333
+   },
+   {
+     "Name": "Chicago Sports Bar & Grill",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Capra's Coffee",
+     "Most Common Sent": "positive",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Cyrano's Cafe On The River",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Monday's Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "Orange on Harrison",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Willis Tower Plaza Farmer's Market",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Ma & I",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5384615384615383
+   },
+   {
+     "Name": "Nick & Tony's Italian Chop House",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "La Strada Ristorante",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Pompei Bakery",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Cosi Sandwich Bar",
+     "Most Common Sent": "positive",
+     "Avg Rev": 1.6666666666666667
+   },
+   {
+     "Name": "Plaza Market Bistro",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.857142857142857
+   },
+   {
+     "Name": "Wok Out",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.6666666666666665
+   },
+   {
+     "Name": "Pita Heaven",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.05
+   },
+   {
+     "Name": "Perry's",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4.042857142857143
+   },
+   {
+     "Name": "Utopia International Caribbean Cuisine",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Oriental Express",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.75
+   },
+   {
+     "Name": "Maison Brasserie",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "The Grill Room Chophouse & Winebar",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.0526315789473686
+   },
+   {
+     "Name": "South Branch",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3214285714285716
+   },
+   {
+     "Name": "Green Apple",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Gold Coast Dogs",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.1052631578947367
+   },
+   {
+     "Name": "Miller's Pub",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.4731182795698925
+   },
+   {
+     "Name": "Chicago's Downtown Farmstand",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.444444444444445
+   },
+   {
+     "Name": "Al's Beef",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.25
+   },
+   {
+     "Name": "Taste of Siam Inc",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.5
+   },
+   {
+     "Name": "Sweet Tooth Cafe",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Pierogi Heaven",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.3
+   },
+   {
+     "Name": "Catch 35",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.858695652173913
+   },
+   {
+     "Name": "Works-North Loop the",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.8
+   },
+   {
+     "Name": "Prudential Plaza Farmer's Market",
+     "Most Common Sent": "positive",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Rosie's Cafe & Catering",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Ceres Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.857142857142857
+   },
+   {
+     "Name": "Einstein Bros. Bagels",
+     "Most Common Sent": "negative",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Chicago River Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.5
+   },
+   {
+     "Name": "Marshall Field's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.130434782608695
+   },
+   {
+     "Name": "Halo Asian Mix",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.933333333333333
+   },
+   {
+     "Name": "Ufood Grill",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2.4545454545454546
+   },
+   {
+     "Name": "To Pho Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Taco Bell",
+     "Most Common Sent": "negative",
+     "Avg Rev": 1.5
+   },
+   {
+     "Name": "University Club of Chicago",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.4
+   },
+   {
+     "Name": "Tapas Valencia",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.7096774193548385
+   },
+   {
+     "Name": "Specialty's Cafe & Bakery",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Rivers To Go",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Fast Foo's",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2.4
+   },
+   {
+     "Name": "Wendy's",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2.727272727272727
+   },
+   {
+     "Name": "Diosa on the River",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Lavazza Espression",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Sweetwater Tavern & Grille",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3295454545454546
+   },
+   {
+     "Name": "Arturo Express",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.909090909090909
+   },
+   {
+     "Name": "Govnor's Pub",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Soundings Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Marc Burger",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.5
+   },
+   {
+     "Name": "Ole Hardwood",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "Opera",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.451219512195122
+   },
+   {
+     "Name": "Flat Top Stir-Fry Grill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3846153846153846
+   },
+   {
+     "Name": "Kaiyo Sushi",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.25
+   },
+   {
+     "Name": "Grace O'Malley's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.9565217391304346
+   },
+   {
+     "Name": "The BISTRO At 151",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "La Cantina",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.25
+   },
+   {
+     "Name": "Frietkoten Belgian Fries & Beer",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.875
+   },
+   {
+     "Name": "State and Lake Chicago Tavern",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.9743589743589745
+   },
+   {
+     "Name": "Fannie May Fine Chocolates",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.4
+   },
+   {
+     "Name": "Great Steak & Potato Co.",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Pat's Pizzeria",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.878787878787879
+   },
+   {
+     "Name": "Gina's Cuisine",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Silk Road",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "Luke's Italian Beef",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6296296296296298
+   },
+   {
+     "Name": "The Gage",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.930285714285714
+   },
+   {
+     "Name": "65 Asian Kitchen",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Bonjour Cafe",
+     "Most Common Sent": "negative",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Toni Patisserie & Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.772727272727273
+   },
+   {
+     "Name": "Chickadilly's Charhouse",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Currents on the River",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "Cafe 100",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Buddy Guy's Legends",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.090909090909091
+   },
+   {
+     "Name": "Oasis Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.019607843137255
+   },
+   {
+     "Name": "Seven Bar & Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Pazzo's Cucina Italiana",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.1818181818181817
+   },
+   {
+     "Name": "Rosebud Express",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.333333333333333
+   },
+   {
+     "Name": "Urban Market",
+     "Most Common Sent": "positive",
+     "Avg Rev": 1.5
+   },
+   {
+     "Name": "Stop Everday",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Pita Express",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.0625
+   },
+   {
+     "Name": "Solo 1530",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "South Water Kitchen",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.1627906976744184
+   },
+   {
+     "Name": "Cavanaugh's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.4444444444444446
+   },
+   {
+     "Name": "Dairy Queen Grill & Chill Restraunt",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.909090909090909
+   },
+   {
+     "Name": "Blackie's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.4642857142857144
+   },
+   {
+     "Name": "Eleventh St Diner",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2.3333333333333335
+   },
+   {
+     "Name": "Ada's Famous Deli",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2.7096774193548385
+   },
+   {
+     "Name": "Abou Andre",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Harry's Sandwich Shop",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.6666666666666665
+   },
+   {
+     "Name": "Poag Mahone's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.317073170731707
+   },
+   {
+     "Name": "The Great Steak and Potato Company",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Marquette Inn No 4 Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Frontera Fresco",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.951219512195122
+   },
+   {
+     "Name": "Printer's Row Park Farmers Market",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4.5
+   },
+   {
+     "Name": "Villains Bar and Grill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Mista",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.6666666666666665
+   },
+   {
+     "Name": "Nesh Mediterranean Grill",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Fruit Factory",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "Hey Sushi",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2.3333333333333335
+   },
+   {
+     "Name": "Gioia Candy & More",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Henri",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.533333333333333
+   },
+   {
+     "Name": "Everest",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.806451612903226
+   },
+   {
+     "Name": "The Southern Mac & Cheese Store",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.375
+   },
+   {
+     "Name": "Wine Bar at the Walnut Room",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.2
+   },
+   {
+     "Name": "Florian Opera Bistro",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.2
+   },
+   {
+     "Name": "Petro's Restaurant & Bakery",
+     "Most Common Sent": "negative",
+     "Avg Rev": 1.7
+   },
+   {
+     "Name": "Karamela Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Networks",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "RR Chocolats",
+     "Most Common Sent": "positive",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "My Thai Restaurant",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.090909090909091
+   },
+   {
+     "Name": "O'Briens Riverwalk Cafe",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.466666666666667
+   },
+   {
+     "Name": "Monadnock Tobacco Shop",
+     "Most Common Sent": "negative",
+     "Avg Rev": 1
+   },
+   {
+     "Name": "Intelligentsia Coffee & Tea",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.189655172413793
+   },
+   {
+     "Name": "Potbelly's Sandwich Works",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Garden Village Deli",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.166666666666667
+   },
+   {
+     "Name": "Lai Lai & Korean Express",
+     "Most Common Sent": "negative",
+     "Avg Rev": 2.75
+   },
+   {
+     "Name": "Snuggery Union Train Station",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.3333333333333335
+   },
+   {
+     "Name": "Potbelly",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Daley Plaza Farmers Market",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.2
+   },
+   {
+     "Name": "Carolina Caramel",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "312 Chicago",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.161290322580645
+   },
+   {
+     "Name": "Lai Lai Oriental Express",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Skrine Chops",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4.214285714285714
+   },
+   {
+     "Name": "The Confection Connection Too",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Jimmy Green's",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.7857142857142856
+   },
+   {
+     "Name": "Yelp! Office Hours @ Lunch Rolls",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4.25
+   },
+   {
+     "Name": "Burnham Plaza Mart",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Andy's Frozen Custard",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.888888888888889
+   },
+   {
+     "Name": "Frietkoten Belgian Fries and Beer",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2
+   },
+   {
+     "Name": "Lunch Rolls",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.4
+   },
+   {
+     "Name": "The Bongo Room",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.8736263736263736
+   },
+   {
+     "Name": "Pazzo's Express",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.2857142857142856
+   },
+   {
+     "Name": "N9NE Steakhouse",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.822429906542056
+   },
+   {
+     "Name": "Rise N Roll Amish Market",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Filini",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.125
+   },
+   {
+     "Name": "Stetson's Chop House & Bar",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.142857142857143
+   },
+   {
+     "Name": "The Park Shoppe",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3
+   },
+   {
+     "Name": "Square One",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.8333333333333335
+   },
+   {
+     "Name": "Tortas Frontera by Rick Bayless",
+     "Most Common Sent": "negative",
+     "Avg Rev": 4
+   },
+   {
+     "Name": "Jimmy John's Gourmet Sandwiches",
+     "Most Common Sent": "negative",
+     "Avg Rev": 3.4
+   },
+   {
+     "Name": "Banh Mi Express Sandwiches",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.5
+   },
+   {
+     "Name": "Cocomori",
+     "Most Common Sent": "positive",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "South Loop Club",
+     "Most Common Sent": "positive",
+     "Avg Rev": 2.607142857142857
+   },
+   {
+     "Name": "Baba's Village",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.4615384615384617
+   },
+   {
+     "Name": "Armand's Pizzeria",
+     "Most Common Sent": "positive",
+     "Avg Rev": 5
+   },
+   {
+     "Name": "Mrs. Fields Cookies",
+     "Most Common Sent": "positive",
+     "Avg Rev": 4.5
+   },
+   {
+     "Name": "Pompei Dearborn",
+     "Most Common Sent": "positive",
+     "Avg Rev": 3.2
+   }
+  ]
+}
