@@ -1,0 +1,684 @@
+Restaurant Name,Address,Average Yelp Review,#Pass Inspection,#Conditional Inspection,#Failed Inspection
+Harry's Hot Dogs,"Harry's Hot Dogs - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Terzo Piano,"Terzo Piano - The Loop - Chicago, IL",3,0,0,0
+Delmonico,"Delmonico - The Loop - Chicago, IL",4,11,4,4
+Roti Mediterranean Grill,"Roti Mediterranean Grill - The Loop - Chicago, IL",4,31,4,4
+Chipotle Mexican Grill,"Chipotle Mexican Grill - The Loop - Chicago, IL",4,73,20,12
+Mei's Kitchen,"Mei's Kitchen - South Loop - Chicago, IL",3,0,0,0
+Au Bon Pain,"Au Bon Pain - The Loop - Chicago, IL",3,80,14,12
+Corner Bakery Cafe,"Corner Bakery Cafe - Near Southside - Chicago, IL",3,118,23,19
+Cajun Grill At Union Station,"Cajun Grill At Union Station - Near West Side - Chicago, IL",2,0,0,0
+IPO,"IPO - The Loop - Chicago, IL",4,0,0,0
+A' Cappella Bistro,"A' Cappella Bistro - Near Southside - Chicago, IL",2,0,0,0
+Tesori,"Tesori - The Loop - Chicago, IL",4,16,3,4
+Sopraffina,"Sopraffina - The Loop - Chicago, IL",4,14,0,1
+Hackney's Printers' Row,"Hackney's Printers' Row - Printer's Row - Chicago, IL",4,10,1,1
+Off-Track Betting-Otb,"Off-Track Betting-Otb - The Loop - Chicago, IL",5,0,0,0
+Patty Burger,"Patty Burger - CLOSED - The Loop - Chicago, IL",3,1,1,0
+Custom House Tavern,"Custom House Tavern - Printer's Row - Chicago, IL",4,3,0,3
+Au Bon Pain,"Au Bon Pain - Chicago, IL",3,80,14,12
+Spa Cafe,"Spa Cafe - CLOSED - The Loop - Chicago, IL",4,0,0,0
+The Grille on State,"The Grille on State - CLOSED - South Loop - Chicago, IL",2,0,0,0
+BomBon 4,"BomBon 4 - CLOSED - The Loop - Chicago, IL",5,0,0,0
+Au Bon Pain,"Au Bon Pain - Near West Side - Chicago, IL",3,80,14,12
+Encore Liquid Lounge,"Encore Liquid Lounge - The Loop - Chicago, IL",4,0,0,0
+Harold's Chicken Shack No 77,"Harold's Chicken Shack No 77 - CLOSED - The Loop - Chicago, IL",3,5,1,2
+Cafecito,"Cafecito - South Loop - Chicago, IL",5,18,2,3
+Chicago Windy House,"Chicago Windy House - Near West Side - Chicago, IL",4,0,0,0
+Giordano's Pizzeria,"Giordano's Pizzeria - The Loop - Chicago, IL",3,0,0,0
+Roti Mediterranean Grill,"Roti Mediterranean Grill - The Loop - Chicago, IL",4,31,4,4
+Around the Corner,"Around the Corner - CLOSED - The Loop - Chicago, IL",5,0,0,0
+Protein Bar,"Protein Bar - The Loop - Chicago, IL",4,46,8,6
+Roti Mediterranean Grill,"Roti Mediterranean Grill - The Loop - Chicago, IL",4,31,4,4
+Corner Bakery Cafe,"Corner Bakery Cafe - The Loop - Chicago, IL",3,118,23,19
+Lockwood,"Lockwood - The Loop - Chicago, IL",4,8,2,2
+10 & 30 Sundry,"10 & 30 Sundry - The Loop - Chicago, IL",3,0,0,0
+M Burger,"M Burger - The Loop - Chicago, IL",3,10,0,1
+Au Bon Pain Company,"Au Bon Pain Company - Chicago, IL",3,80,14,12
+Corner Bakery Cafe,"Corner Bakery Cafe - The Loop - Chicago, IL",4,118,23,19
+Falafill,"Falafill - The Loop - Chicago, IL",5,4,2,1
+Protein Bar,"Protein Bar - The Loop - Chicago, IL",4,46,8,6
+Halsted Street Deli,"Halsted Street Deli - The Loop - Chicago, IL",3,44,11,12
+Mezza Grilled Wraps and Pitas,"Mezza Grilled Wraps and Pitas - The Loop - Chicago, IL",4,19,6,5
+MySpa Chicago,"MySpa Chicago - The Loop - Chicago, IL",4,0,0,0
+Potbelly's,"Potbelly's - The Loop - Chicago, IL",4,0,0,0
+Nicola's Pizzeria,"Nicola's Pizzeria - CLOSED - The Loop - Chicago, IL",4,1,0,0
+Tokyo Lunch Boxes & Catering,"Tokyo Lunch Boxes & Catering - The Loop - Chicago, IL",3,44,11,6
+Jimmy John's,"Jimmy John's - Near West Side - Chicago, IL",4,33,13,8
+Cellars Market,"Cellars Market - Chicago, IL",4,11,2,2
+Flo & Santos,"Flo & Santos - Near Southside - Chicago, IL",4,13,2,8
+Caffecafe,"Caffecafe - The Loop - Chicago, IL",3,8,1,0
+U Food Grill,"U Food Grill - CLOSED - South Loop - Chicago, IL",3,1,0,0
+Max's Take Out,"Max's Take Out - The Loop - Chicago, IL",4,10,1,4
+Arby's,"Arby's - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Chen's Chinese Express,"Chen's Chinese Express - The Loop - Chicago, IL",3,2,0,0
+Hannah's Bretzel,"Hannah's Bretzel - The Loop - Chicago, IL",4,10,2,0
+Ronny's Original Chicago Steak House,"Ronny's Original Chicago Steak House - The Loop - Chicago, IL",4,0,0,0
+The Big Downtown,"The Big Downtown - CLOSED - The Loop - Chicago, IL",4,10,1,0
+Subway,"Subway - The Loop - Chicago, IL",2,187,21,29
+Haifa Cafe,"Haifa Cafe - The Loop - Chicago, IL",3,8,2,5
+The Italian Village Restaurants,"The Italian Village Restaurants - The Loop - Chicago, IL",3,0,0,0
+Pockets,"Pockets - CLOSED - The Loop - Chicago, IL",4,16,3,2
+McDonald's,"McDonald's - The Loop - Chicago, IL",2,42,1,13
+Wow Bao,"Wow Bao - The Loop - Chicago, IL",4,37,4,3
+Taco Fresco,"Taco Fresco - The Loop - Chicago, IL",2,31,2,5
+KFC Express,"KFC Express - The Loop - Chicago, IL",3,0,0,0
+Jimmy John's,"Jimmy John's - Near Southside - Chicago, IL",4,33,13,8
+Kamehachi,"Kamehachi - The Loop - Chicago, IL",3,0,0,0
+Which Wich Superior Sandwiches,"Which Wich Superior Sandwiches - The Loop - Chicago, IL",4,10,4,2
+Pret A Manger,"Pret A Manger - The Loop - Chicago, IL",4,68,5,9
+Opart Thai House,"Opart Thai House - Near Southside - Chicago, IL",4,0,0,0
+Pizza-Ria,"Pizza-Ria - South Loop - Chicago, IL",4,0,0,0
+West Egg Cafe,"West Egg Cafe - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Exposure Restaurant & Lounge,"Exposure Restaurant & Lounge - CLOSED - Near Southside - Chicago, IL",3,0,0,0
+The Garden Restaurant,"The Garden Restaurant - The Loop - Chicago, IL",4,0,0,0
+French Quarter Restaurant,"French Quarter Restaurant - Chicago, IL",4,0,0,0
+Bennigan's,"Bennigan's - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Pizzahut Express,"Pizzahut Express - Near West Side - Chicago, IL",3,0,0,0
+Oysy Japanese Sushi Restaurant,"Oysy Japanese Sushi Restaurant - South Loop - Chicago, IL",4,6,2,4
+Popeye's Famous Fried Chicken,"Popeye's Famous Fried Chicken - The Loop - Chicago, IL",4,0,0,0
+Vivere,"Vivere - The Loop - Chicago, IL",4,0,0,0
+Gino's East Sports Bar,"Gino's East Sports Bar - Printer's Row - Chicago, IL",4,0,0,0
+Simply Greens,"Simply Greens - Near West Side - Chicago, IL",2,0,0,0
+Wow Bao,"Wow Bao - The Loop - Chicago, IL",4,37,4,3
+Indian Express,"Indian Express - The Loop - Chicago, IL",2,0,0,0
+Bionda To Go,"Bionda To Go - CLOSED - The Loop - Chicago, IL",4,1,0,0
+Ruby of Siam,"Ruby of Siam - The Loop - Chicago, IL",4,5,0,2
+Chicago Kernel Gourmet Popcorn,"Chicago Kernel Gourmet Popcorn - The Loop - Chicago, IL",5,6,0,0
+The Vault,"The Vault - The Loop - Chicago, IL",4,0,0,0
+Corner Bakery Cafe,"Corner Bakery Cafe - The Loop - Chicago, IL",3,118,23,19
+Courtway Restaurant,"Courtway Restaurant - The Loop - Chicago, IL",4,0,0,0
+Qdoba Mexican Grill,"Qdoba Mexican Grill - The Loop - Chicago, IL",3,9,1,3
+Thai Spoon,"Thai Spoon - South Loop - Chicago, IL",3,6,1,1
+Market Creations,"Market Creations - The Loop - Chicago, IL",3,33,12,7
+Mac Kelly's Greens & Things,"Mac Kelly's Greens & Things - The Loop - Chicago, IL",4,4,1,1
+Epic Burger,"Epic Burger - South Loop - Chicago, IL",4,6,2,5
+Ara On,"Ara On - The Loop - Chicago, IL",4,11,2,1
+Naf Naf Grill,"Naf Naf Grill - The Loop - Chicago, IL",4,17,5,3
+Ricobene's,"Ricobene's - CLOSED - The Loop - Chicago, IL",3,0,0,0
+La Rosetta,"La Rosetta - The Loop - Chicago, IL",4,0,0,0
+Fish Port,"Fish Port - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Mama Falco Pizza,"Mama Falco Pizza - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Rudy's Bar & Grille,"Rudy's Bar & Grille - The Loop - Chicago, IL",4,9,3,1
+Freshii,"Freshii - The Loop - Chicago, IL",3,63,21,14
+Caffe Baci,"Caffe Baci - The Loop - Chicago, IL",3,33,5,5
+Howie's,"Howie's - CLOSED - Near Southside - Chicago, IL",3,0,0,0
+CrÃªpe Bistro,"CrÃªpe Bistro - The Loop - Chicago, IL",4,0,0,0
+Hannah's Bretzel,"Hannah's Bretzel - The Loop - Chicago, IL",4,10,2,0
+Cibo Matto,"Cibo Matto - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Sbarro,"Sbarro - The Loop - Chicago, IL",3,36,5,6
+Pizano's Pizza,"Pizano's Pizza - The Loop - Chicago, IL",4,12,4,4
+Subway,"Subway - The Loop - Chicago, IL",3,187,21,29
+Roly Poly Sandwiches,"Roly Poly Sandwiches - The Loop - Chicago, IL",4,5,1,2
+Park Grill,"Park Grill - The Loop - Chicago, IL",4,0,0,0
+Maxim's Restaurant,"Maxim's Restaurant - The Loop - Chicago, IL",3,0,0,0
+Johnny Rockets,"Johnny Rockets - The Loop - Chicago, IL",2,9,0,4
+Pedersen Room,"Pedersen Room - Near West Side - Chicago, IL",4,0,0,0
+Tokyo Lunch Boxes & Catering,"Tokyo Lunch Boxes & Catering - The Loop - Chicago, IL",4,44,11,6
+Pret A Manger,"Pret A Manger - The Loop - Chicago, IL",5,68,5,9
+Weather Mark Tavern,"Weather Mark Tavern - Near Southside - Chicago, IL",4,10,0,0
+Wall Street Deli,"Wall Street Deli - The Loop - Chicago, IL",5,0,0,0
+Potbelly Sandwich Works,"Potbelly Sandwich Works - The Loop - Chicago, IL",3,48,11,8
+Pittsfield Cafe,"Pittsfield Cafe - The Loop - Chicago, IL",4,9,1,1
+Osaka Express,"Osaka Express - The Loop - Chicago, IL",4,9,0,0
+Au Bon Pain,"Au Bon Pain - The Loop - Chicago, IL",2,80,14,12
+Taco Fresco,"Taco Fresco - The Loop - Chicago, IL",3,31,2,5
+Oodles Of Noodles,"Oodles Of Noodles - CLOSED - The Loop - Chicago, IL",3,2,0,0
+The Berghoff Restaurant,"The Berghoff Restaurant - The Loop - Chicago, IL",4,0,0,0
+Cosi,"Cosi - The Loop - Chicago, IL",4,31,7,8
+Corner Bakery Cafe,"Corner Bakery Cafe - The Loop - Chicago, IL",3,118,23,19
+The Green at Grant Park,"The Green at Grant Park - CLOSED - The Loop - Chicago, IL",4,1,0,1
+Ronny's Original Steakhouse,"Ronny's Original Steakhouse - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Burrito Beach,"Burrito Beach - Near West Side - Chicago, IL",3,28,3,3
+Bella Bacino's,"Bella Bacino's - The Loop - Chicago, IL",4,0,0,0
+BB's,"BB's - CLOSED - Near North Side - Chicago, IL",4,0,0,0
+Buen Apetito,"Buen Apetito - Near West Side - Chicago, IL",4,0,0,0
+Trattoria Caterina,"Trattoria Caterina - Printer's Row - Chicago, IL",3,5,1,1
+Beef and Brandy,"Beef and Brandy - The Loop - Chicago, IL",3,0,0,0
+Uncle Abe's Deli,"Uncle Abe's Deli - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Blackbird,"Blackbird - Near West Side - Chicago, IL",4,0,0,0
+Sopraffina Marketcaffe,"Sopraffina Marketcaffe - The Loop - Chicago, IL",4,33,5,4
+Mezcalina,"Mezcalina - The Loop - Chicago, IL",3,6,2,1
+Flaco's Tacos,"Flaco's Tacos - Printer's Row - Chicago, IL",4,0,0,0
+U.B. Dogs,"U.B. Dogs - The Loop - Chicago, IL",5,8,0,1
+Hot Woks Cool Sushi,"Hot Woks Cool Sushi - The Loop - Chicago, IL",4,18,5,2
+Giordano's Pizzeria,"Giordano's Pizzeria - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Bodega N.5,"Bodega N.5 - South Loop - Chicago, IL",4,0,0,0
+Eleven City Diner,"Eleven City Diner - South Loop - Chicago, IL",4,13,2,0
+Brasserie By LM,"Brasserie By LM - South Loop - Chicago, IL",3,6,1,5
+231 Cafe,"231 Cafe - The Loop - Chicago, IL",4,0,0,0
+Mr Submarine,"Mr Submarine - The Loop - Chicago, IL",4,0,0,0
+Palmer House Conference Center 7,"Palmer House Conference Center 7 - The Loop - Chicago, IL",5,0,0,0
+Jimmy John's,"Jimmy John's - The Loop - Chicago, IL",3,33,13,8
+Pavilion Restaurant,"Pavilion Restaurant - South Loop - Chicago, IL",2,0,0,0
+Palm Restaurant,"Palm Restaurant - The Loop - Chicago, IL",4,8,0,3
+Faycurr's Urban Kitchen & Cafe,"Faycurr's Urban Kitchen & Cafe - The Loop - Chicago, IL",3,4,0,4
+Cosi,"Cosi - The Loop - Chicago, IL",3,31,7,8
+Jason's Deli,"Jason's Deli - The Loop - Chicago, IL",4,10,1,2
+Overflow Coffee Bar,"Overflow Coffee Bar - Near Southside - Chicago, IL",5,0,0,0
+Grillers,"Grillers - The Loop - Chicago, IL",4,0,0,0
+Alonti Cafe,"Alonti Cafe - The Loop - Chicago, IL",3,10,6,1
+Finkls Deli,"Finkls Deli - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Arby's,"Arby's - The Loop - Chicago, IL",3,0,0,0
+Simply Thalia,"Simply Thalia - The Loop - Chicago, IL",2,8,4,3
+Potter's Lounge,"Potter's Lounge - The Loop - Chicago, IL",4,10,0,1
+Dunkin' Donuts,"Dunkin' Donuts - The Loop - Chicago, IL",4,4,1,1
+Wisma,"Wisma - The Loop - Chicago, IL",4,0,0,0
+BackStage Bistro,"BackStage Bistro - The Loop - Chicago, IL",4,0,0,0
+Alain's,"Alain's - Near Southside - Chicago, IL",4,0,0,0
+Wildberry Cafe,"Wildberry Cafe - The Loop - Chicago, IL",4,0,0,0
+Americana Submarine,"Americana Submarine - The Loop - Chicago, IL",2,6,7,1
+Silk Road Jackson,"Silk Road Jackson - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Avanti CaffÃ©,"Avanti CaffÃ© - The Loop - Chicago, IL",4,0,0,0
+Pita Belly,"Pita Belly - South Loop - Chicago, IL",3,0,0,0
+Toro Sushi Express,"Toro Sushi Express - The Loop - Chicago, IL",4,0,0,0
+Lloyd's Chicago,"Lloyd's Chicago - The Loop - Chicago, IL",3,0,0,0
+Berghoff CafÃ©,"Berghoff CafÃ© - The Loop - Chicago, IL",4,0,0,0
+Yolk,"Yolk - South Loop - Chicago, IL",4,10,2,2
+Lou Malnati's Pizzeria,"Lou Malnati's Pizzeria - South Loop - Chicago, IL",4,15,4,1
+Pazzo's @ 311,"Pazzo's @ 311 - The Loop - Chicago, IL",4,10,2,2
+Haute Sausage,"Haute Sausage - The Loop - Chicago, IL",4,4,0,2
+Potbelly Sandwich Shop,"Potbelly Sandwich Shop - The Loop - Chicago, IL",4,0,0,0
+Tokyo Lunch Boxes & Catering,"Tokyo Lunch Boxes & Catering - The Loop - Chicago, IL",4,44,11,6
+Coco's Famous Deep Fried Lobster,"Coco's Famous Deep Fried Lobster - The Loop - Chicago, IL",4,0,0,0
+California Pizza Kitchen,"California Pizza Kitchen - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Hong Kong Cafe,"Hong Kong Cafe - CLOSED - The Loop - Chicago, IL",4,0,0,0
+The Zodiac Room,"The Zodiac Room - Near North Side - Chicago, IL",4,0,0,0
+Pockets,"Pockets - The Loop - Chicago, IL",3,16,3,2
+Morton's The Steakhouse,"Morton's The Steakhouse - The Loop - Chicago, IL",4,0,0,0
+Baja Fresh,"Baja Fresh - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Townhouse Restaurant & Wine Bar,"Townhouse Restaurant & Wine Bar - The Loop - Chicago, IL",3,0,0,0
+III Forks Prime Steakhouse,"III Forks Prime Steakhouse - The Loop - Chicago, IL",4,2,0,0
+Zapatista,"Zapatista - Near Southside - Chicago, IL",4,12,1,5
+Au Bon Pain,"Au Bon Pain - The Loop - Chicago, IL",3,80,14,12
+Arby's,"Arby's - The Loop - Chicago, IL",3,0,0,0
+Tamalefoodie,"Tamalefoodie - Near West Side - Chicago, IL",4,0,0,0
+The Florentine,"The Florentine - The Loop - Chicago, IL",4,9,2,5
+KFC,"KFC - CLOSED - South Loop - Chicago, IL",3,0,0,0
+Petterino's,"Petterino's - The Loop - Chicago, IL",4,20,1,2
+City Tavern,"City Tavern - Near Southside - Chicago, IL",4,0,0,0
+Panera Bread,"Panera Bread - The Loop - Chicago, IL",3,15,1,7
+McDonald's,"McDonald's - The Loop - Chicago, IL",1,42,1,13
+Jazzman's Cafe & Bakery,"Jazzman's Cafe & Bakery - The Loop - Chicago, IL",2,0,0,0
+Wow Bao Restaurant,"Wow Bao Restaurant - The Loop - Chicago, IL",4,37,4,3
+The L Cafe,"The L Cafe - The Loop - Chicago, IL",3,0,0,0
+Panozzo's Italian Market,"Panozzo's Italian Market - Near Southside - Chicago, IL",5,0,0,0
+Subway Sandwiches,"Subway Sandwiches - The Loop - Chicago, IL",5,196,25,31
+Shark's Fish & Chicken,"Shark's Fish & Chicken - The Loop - Chicago, IL",3,0,0,0
+Gioco,"Gioco - Near Southside - Chicago, IL",4,8,2,4
+Korean Express,"Korean Express - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Wow Bow,"Wow Bow - The Loop - Chicago, IL",4,0,0,0
+Bacci Pizzeria,"Bacci Pizzeria - Chicago, IL",4,1,0,0
+Micky's Chicken & Fish,"Micky's Chicken & Fish - The Loop - Chicago, IL",4,0,0,0
+Pastoral,"Pastoral - The Loop - Chicago, IL",5,7,1,2
+Connie's Pizza,"Connie's Pizza - The Loop - Chicago, IL",4,0,0,0
+Taza,"Taza - The Loop - Chicago, IL",5,6,0,0
+McDonald's,"McDonald's - Near West Side - Chicago, IL",3,42,1,13
+Subway,"Subway - The Loop - Chicago, IL",3,187,21,29
+I Dream Of Falafel,"I Dream Of Falafel - The Loop - Chicago, IL",4,16,6,5
+Cardozo's Pub,"Cardozo's Pub - The Loop - Chicago, IL",3,10,1,1
+Robinson's No 1 Ribs,"Robinson's No 1 Ribs - Near West Side - Chicago, IL",4,0,0,0
+Trattoria No. 10,"Trattoria No. 10 - The Loop - Chicago, IL",4,0,0,0
+Five Guys Burgers & Fries,"Five Guys Burgers & Fries - South Loop - Chicago, IL",4,0,0,0
+Subway,"Subway - The Loop - Chicago, IL",3,187,21,29
+Augustino's Rock & Roll Deli,"Augustino's Rock & Roll Deli - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Chicago Curry House,"Chicago Curry House - South Loop - Chicago, IL",4,6,3,3
+The Walnut Room,"The Walnut Room - The Loop - Chicago, IL",3,0,0,0
+Halsted Street Deli,"Halsted Street Deli - The Loop - Chicago, IL",3,44,11,12
+Emil's Bar & Grill,"Emil's Bar & Grill - CLOSED - Chicago, IL",3,0,0,0
+Subway,"Subway - The Loop - Chicago, IL",3,187,21,29
+DOS Hermanos Mexican Restaurante,"DOS Hermanos Mexican Restaurante - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Subway,"Subway - The Loop - Chicago, IL",3,187,21,29
+au bon pain,"au bon pain - The Loop - Chicago, IL",1,80,14,12
+Bacci Pizzeria,"Bacci Pizzeria - The Loop - Chicago, IL",3,1,0,0
+Sbarro Italian Eatery,"Sbarro Italian Eatery - The Loop - Chicago, IL",3,36,5,6
+The Metropolitan Club,"The Metropolitan Club - The Loop - Chicago, IL",4,8,6,3
+Flavor 180,"Flavor 180 - Near Southside - Chicago, IL",4,9,0,4
+The Scout,"The Scout - Near Southside - Chicago, IL",3,10,2,1
+Petra Cafe,"Petra Cafe - CLOSED - The Loop - Chicago, IL",3,1,0,0
+Alonti Market Cafe,"Alonti Market Cafe - The Loop - Chicago, IL",4,0,0,0
+Jimmy John's,"Jimmy John's - The Loop - Chicago, IL",4,33,13,8
+Davino's Little Pompei,"Davino's Little Pompei - CLOSED - Chicago, IL",3,0,0,0
+Cafe 200,"Cafe 200 - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Chipotle Mexican Grill,"Chipotle Mexican Grill - The Loop - Chicago, IL",3,73,20,12
+The India Grill,"The India Grill - CLOSED - South Loop - Chicago, IL",2,0,0,1
+Mediterranean Delight,"Mediterranean Delight - The Loop - Chicago, IL",3,0,0,1
+Lalo's Restaurant,"Lalo's Restaurant - CLOSED - South Loop - Chicago, IL",3,0,0,0
+Green Apple Cafe,"Green Apple Cafe - Chicago, IL",4,0,0,0
+Ponte Fresco,"Ponte Fresco - CLOSED - The Loop - Chicago, IL",4,3,1,1
+Quizno's Sub's,"Quizno's Sub's - CLOSED - Chicago, IL",3,0,0,1
+5411 Empanadas,"5411 Empanadas - Lakeview - Chicago, IL",4,2,0,0
+Subway,"Subway - The Loop - Chicago, IL",3,187,21,29
+Alonti Cafe,"Alonti Cafe - The Loop - Chicago, IL",4,10,6,1
+Russian Tea Time,"Russian Tea Time - The Loop - Chicago, IL",4,9,3,2
+Shikago Restaurant,"Shikago Restaurant - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Marcello's Market & Deli,"Marcello's Market & Deli - The Loop - Chicago, IL",3,14,2,5
+Popeye's Famous Fried Chicken,"Popeye's Famous Fried Chicken - The Loop - Chicago, IL",3,0,0,0
+Med Kitchen,"Med Kitchen - The Loop - Chicago, IL",4,8,1,3
+Haifa Cafe,"Haifa Cafe - CLOSED - The Loop - Chicago, IL",4,8,2,5
+Off the Tracks Grill,"Off the Tracks Grill - The Loop - Chicago, IL",4,8,3,0
+McDonald's,"McDonald's - Near Southside - Chicago, IL",3,42,1,13
+Einstein Bros Bagels,"Einstein Bros Bagels - The Loop - Chicago, IL",2,0,0,0
+A Mano,"A Mano - CLOSED - Near North Side - Chicago, IL",4,0,0,0
+Eat & Drink,"Eat & Drink - The Loop - Chicago, IL",3,4,0,0
+Subway,"Subway - The Loop - Chicago, IL",4,187,21,29
+Subway,"Subway - The Loop - Chicago, IL",3,187,21,29
+The Chicago Firehouse Restaurant,"The Chicago Firehouse Restaurant - Near Southside - Chicago, IL",4,4,0,5
+Potbelly Sandwich Works,"Potbelly Sandwich Works - The Loop - Chicago, IL",4,48,11,8
+Cosi,"Cosi - The Loop - Chicago, IL",4,31,7,8
+Olive Mediterranean Grill,"Olive Mediterranean Grill - The Loop - Chicago, IL",4,4,1,1
+Mezza,"Mezza - The Loop - Chicago, IL",4,19,6,5
+KFC & Pizza Hut Express,"KFC & Pizza Hut Express - CLOSED - South Loop - Chicago, IL",1,3,2,1
+Cocina Barro,"Cocina Barro - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Potbelly Sandwich Works,"Potbelly Sandwich Works - Near West Side - Chicago, IL",4,48,11,8
+Tavern At The Park,"Tavern At The Park - The Loop - Chicago, IL",4,10,0,4
+Cereality Cereal Bar & Cafe,"Cereality Cereal Bar & Cafe - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Caffe Baci,"Caffe Baci - CLOSED - The Loop - Chicago, IL",4,33,5,5
+Houlihan's,"Houlihan's - The Loop - Chicago, IL",3,7,1,3
+Hi Tea,"Hi Tea - CLOSED - South Loop - Chicago, IL",4,0,0,0
+Panda Express,"Panda Express - The Loop - Chicago, IL",4,12,0,1
+Chipotle Mexican Grill,"Chipotle Mexican Grill - CLOSED - The Loop - Chicago, IL",1,73,20,12
+Nino Paninos,"Nino Paninos - Near West Side - Chicago, IL",4,0,0,0
+Barro Mexican Cruisine,"Barro Mexican Cruisine - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Sixty Five Chinese Restaurants,"Sixty Five Chinese Restaurants - CLOSED - The Loop - Chicago, IL",4,11,1,0
+Potbelly Sandwich Shop,"Potbelly Sandwich Shop - The Loop - Chicago, IL",4,0,0,0
+La Cocina,"La Cocina - The Loop - Chicago, IL",3,0,0,0
+The Grille on Jackson,"The Grille on Jackson - The Loop - Chicago, IL",2,0,0,0
+Mac Kelly's Greens & Things,"Mac Kelly's Greens & Things - Chicago, IL",4,4,1,1
+Tokyo Lunch Boxes & Catering,"Tokyo Lunch Boxes & Catering - The Loop - Chicago, IL",2,44,11,6
+China Grill,"China Grill - CLOSED - The Loop - Chicago, IL",3,2,0,0
+Chutney Joe's,"Chutney Joe's - Near West Side - Chicago, IL",2,0,0,0
+Caffe Baci,"Caffe Baci - The Loop - Chicago, IL",4,33,5,5
+McDonald's,"McDonald's - The Loop - Chicago, IL",3,42,1,13
+Waffles,"Waffles - Near Southside - Chicago, IL",3,7,1,5
+Venice Cafe,"Venice Cafe - The Loop - Chicago, IL",4,7,3,2
+Tokyo Lunchbox,"Tokyo Lunchbox - The Loop - Chicago, IL",3,0,0,0
+Rosebud Prime,"Rosebud Prime - The Loop - Chicago, IL",4,8,2,2
+Hot Woks Cool Sushi,"Hot Woks Cool Sushi - The Loop - Chicago, IL",4,18,5,2
+Alonti Cafe,"Alonti Cafe - The Loop - Chicago, IL",4,10,6,1
+Potbelly Sandwich Works,"Potbelly Sandwich Works - The Loop - Chicago, IL",3,48,11,8
+Trader Vics,"Trader Vics - CLOSED - The Loop - Chicago, IL",5,0,0,0
+Bennigan's Grill & Tavern,"Bennigan's Grill & Tavern - The Loop - Chicago, IL",3,0,0,0
+Tahini Mediterranean Cafe,"Tahini Mediterranean Cafe - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Pizza-Ria,"Pizza-Ria - CLOSED - South Loop - Chicago, IL",4,0,0,0
+Panera Bread,"Panera Bread - The Loop - Chicago, IL",4,15,1,7
+Pockets,"Pockets - Printer's Row - Chicago, IL",4,16,3,2
+Corner Bakery Cafe,"Corner Bakery Cafe - The Loop - Chicago, IL",3,118,23,19
+Vista Carry Out,"Vista Carry Out - The Loop - Chicago, IL",3,0,0,0
+Triple 1 Chinese Restaurant,"Triple 1 Chinese Restaurant - CLOSED - The Loop - Chicago, IL",4,0,0,0
+La Cocina,"La Cocina - The Loop - Chicago, IL",4,0,0,0
+Allstars Sports Bar & Grill,"Allstars Sports Bar & Grill - The Loop - Chicago, IL",3,0,0,0
+The Lounge,"The Lounge - The Loop - Chicago, IL",4,0,0,0
+Jimmy John's,"Jimmy John's - The Loop - Chicago, IL",4,33,13,8
+Chicago Carry Out,"Chicago Carry Out - South Loop - Chicago, IL",3,0,0,0
+Chicago Pizza Tours,"Chicago Pizza Tours - The Loop - Chicago, IL",5,0,0,0
+Primebar Chicago,"Primebar Chicago - The Loop - Chicago, IL",4,0,0,0
+Potbelly Sandwich Works,"Potbelly Sandwich Works - The Loop - Chicago, IL",4,48,11,8
+Market Creations,"Market Creations - The Loop - Chicago, IL",4,33,12,7
+Chi-Town Pizza Express,"Chi-Town Pizza Express - The Loop - Chicago, IL",3,0,1,0
+Metro Deli & Cafe,"Metro Deli & Cafe - Near West Side - Chicago, IL",3,5,5,0
+Asian Chao and Villa Italian,"Asian Chao and Villa Italian - The Loop - Chicago, IL",2,0,0,0
+La Cocina,"La Cocina - The Loop - Chicago, IL",4,0,0,0
+Sidebar Grille,"Sidebar Grille - The Loop - Chicago, IL",4,4,0,0
+Nick's Fishmarket,"Nick's Fishmarket - CLOSED - Chicago, IL",4,0,0,0
+Taco Fresco,"Taco Fresco - The Loop - Chicago, IL",3,31,2,5
+Au Bon Pain,"Au Bon Pain - The Loop - Chicago, IL",3,80,14,12
+Native Foods Cafe,"Native Foods Cafe - The Loop - Chicago, IL",4,6,1,5
+ItaliAsia,"ItaliAsia - Near North Side - Chicago, IL",3,0,0,0
+Keefer's Kaffe,"Keefer's Kaffe - Near North Side - Chicago, IL",4,0,0,0
+Mezza Grilled Wraps & Pitas,"Mezza Grilled Wraps & Pitas - Near West Side - Chicago, IL",4,19,6,5
+Market Thyme,"Market Thyme - The Loop - Chicago, IL",4,9,4,4
+Chicken Planet,"Chicken Planet - The Loop - Chicago, IL",5,12,1,1
+Lobby Lounge,"Lobby Lounge - South Loop - Chicago, IL",3,0,0,0
+The African Truck,"The African Truck - The Loop - Chicago, IL",4,0,0,0
+Dagwood's Sandwich Factory,"Dagwood's Sandwich Factory - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Burrito Beach,"Burrito Beach - The Loop - Chicago, IL",4,28,3,3
+Frango Cafe,"Frango Cafe - The Loop - Chicago, IL",4,0,0,0
+Bon Appetit,"Bon Appetit - The Loop - Chicago, IL",4,1,1,0
+Bonivino Restaurant,"Bonivino Restaurant - The Loop - Chicago, IL",4,0,0,0
+McCormick & Schmick's,"McCormick & Schmick's - The Loop - Chicago, IL",4,0,0,0
+Chicago Sub,"Chicago Sub - The Loop - Chicago, IL",4,0,0,0
+Franklin Tap,"Franklin Tap - The Loop - Chicago, IL",3,0,0,0
+Panda Express,"Panda Express - The Loop - Chicago, IL",2,12,0,1
+Ricobene's,"Ricobene's - CLOSED - The Loop - Chicago, IL",5,0,0,0
+Bockwinkel's,"Bockwinkel's - The Loop - Chicago, IL",4,3,0,0
+Jimmy John's,"Jimmy John's - The Loop - Chicago, IL",4,33,13,8
+Panda Express,"Panda Express - The Loop - Chicago, IL",3,12,0,1
+Pret A Manger,"Pret A Manger - The Loop - Chicago, IL",4,68,5,9
+Trotter's To Go Express,"Trotter's To Go Express - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Corner Bakery Cafe,"Corner Bakery Cafe - The Loop - Chicago, IL",3,118,23,19
+Heaven On Seven On Wabash,"Heaven On Seven On Wabash - The Loop - Chicago, IL",4,16,1,6
+New Orleans Kitchen,"New Orleans Kitchen - The Loop - Chicago, IL",3,9,4,4
+Popeyes,"Popeyes - The Loop - Chicago, IL",5,0,0,0
+McDonald's,"McDonald's - The Loop - Chicago, IL",2,42,1,13
+The Plaza at Park Grill,"The Plaza at Park Grill - The Loop - Chicago, IL",3,0,0,0
+Estelle's Kitchens,"Estelle's Kitchens - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Au Bon Pain,"Au Bon Pain - The Loop - Chicago, IL",3,80,14,12
+America's Dog,"America's Dog - The Loop - Chicago, IL",3,18,2,5
+Burger King Express,"Burger King Express - The Loop - Chicago, IL",2,11,1,2
+Panda Express,"Panda Express - The Loop - Chicago, IL",3,12,0,1
+Panda Express,"Panda Express - The Loop - Chicago, IL",4,12,0,1
+Typhoon Cafe,"Typhoon Cafe - The Loop - Chicago, IL",3,0,0,0
+Shalom Deli,"Shalom Deli - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Haifa Cafe,"Haifa Cafe - CLOSED - The Loop - Chicago, IL",3,8,2,5
+Atwood Cafe,"Atwood Cafe - The Loop - Chicago, IL",4,3,1,0
+America's Dog,"America's Dog - The Loop - Chicago, IL",4,18,2,5
+Sbarro D Italian Italy,"Sbarro D Italian Italy - The Loop - Chicago, IL",3,36,5,6
+Coogan's Riverside Saloon,"Coogan's Riverside Saloon - The Loop - Chicago, IL",3,10,8,3
+Sopraffina Marketcaffe,"Sopraffina Marketcaffe - The Loop - Chicago, IL",4,33,5,4
+The Dock at Montrose Beach,"The Dock at Montrose Beach - Uptown - Chicago, IL",4,0,0,0
+Park Cafe,"Park Cafe - The Loop - Chicago, IL",3,0,0,0
+Hoyt's Chicago,"Hoyt's Chicago - The Loop - Chicago, IL",4,0,0,0
+Daddy O's,"Daddy O's - The Loop - Chicago, IL",4,0,0,0
+Elephant & Castle,"Elephant & Castle - The Loop - Chicago, IL",3,2,0,0
+Got Pizza,"Got Pizza - CLOSED - South Loop - Chicago, IL",4,0,0,0
+Mr Submarine,"Mr Submarine - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Edwardo's Natural Pizza Restaurant,"Edwardo's Natural Pizza Restaurant - CLOSED - Printer's Row - Chicago, IL",3,9,0,0
+Marquette Inn Restaurant,"Marquette Inn Restaurant - The Loop - Chicago, IL",3,1,0,0
+Mixed Greens,"Mixed Greens - The Loop - Chicago, IL",4,3,4,3
+Jimmy John's,"Jimmy John's - Near West Side - Chicago, IL",3,33,13,8
+Mac Kelly's Greens & Things,"Mac Kelly's Greens & Things - CLOSED - The Loop - Chicago, IL",3,4,1,1
+Giordano's Pizzeria,"Giordano's Pizzeria - The Loop - Chicago, IL",4,0,0,0
+Mama Falco's Pizza,"Mama Falco's Pizza - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Manchu Wok,"Manchu Wok - The Loop - Chicago, IL",1,0,0,0
+Rhapsody,"Rhapsody - The Loop - Chicago, IL",3,0,0,0
+The Great Steak & Potato Company,"The Great Steak & Potato Company - The Loop - Chicago, IL",2,0,0,0
+Cafe Mediterra,"Cafe Mediterra - CLOSED - Printer's Row - Chicago, IL",4,0,0,0
+Sbarro,"Sbarro - The Loop - Chicago, IL",2,36,5,6
+Stocks & Blondes Bar & Grille,"Stocks & Blondes Bar & Grille - The Loop - Chicago, IL",3,6,2,2
+Tribute,"Tribute - CLOSED - South Loop - Chicago, IL",3,0,0,0
+Rivers,"Rivers - The Loop - Chicago, IL",4,7,8,2
+Delhi 6,"Delhi 6 - CLOSED - North Center - Chicago, IL",5,0,0,0
+Potbelly Sandwich Works,"Potbelly Sandwich Works - South Loop - Chicago, IL",4,48,11,8
+Brian's Juice Bar & Deli,"Brian's Juice Bar & Deli - The Loop - Chicago, IL",4,0,0,0
+Subway,"Subway - Near North Side - Chicago, IL",3,187,21,29
+212 On The River,"212 On The River - Near West Side - Chicago, IL",3,0,0,0
+Hilton Chicago,"Hilton Chicago - South Loop - Chicago, IL",4,0,0,0
+Halsted Street Deli,"Halsted Street Deli - The Loop - Chicago, IL",3,44,11,12
+CrÃªpes Cafe,"CrÃªpes Cafe - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Eggy's Diner,"Eggy's Diner - The Loop - Chicago, IL",3,0,0,0
+Giordano's,"Giordano's - The Loop - Chicago, IL",4,0,0,0
+Simply Fresh,"Simply Fresh - The Loop - Chicago, IL",4,0,0,0
+Avec,"Avec - Near West Side - Chicago, IL",5,0,0,0
+Jimmy Johns,"Jimmy Johns - The Loop - Chicago, IL",3,30,6,6
+Dairy Queen,"Dairy Queen - CLOSED - Near West Side - Chicago, IL",3,0,0,0
+Burrito Beach,"Burrito Beach - CLOSED - The Loop - Chicago, IL",4,28,3,3
+Quiznos,"Quiznos - The Loop - Chicago, IL",4,0,0,0
+Qdoba Mexican Grill,"Qdoba Mexican Grill - The Loop - Chicago, IL",3,9,1,3
+Auntie Anne's,"Auntie Anne's - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Pret A Manger,"Pret A Manger - The Loop - Chicago, IL",4,68,5,9
+Subway,"Subway - The Loop - Chicago, IL",2,187,21,29
+My Thai Restaurant On Michigan,"My Thai Restaurant On Michigan - CLOSED - The Loop - Chicago, IL",3,8,0,1
+Stefani's Tuscany Cafe,"Stefani's Tuscany Cafe - The Loop - Chicago, IL",3,2,1,0
+Fontano's Subs,"Fontano's Subs - The Loop - Chicago, IL",4,0,0,0
+La Cocina Mexican Grill,"La Cocina Mexican Grill - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Symphony Center,"Symphony Center - The Loop - Chicago, IL",5,0,0,0
+Bombay Wraps,"Bombay Wraps - The Loop - Chicago, IL",4,13,1,1
+Rosebud Restaurent,"Rosebud Restaurent - The Loop - Chicago, IL",4,0,0,0
+Sixty Five Chinese Restaurant,"Sixty Five Chinese Restaurant - The Loop - Chicago, IL",4,11,1,0
+McDonald's,"McDonald's - The Loop - Chicago, IL",3,42,1,13
+Corner Bakery Cafe,"Corner Bakery Cafe - The Loop - Chicago, IL",3,118,23,19
+Salad Spinners,"Salad Spinners - CLOSED - The Loop - Chicago, IL",4,1,0,0
+Thai Spoon & Sushi,"Thai Spoon & Sushi - South Loop - Chicago, IL",3,6,1,1
+Madison Street Cafe,"Madison Street Cafe - The Loop - Chicago, IL",4,6,1,2
+Jimmy John's,"Jimmy John's - The Loop - Chicago, IL",4,33,13,8
+WingStop,"WingStop - South Loop - Chicago, IL",3,0,0,0
+Taco Fresco,"Taco Fresco - The Loop - Chicago, IL",3,31,2,5
+Roti Mediterranean Grill,"Roti Mediterranean Grill - Near West Side - Chicago, IL",4,31,4,4
+Dearborn Street Oyster Bar & Restaurant,"Dearborn Street Oyster Bar & Restaurant - The Loop - Chicago, IL",3,0,0,0
+Corner Bakery Cafe,"Corner Bakery Cafe - Near West Side - Chicago, IL",3,118,23,19
+Standing Room Only,"Standing Room Only - Printer's Row - Chicago, IL",4,0,0,0
+Taco Fresco,"Taco Fresco - CLOSED - The Loop - Chicago, IL",3,31,2,5
+J. Randolph's Bar & Grill,"J. Randolph's Bar & Grill - The Loop - Chicago, IL",3,0,0,0
+Mercat a la Planxa,"Mercat a la Planxa - South Loop - Chicago, IL",4,0,0,0
+Pockets Restaurant,"Pockets Restaurant - The Loop - Chicago, IL",3,16,3,2
+Panda Express,"Panda Express - The Loop - Chicago, IL",4,12,0,1
+Little Branch Cafe,"Little Branch Cafe - Near Southside - Chicago, IL",4,3,1,1
+McDonald's,"McDonald's - The Loop - Chicago, IL",3,42,1,13
+Zacatacos,"Zacatacos - CLOSED - The Loop - Chicago, IL",4,1,1,0
+Noodles & Company,"Noodles & Company - The Loop - Chicago, IL",3,29,1,1
+Sopraffina Marketcaffe,"Sopraffina Marketcaffe - The Loop - Chicago, IL",4,33,5,4
+Quizno's,"Quizno's - The Loop - Chicago, IL",3,0,0,1
+Kim & Carlos Hot Dog Stand,"Kim & Carlos Hot Dog Stand - Near Southside - Chicago, IL",5,0,0,0
+Aria,"Aria - The Loop - Chicago, IL",4,0,0,0
+HomeMade Pizza Company,"HomeMade Pizza Company - Near Southside - Chicago, IL",4,4,0,0
+Curried Loop,"Curried Loop - The Loop - Chicago, IL",4,5,0,1
+Plymouth Restaurant & Bar,"Plymouth Restaurant & Bar - The Loop - Chicago, IL",3,12,1,3
+Chipotle Mexican Grill,"Chipotle Mexican Grill - The Loop - Chicago, IL",4,73,20,12
+Potbelly Sandwich Works,"Potbelly Sandwich Works - The Loop - Chicago, IL",4,48,11,8
+Amarit Thai Restaurant,"Amarit Thai Restaurant - Printer's Row - Chicago, IL",3,0,0,0
+Jamba Juice,"Jamba Juice - The Loop - Chicago, IL",4,12,0,4
+Qdoba Mexican Grill,"Qdoba Mexican Grill - The Loop - Chicago, IL",4,9,1,3
+Harold's Chicken Shack,"Harold's Chicken Shack - South Loop - Chicago, IL",4,5,1,2
+Robinson's Ribs,"Robinson's Ribs - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Bar Louie,"Bar Louie - South Loop - Chicago, IL",3,11,2,9
+Great Street Restaurant,"Great Street Restaurant - The Loop - Chicago, IL",3,0,0,0
+Tokyo Lunchbox,"Tokyo Lunchbox - The Loop - Chicago, IL",3,0,0,0
+Goodwin's,"Goodwin's - The Loop - Chicago, IL",4,9,1,4
+Yang,"Yang - South Loop - Chicago, IL",3,6,0,2
+Raw,"Raw - Near West Side - Chicago, IL",5,0,0,0
+Sopraffina Marketcaffe,"Sopraffina Marketcaffe - The Loop - Chicago, IL",4,33,5,4
+Artist's Cafe,"Artist's Cafe - The Loop - Chicago, IL",2,2,0,2
+Delmonico Illinois Center,"Delmonico Illinois Center - The Loop - Chicago, IL",4,11,4,4
+Taco Fresco,"Taco Fresco - CLOSED - The Loop - Chicago, IL",3,31,2,5
+Corner Bakery Cafe,"Corner Bakery Cafe - The Loop - Chicago, IL",3,118,23,19
+I Dream of Falafel,"I Dream of Falafel - The Loop - Chicago, IL",4,16,6,5
+Mangino's,"Mangino's - CLOSED - The Loop - Chicago, IL",4,0,0,0
+ROOF,"ROOF - The Loop - Chicago, IL",3,0,0,0
+Billy Goat Tavern & Grill,"Billy Goat Tavern & Grill - The Loop - Chicago, IL",3,18,1,1
+One North Kitchen & Bar,"One North Kitchen & Bar - The Loop - Chicago, IL",3,9,2,3
+Midtown Kitchen + Bar,"Midtown Kitchen + Bar - The Loop - Chicago, IL",3,1,1,0
+Tamarind,"Tamarind - South Loop - Chicago, IL",4,10,0,3
+Sushi Sai,"Sushi Sai - The Loop - Chicago, IL",4,9,2,6
+Under 55 Cafe,"Under 55 Cafe - The Loop - Chicago, IL",4,9,2,3
+Pizza Hut Express and KFC,"Pizza Hut Express and KFC - CLOSED - The Loop - Chicago, IL",3,3,2,1
+Pollitos Grill & Rotisserie,"Pollitos Grill & Rotisserie - The Loop - Chicago, IL",4,14,1,2
+Donna's Cafe,"Donna's Cafe - Near Southside - Chicago, IL",4,2,0,0
+Exchequer Restaurant & Pub,"Exchequer Restaurant & Pub - The Loop - Chicago, IL",4,10,3,2
+Jersey Mike's Subs,"Jersey Mike's Subs - The Loop - Chicago, IL",4,23,4,5
+Old Timers Restaurant & Lounge,"Old Timers Restaurant & Lounge - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Alonti Deli,"Alonti Deli - Near West Side - Chicago, IL",3,17,7,9
+Salad Creations,"Salad Creations - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Boston Blackies,"Boston Blackies - Near West Side - Chicago, IL",3,0,0,0
+Westminster Hot Dog,"Westminster Hot Dog - The Loop - Chicago, IL",4,0,0,0
+Siam Rice,"Siam Rice - The Loop - Chicago, IL",4,0,0,0
+Quiznos,"Quiznos - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Quizno's Subs,"Quizno's Subs - The Loop - Chicago, IL",3,0,0,1
+I Love Sushi,"I Love Sushi - The Loop - Chicago, IL",4,8,3,0
+Freshii,"Freshii - The Loop - Chicago, IL",4,63,21,14
+Jersey Mike's Subs,"Jersey Mike's Subs - The Loop - Chicago, IL",4,23,4,5
+Ronny's III,"Ronny's III - The Loop - Chicago, IL",3,0,0,0
+Potbelly Sandwich Works,"Potbelly Sandwich Works - The Loop - Chicago, IL",4,48,11,8
+Bowl Square,"Bowl Square - Near West Side - Chicago, IL",4,0,0,0
+Fresh Choice,"Fresh Choice - The Loop - Chicago, IL",4,0,0,0
+Chicago Sports Bar & Grill,"Chicago Sports Bar & Grill - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Cyrano's Cafe On The River,"Cyrano's Cafe On The River - The Loop - Chicago, IL",3,0,0,0
+Monday's Restaurant,"Monday's Restaurant - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Orange on Harrison,"Orange on Harrison - CLOSED - Printer's Row - Chicago, IL",4,0,0,0
+Panera Bread,"Panera Bread - South Loop - Chicago, IL",4,15,1,7
+Ma & I,"Ma & I - Near Southside - Chicago, IL",4,0,0,0
+Nick & Tony's Italian Chop House,"Nick & Tony's Italian Chop House - CLOSED - The Loop - Chicago, IL",3,5,1,1
+Jaffa Bakery,"Jaffa Bakery - The Loop - Chicago, IL",4,10,0,7
+Halsted Street Deli,"Halsted Street Deli - The Loop - Chicago, IL",3,44,11,12
+Cosi,"Cosi - The Loop - Chicago, IL",4,31,7,8
+La Strada Ristorante,"La Strada Ristorante - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Alonti Deli,"Alonti Deli - Near West Side - Chicago, IL",3,17,7,9
+Pompei Bakery,"Pompei Bakery - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Halsted Street Deli,"Halsted Street Deli - The Loop - Chicago, IL",3,44,11,12
+Subway,"Subway - The Loop - Chicago, IL",3,187,21,29
+Corner Bakery Cafe,"Corner Bakery Cafe - The Loop - Chicago, IL",3,118,23,19
+Cosi Sandwich Bar,"Cosi Sandwich Bar - The Loop - Chicago, IL",2,31,7,8
+Plaza Market Bistro,"Plaza Market Bistro - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Sbarro,"Sbarro - The Loop - Chicago, IL",3,36,5,6
+Wok Out,"Wok Out - CLOSED - South Loop - Chicago, IL",3,0,0,0
+Pita Heaven,"Pita Heaven - Near Southside - Chicago, IL",4,8,2,2
+Salad Spinners,"Salad Spinners - CLOSED - The Loop - Chicago, IL",3,1,0,0
+Subway,"Subway - South Loop - Chicago, IL",2,187,21,29
+Perry's,"Perry's - The Loop - Chicago, IL",4,0,0,0
+Utopia International Caribbean Cuisine,"Utopia International Caribbean Cuisine - CLOSED - Near Southside - Chicago, IL",3,0,0,0
+Oriental Express,"Oriental Express - The Loop - Chicago, IL",3,4,0,0
+Mallers Deli,"Mallers Deli - The Loop - Chicago, IL",4,0,0,0
+Maison Brasserie,"Maison Brasserie - The Loop - Chicago, IL",4,3,0,0
+The Grill Room Chophouse & Winebar,"The Grill Room Chophouse & Winebar - The Loop - Chicago, IL",3,5,1,1
+South Branch,"South Branch - The Loop - Chicago, IL",4,8,6,1
+Green Apple,"Green Apple - The Loop - Chicago, IL",4,0,0,0
+Jimmy John's,"Jimmy John's - South Loop - Chicago, IL",4,33,13,8
+Haifa Cafe,"Haifa Cafe - CLOSED - The Loop - Chicago, IL",3,8,2,5
+Gold Coast Dogs,"Gold Coast Dogs - Chicago, IL",4,9,5,0
+Miller's Pub,"Miller's Pub - The Loop - Chicago, IL",4,0,0,0
+Subway Sandwiches,"Subway Sandwiches - The Loop - Chicago, IL",2,196,25,31
+Al's Beef,"Al's Beef - The Loop - Chicago, IL",3,11,1,6
+Protein Bar,"Protein Bar - The Loop - Chicago, IL",4,46,8,6
+Taste of Siam Inc,"Taste of Siam Inc - CLOSED - Printer's Row - Chicago, IL",3,0,0,0
+Gold Coast Dogs,"Gold Coast Dogs - Near West Side - Chicago, IL",3,9,5,0
+Pierogi Heaven,"Pierogi Heaven - The Loop - Chicago, IL",5,0,0,0
+Catch 35,"Catch 35 - The Loop - Chicago, IL",4,0,0,0
+Works-North Loop the,"Works-North Loop the - The Loop - Chicago, IL",4,0,0,0
+Au Bon Pain,"Au Bon Pain - The Loop - Chicago, IL",3,80,14,12
+Corner Bakery Cafe,"Corner Bakery Cafe - The Loop - Chicago, IL",4,118,23,19
+Rosie's Cafe & Catering,"Rosie's Cafe & Catering - Near West Side - Chicago, IL",4,5,0,0
+Ceres Cafe,"Ceres Cafe - The Loop - Chicago, IL",4,11,1,0
+Einstein Bros. Bagels,"Einstein Bros. Bagels - The Loop - Chicago, IL",4,4,1,1
+Chicago River Cafe,"Chicago River Cafe - The Loop - Chicago, IL",4,0,0,0
+Halo Asian Mix,"Halo Asian Mix - The Loop - Chicago, IL",4,2,1,4
+Ufood Grill,"Ufood Grill - CLOSED - The Loop - Chicago, IL",3,0,0,0
+McDonald's,"McDonald's - The Loop - Chicago, IL",3,42,1,13
+To Pho Cafe,"To Pho Cafe - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Subway,"Subway - The Loop - Chicago, IL",3,187,21,29
+Taco Bell,"Taco Bell - CLOSED - Printer's Row - Chicago, IL",2,9,0,4
+University Club of Chicago,"University Club of Chicago - The Loop - Chicago, IL",4,10,2,2
+Tapas Valencia,"Tapas Valencia - Near Southside - Chicago, IL",4,0,0,0
+Specialty's Cafe & Bakery,"Specialty's Cafe & Bakery - The Loop - Chicago, IL",4,7,0,1
+Rivers To Go,"Rivers To Go - The Loop - Chicago, IL",4,7,8,2
+Fast Foo's,"Fast Foo's - The Loop - Chicago, IL",3,3,1,2
+Wendy's,"Wendy's - The Loop - Chicago, IL",3,0,0,0
+Diosa on the River,"Diosa on the River - The Loop - Chicago, IL",4,0,0,0
+Chutney Joe's,"Chutney Joe's - CLOSED - South Loop - Chicago, IL",3,0,0,0
+Chipotle Mexican Grill,"Chipotle Mexican Grill - The Loop - Chicago, IL",3,73,20,12
+Lavazza Espression,"Lavazza Espression - The Loop - Chicago, IL",4,9,0,1
+Sweetwater Tavern & Grille,"Sweetwater Tavern & Grille - The Loop - Chicago, IL",4,9,2,4
+Market Creations,"Market Creations - The Loop - Chicago, IL",4,33,12,7
+Tokyo Lunch Boxes & Catering,"Tokyo Lunch Boxes & Catering - The Loop - Chicago, IL",3,44,11,6
+Mac Kelly's Greens & Things,"Mac Kelly's Greens & Things - CLOSED - The Loop - Chicago, IL",4,4,1,1
+Arturo Express,"Arturo Express - Near West Side - Chicago, IL",4,9,0,0
+Govnor's Pub,"Govnor's Pub - CLOSED - The Loop - Chicago, IL",5,0,0,0
+Soundings Restaurant,"Soundings Restaurant - Near Southside - Chicago, IL",3,9,0,2
+Marc Burger,"Marc Burger - The Loop - Chicago, IL",3,0,0,0
+Ole Hardwood,"Ole Hardwood - CLOSED - Near Southside - Chicago, IL",3,0,0,0
+Opera,"Opera - CLOSED - Near Southside - Chicago, IL",4,1,1,0
+Flat Top Stir-Fry Grill,"Flat Top Stir-Fry Grill - The Loop - Chicago, IL",4,0,0,0
+Kaiyo Sushi,"Kaiyo Sushi - CLOSED - The Loop - Chicago, IL",3,1,0,1
+Subway,"Subway - The Loop - Chicago, IL",1,187,21,29
+Grace O'Malley's,"Grace O'Malley's - CLOSED - Near Southside - Chicago, IL",3,1,0,0
+The BISTRO At 151,"The BISTRO At 151 - The Loop - Chicago, IL",3,0,0,0
+La Cantina,"La Cantina - The Loop - Chicago, IL",3,0,0,0
+Frietkoten Belgian Fries & Beer,"Frietkoten Belgian Fries & Beer - Near West Side - Chicago, IL",4,0,0,0
+State and Lake Chicago Tavern,"State and Lake Chicago Tavern - The Loop - Chicago, IL",3,0,0,0
+Great Steak & Potato Co.,"Great Steak & Potato Co. - The Loop - Chicago, IL",3,0,0,0
+Roma Pizza,"Roma Pizza - The Loop - Chicago, IL",3,0,0,0
+Pat's Pizzeria,"Pat's Pizzeria - Printer's Row - Chicago, IL",4,0,0,0
+Gina's Cuisine,"Gina's Cuisine - CLOSED - The Loop - Chicago, IL",4,0,0,0
+Gold Coast Dogs,"Gold Coast Dogs - The Loop - Chicago, IL",3,9,5,0
+Silk Road,"Silk Road - The Loop - Chicago, IL",4,0,0,0
+Corner Bakery Cafe,"Corner Bakery Cafe - The Loop - Chicago, IL",4,118,23,19
+Luke's Italian Beef,"Luke's Italian Beef - The Loop - Chicago, IL",4,10,2,3
+Marquette Inn Restaurant,"Marquette Inn Restaurant - CLOSED - The Loop - Chicago, IL",3,1,0,0
+Pret A Manger,"Pret A Manger - The Loop - Chicago, IL",4,68,5,9
+Billy Goat Tavern & Grill,"Billy Goat Tavern & Grill - The Loop - Chicago, IL",3,18,1,1
+Caffe Baci,"Caffe Baci - Near West Side - Chicago, IL",4,33,5,5
+The Gage,"The Gage - The Loop - Chicago, IL",4,8,3,2
+65 Asian Kitchen,"65 Asian Kitchen - The Loop - Chicago, IL",3,0,0,0
+Bonjour Cafe,"Bonjour Cafe - The Loop - Chicago, IL",4,2,1,0
+Toni Patisserie & Cafe,"Toni Patisserie & Cafe - The Loop - Chicago, IL",4,0,0,0
+Sixty Five Chinese Restaurant,"Sixty Five Chinese Restaurant - CLOSED - The Loop - Chicago, IL",3,11,1,0
+Chickadilly's Charhouse,"Chickadilly's Charhouse - The Loop - Chicago, IL",4,0,0,0
+Currents on the River,"Currents on the River - CLOSED - The Loop - Chicago, IL",4,3,0,2
+Cafe 100,"Cafe 100 - The Loop - Chicago, IL",4,0,0,0
+Buddy Guy's Legends,"Buddy Guy's Legends - South Loop - Chicago, IL",4,13,0,2
+Sbarro,"Sbarro - CLOSED - The Loop - Chicago, IL",3,36,5,6
+Oasis Cafe,"Oasis Cafe - The Loop - Chicago, IL",4,5,2,0
+Seven Bar & Restaurant,"Seven Bar & Restaurant - The Loop - Chicago, IL",4,8,1,3
+Pazzo's Cucina Italiana,"Pazzo's Cucina Italiana - The Loop - Chicago, IL",3,28,3,11
+Rosebud Express,"Rosebud Express - The Loop - Chicago, IL",5,0,0,0
+Urban Market,"Urban Market - The Loop - Chicago, IL",3,8,2,1
+Pita Express,"Pita Express - The Loop - Chicago, IL",4,10,1,6
+Subway,"Subway - The Loop - Chicago, IL",4,187,21,29
+Dunkin' Donuts,"Dunkin' Donuts - The Loop - Chicago, IL",4,4,1,1
+Solo 1530,"Solo 1530 - CLOSED - Near Southside - Chicago, IL",2,0,0,0
+South Water Kitchen,"South Water Kitchen - The Loop - Chicago, IL",4,0,0,0
+Cavanaugh's,"Cavanaugh's - The Loop - Chicago, IL",4,0,0,0
+Burrito Beach,"Burrito Beach - The Loop - Chicago, IL",3,28,3,3
+Dairy Queen Grill & Chill Restraunt,"Dairy Queen Grill & Chill Restraunt - The Loop - Chicago, IL",4,0,0,0
+Jaffa Bakery,"Jaffa Bakery - The Loop - Chicago, IL",4,10,0,7
+Salad Spinners,"Salad Spinners - CLOSED - The Loop - Chicago, IL",4,1,0,0
+Blackie's,"Blackie's - Printer's Row - Chicago, IL",4,8,0,1
+Freshii,"Freshii - The Loop - Chicago, IL",3,63,21,14
+Eleventh St Diner,"Eleventh St Diner - South Loop - Chicago, IL",3,0,0,0
+Ada's Famous Deli,"Ada's Famous Deli - The Loop - Chicago, IL",3,0,0,0
+Abou Andre,"Abou Andre - The Loop - Chicago, IL",4,0,0,0
+Harry's Sandwich Shop,"Harry's Sandwich Shop - The Loop - Chicago, IL",3,8,0,1
+Poag Mahone's,"Poag Mahone's - The Loop - Chicago, IL",4,10,5,0
+Qdoba Mexican Grill,"Qdoba Mexican Grill - The Loop - Chicago, IL",3,9,1,3
+The Great Steak and Potato Company,"The Great Steak and Potato Company - The Loop - Chicago, IL",4,0,0,0
+Marquette Inn No 4 Restaurant,"Marquette Inn No 4 Restaurant - The Loop - Chicago, IL",3,1,0,0
+Frontera Fresco,"Frontera Fresco - The Loop - Chicago, IL",4,0,0,0
+Elephant & Castle,"Elephant & Castle - The Loop - Chicago, IL",3,2,0,0
+Villains Bar and Grill,"Villains Bar and Grill - Printer's Row - Chicago, IL",4,0,0,0
+Mista,"Mista - The Loop - Chicago, IL",4,0,0,0
+Nesh Mediterranean Grill,"Nesh Mediterranean Grill - The Loop - Chicago, IL",2,9,0,2
+Chipotle Mexican Grill,"Chipotle Mexican Grill - The Loop - Chicago, IL",4,73,20,12
+Hey Sushi,"Hey Sushi - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Henri,"Henri - The Loop - Chicago, IL",5,0,0,0
+Everest,"Everest - The Loop - Chicago, IL",4,0,0,0
+Cosi,"Cosi - The Loop - Chicago, IL",3,31,7,8
+The Southern Mac & Cheese Store,"The Southern Mac & Cheese Store - CLOSED - The Loop - Chicago, IL",4,1,0,0
+CaffÃ¨ RÅM,"CaffÃ¨ RÅM - The Loop - Chicago, IL",4,0,0,0
+Wine Bar at the Walnut Room,"Wine Bar at the Walnut Room - The Loop - Chicago, IL",4,0,0,0
+Panda Express,"Panda Express - The Loop - Chicago, IL",3,12,0,1
+Jimmy John's,"Jimmy John's - The Loop - Chicago, IL",4,33,13,8
+Jimmy John's,"Jimmy John's - The Loop - Chicago, IL",4,33,13,8
+Florian Opera Bistro,"Florian Opera Bistro - The Loop - Chicago, IL",4,1,1,0
+Petro's Restaurant & Bakery,"Petro's Restaurant & Bakery - The Loop - Chicago, IL",2,0,0,0
+Networks,"Networks - The Loop - Chicago, IL",3,0,0,0
+My Thai Restaurant,"My Thai Restaurant - The Loop - Chicago, IL",3,8,0,1
+Potbelly Sandwich Works,"Potbelly Sandwich Works - The Loop - Chicago, IL",4,48,11,8
+Max's Take Out,"Max's Take Out - The Loop - Chicago, IL",5,10,1,4
+Jimmy John's,"Jimmy John's - The Loop - Chicago, IL",3,33,13,8
+O'Briens Riverwalk Cafe,"O'Briens Riverwalk Cafe - The Loop - Chicago, IL",2,1,0,0
+Potbelly's Sandwich Works,"Potbelly's Sandwich Works - Printer's Row - Chicago, IL",5,0,0,0
+Garden Village Deli,"Garden Village Deli - CLOSED - The Loop - Chicago, IL",4,1,0,0
+Lai Lai & Korean Express,"Lai Lai & Korean Express - The Loop - Chicago, IL",3,0,0,0
+Haifa Cafe,"Haifa Cafe - The Loop - Chicago, IL",3,8,2,5
+Snuggery Union Train Station,"Snuggery Union Train Station - Near West Side - Chicago, IL",4,0,0,0
+Potbelly,"Potbelly - The Loop - Chicago, IL",4,0,0,0
+312 Chicago,"312 Chicago - The Loop - Chicago, IL",3,9,0,2
+Lai Lai Oriental Express,"Lai Lai Oriental Express - The Loop - Chicago, IL",3,4,0,0
+Artist's Cafe,"Artist's Cafe - South Loop - Chicago, IL",3,2,0,2
+Skrine Chops,"Skrine Chops - The Loop - Chicago, IL",4,5,1,1
+Jimmy Green's,"Jimmy Green's - South Loop - Chicago, IL",4,13,0,2
+Yelp! Office Hours @ Lunch Rolls,"Yelp! Office Hours @ Lunch Rolls - The Loop - Chicago, IL",5,0,0,0
+Frietkoten Belgian Fries and Beer,"Frietkoten Belgian Fries and Beer - Near West Side - Chicago, IL",2,0,0,0
+Lunch Rolls,"Lunch Rolls - CLOSED - The Loop - Chicago, IL",4,0,0,0
+The Bongo Room,"The Bongo Room - South Loop - Chicago, IL",4,0,0,0
+Jimmy John's,"Jimmy John's - The Loop - Chicago, IL",3,33,13,8
+McDonald's,"McDonald's - Near West Side - Chicago, IL",2,42,1,13
+Chipotle Mexican Grill,"Chipotle Mexican Grill - The Loop - Chicago, IL",4,73,20,12
+Pazzo's Express,"Pazzo's Express - Chicago, IL",4,11,2,2
+N9NE Steakhouse,"N9NE Steakhouse - Near West Side - Chicago, IL",4,0,0,0
+Freshii,"Freshii - The Loop - Chicago, IL",3,63,21,14
+Hannah's Bretzel,"Hannah's Bretzel - The Loop - Chicago, IL",4,10,2,0
+Filini,"Filini - The Loop - Chicago, IL",4,0,0,0
+Stetson's Chop House & Bar,"Stetson's Chop House & Bar - The Loop - Chicago, IL",4,16,1,3
+The Park Shoppe,"The Park Shoppe - The Loop - Chicago, IL",3,0,0,0
+Tortas Frontera by Rick Bayless,"Tortas Frontera by Rick Bayless - The Loop - Chicago, IL",3,0,0,0
+Johnny Rockets,"Johnny Rockets - The Loop - Chicago, IL",2,9,0,4
+Pazzo's Cucina Italiana,"Pazzo's Cucina Italiana - CLOSED - The Loop - Chicago, IL",4,28,3,11
+Jimmy John's Gourmet Sandwiches,"Jimmy John's Gourmet Sandwiches - The Loop - Chicago, IL",4,34,13,8
+Subway,"Subway - Near Southside - Chicago, IL",3,187,21,29
+Pittsfield Cafe,"Pittsfield Cafe - The Loop - Chicago, IL",4,9,1,1
+Banh Mi Express Sandwiches,"Banh Mi Express Sandwiches - The Loop - Chicago, IL",3,1,0,0
+South Loop Club,"South Loop Club - South Loop - Chicago, IL",3,0,0,0
+Baba's Village,"Baba's Village - Near West Side - Chicago, IL",3,8,1,1
+Armand's Pizzeria,"Armand's Pizzeria - Chicago, IL",3,0,0,0
+Pompei Dearborn,"Pompei Dearborn - CLOSED - The Loop - Chicago, IL",3,0,0,0
+Hot Woks Cool Sushi,"Hot Woks Cool Sushi - The Loop - Chicago, IL",5,18,5,2
